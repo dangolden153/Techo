@@ -180,7 +180,7 @@ const Navbar = () => {
   }} />
 
   <div className={classes.phone}>
-  <Link to='./signup' className={classes.linkItem} >
+  <Link to='./login' className={classes.linkItem} >
         Login
       </Link>
       <Link to='./signup' className={classes.linkItemCreate} >
