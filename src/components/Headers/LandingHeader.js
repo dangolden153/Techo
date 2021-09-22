@@ -189,7 +189,7 @@ const Navbar = () => {
       </div>
   <div className={classes.desktop}>
 
-  <Link to='./signup' className={classes.linkItem} >
+  <Link to='./homepage' className={classes.linkItem} >
         Home
       </Link>
   <Link to='./signup' className={classes.linkItem} >

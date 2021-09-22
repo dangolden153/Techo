@@ -78,7 +78,7 @@ const Navbar = () => {
 DKEYS
  </Typography>
  <Typography varinat="h6" className={classes.logoLg} >
-Daniekeys Official
+TECHSEMESTER
  </Typography>
  <div className={classes.search}>
   <Search />
