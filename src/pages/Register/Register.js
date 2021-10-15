@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import useStyles from './styles'
 import { Grid, Typography, Button, Container, CssBaseline } from '@material-ui/core'
 import svg from '../../assets/signupsvg.jpg'
@@ -12,6 +12,13 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
+    const [passwordError, setPasswordError] = useState(false);
+
+
+ 
+   
+        
 
     const handleFirstName = (e) => {
         setFirstName(e.target.value);
@@ -28,8 +35,35 @@ const Register = () => {
     const handleConfirmPassword = (e) => {
         setConfirmPassword(e.target.value);
     }
-    
+    // const handleSubmit = (pass, confirmpass) => {
+    //     // checkPassword();
+    //     if (passwordError === true) {
+    //         alert('password doesnt match')
+    //     }
+    //     else{
+    //         alert('password correct')
+    //     }
 
+    // }
+    
+    
+    const checkPassword = (password, confirmPassword) => {
+        if(password !== confirmPassword) {
+            setPasswordError(true);
+            setPasswordErrorMessage("Passwords doesnot match at all")
+        // console.log('password is bad matching')
+            
+        }
+        else {
+            setPasswordError(false);
+            setPasswordErrorMessage('');
+            // console.log('password macthed well')
+        }
+    }
+
+    useEffect(() => {
+      
+    }, [])
 
     const classes = useStyles();
     return (
@@ -80,7 +114,7 @@ const Register = () => {
                             <input  type="password" placeholder="Confirm Password" value={confirmPassword} className={classes.formId}  onChange={handleConfirmPassword} />
                             </div>
 
-                            <Button  className={classes.mainRegBtn} >
+                            <Button  className={classes.mainRegBtn} onClick={ (password, confirmPassword) => checkPassword()} >
                             REGISTER
                             </Button>
                             <Typography variant="body1" component={Link} to="/login" className={classes.acc}>

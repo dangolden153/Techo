@@ -1,0 +1,149 @@
+
+.sectionOne{
+    display:flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    padding-right: 2rem;
+    
+}
+
+.aRight{
+    
+    width:50%;
+
+
+
+}
+.aLeft{
+    display:grid;
+    place-items:center;
+    width:50%;
+    padding: 2rem;
+}
+.sectionTwo{
+    background: linear-gradient(180deg, #100E86 0%, #0A66C2 100%);
+    width: inherit;
+    height: auto;
+    /* display: grid; */
+    text-align: center;
+    /* place-items: center; */
+    color: white;
+    font-size: 3rem;
+    margin-top: 3rem;
+    border-radius: 25px;
+    padding: 4rem 4rem;
+}
+.career{
+    color: white;
+    font-weight: 700;
+}
+.career-text{
+    font-size: 2.5rem;
+    width: 100%;
+    color: white;
+
+}
+.sectionThree{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+    margin-top: 3rem;
+
+}
+.b-right{
+    width: 100%;
+    height: auto;
+    padding: 2rem 3rem;
+    
+}
+.b-left{
+    width: 100%;
+    height: auto;
+    padding: 2rem 3rem;
+
+}
+
+.ilus-img{
+    width: 90%;
+    height: auto;
+}
+.ilus-text{
+    color: #444;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+
+}
+.b-right-1{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem;
+    padding-top: 3rem;
+    justify-content: center;
+    height: auto;
+
+}
+.bold-1{
+    color: #444;
+    margin-right: 1rem;
+
+}
+.ilus-text-1{
+    font-size: 2rem;
+    color: #444;
+}
+.timeline-div{
+    background: #100E86;
+height: auto;
+width: 100%;
+border-radius: 25px;
+padding-top: 2rem;
+}
+
+
+@media screen and (max-width:600px) {
+    .sectionOne{
+    display: flex;
+    flex-direction: column-reverse;
+    padding-right: 0;
+        
+    }
+    .aRight{
+        width: 100%;
+    }
+    .aLeft{
+        width: 100%;
+    }
+    .sectionTwo{
+        padding: 1rem;
+    font-size: 2rem;
+    border-radius: 12px;
+
+
+    }
+    .sectionThree{
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        grid-gap: 2rem;
+
+    }
+    .b-left,.b-right{
+        padding: 1rem;
+    }
+    .b-right-1{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding: 1rem;
+        padding-top: 1rem;
+        
+        height: auto;
+        justify-content: center;
+    
+    }
+    .timeline-div{
+        display: none;
+    }
+}

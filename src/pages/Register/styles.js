@@ -1,9 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+
 export default makeStyles((theme) => ({
   container:{
     width:'100%',
     overflowX:'hidden',
+    height:'auto',
     [theme.breakpoints.down('sm')] : {
       backgroundColor:'#f5f6ff',
       paddingTop:'1rem',
@@ -40,7 +42,7 @@ export default makeStyles((theme) => ({
         alignItems:'center',
         paddingBottom:'2rem',
         
-        height:'100vh',
+        height:'auto',
         [theme.breakpoints.down('sm')]: {
           width:'100%',
           padding:'1rem'
