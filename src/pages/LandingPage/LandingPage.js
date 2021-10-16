@@ -8,17 +8,52 @@ import ilusA from '../../assets/ilus1.png'
 import ilusB from '../../assets/ilus2.png'
 import ilusC from '../../assets/ilus3.png'
 import ilusD from '../../assets/ilus4.png'
-import Timeline from '../../components/Timeline/Timeline'
-import DesktopTimeline from '../../components/Timeline/DesktopTimeline'
-import MobileTimeline from '../../components/Timeline/MobileTimeline'
 
+import whitelogo from '../../assets/whitelogo.png'
+import phone from '../../assets/phone.png'
+import mail from '../../assets/mail.png'
+import media from '../../assets/media.png'
 import './landingstyles.css'
+const pathway = [
+  {
+  number:'1',
+  class:'number-one',
+  step:'Kick start your tech career'
+},
+  {
+  number:'2',
+  class:'number-two',
+  step:'Choose the right career path'
+},
+  {
+  number:'3',
+  class:'number-three',
+  step:'Upskill and grow with community support'
+},
+  {
+  number:'4',
+  class:'number-four',
+  step:'Share and access local and global opportunities'
+},
+  {
+  number:'5',
+  class:'number-five',
+  step:'Find jobs build projects, change the world!'
+},
+  {
+  number:'6',
+  class:'number-six',
+  step:'Continue to grow and earn whilst giving back to the society'
+},
+
+];
+
 const LandingPage = () => {
     const classes = useStyles();
 
     return (
         <>
-        <div className={classes.landingBody}>
+        <div className='landingBody'>
 
          <Grid container className={classes.container}>
             <Container className={classes.LandingNav}>
@@ -89,10 +124,102 @@ const LandingPage = () => {
 
 
                     </div>
-                    
+                    {/* TIMELINE DIV */}
                     <div className='timeline-div'>
-               <DesktopTimeline />
+               {/* <DesktopTimeline /> */}
+                <h1 className='pathway-head'>
+                User Pathway
+                </h1>
+              <ul className='pathway-list'>
+              {pathway.map((path,index) => {
+                return (
+                  <li className='path-item' key={index}>
+                    <div className={`${path.class}`}>
+                      {path.number}
+                    
                     </div>
+                    <div className='path-text'>
+                      {path.step}
+                    </div>
+                      </li>
+                )
+              })}
+              </ul>
+
+
+                    </div>
+
+                    {/* END OF TIMELINE DIV */}
+                <div className="sectionFour">
+                <div className="d-left">
+                  <p className='d-left-text'>
+                    Build the change you want to see in the world
+                  </p>
+                  </div>
+                <div className="d-right">
+                  <img  src={ilusC} className='ilus-img' />
+                  </div>
+                </div>
+                <div className="sectionFive">
+              <div className="e-left">
+                <h1 className="e-left-text">
+                  You too can tech!
+                </h1>
+                </div>
+              <div className="e-right">
+              <Link to="/register" className="btn-style" >
+                Get Started
+                </Link> 
+                </div>
+
+                </div>
+                {/* END OF SECTION 5 */}
+
+
+                <div className="sectionSix">
+                <div className="sectionSix-a">
+                <div className="f-left">
+              <img src={whitelogo} className='footer-logo' alt='techsemester transparent logo' className='footer-icon' />
+                </div>
+                <div className="f-center">
+                <ul className='footer-list'>
+                  <li className='footer-item'>
+                  About Us
+                  </li>
+                  <li className='footer-item'>
+                  Services
+                  </li>
+                  <li className='footer-item'>
+                  Contact Us
+                  </li>
+                </ul>
+                </div>
+                <div className="f-right">
+                <ul className='footer-list'>
+                  <li className='footer-item2'>
+                  <img src={phone} alt='phone-icon' className='footer-icons' />
+                  <a href='+2347081441122' className='footer-phone'>
+                  +2347081441122
+                  </a>
+                  </li>
+                  <li className='footer-item2'>
+                  <img src={mail} alt='phone-icon' className='footer-icons'  />
+                  <a href='admin@techsemester.com' className='footer-phone'>
+                  admin@techsemester.com
+                  </a>
+                  </li>
+                  <li className='footer-item3'>
+                  <img src={media} alt='phone-icon' />
+                  </li>
+                </ul>
+                </div>
+                </div>
+                <hr className='division' />
+                <p className='copywrite'>
+                Copyright Tech Semester. All right Reserved
+                </p>
+                </div>
+
          </Grid>
 
         </div>

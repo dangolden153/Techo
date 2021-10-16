@@ -16,7 +16,7 @@ export default makeStyles((theme) => ({
           justifyContent:'center',
           marginTop:theme.spacing(2),
           alignItems:'center',
-          height:'100vh',
+          height:'auto',
           backgroundColor:'white',
           [theme.breakpoints.down('sm')]: {
             width:'100%',
@@ -54,6 +54,10 @@ export default makeStyles((theme) => ({
           display:'flex',
             justifyContent:'center',
           width:'100%',
+          [theme.breakpoints.down('sm')]:{
+            padding: '1rem',
+            
+          }
       },
       create:{
         fontWeight:'500',
@@ -66,6 +70,9 @@ export default makeStyles((theme) => ({
              backgroundColor:'white',
              textDecoration:'none',
              padding:'1rem 6rem',
+             [theme.breakpoints.down('sm')]:{
+               padding: '1rem 4rem',
+             }
       },
       loginBtn:{
              
@@ -73,6 +80,9 @@ export default makeStyles((theme) => ({
              textDecoration:'none',
              padding:'1rem 6rem',
              color:'white',
+             [theme.breakpoints.down('sm')]:{
+              padding: '1rem 4rem',
+            }
       },
       mainRegBtn:{
         backgroundColor:'#100E86',

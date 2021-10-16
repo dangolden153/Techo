@@ -5,6 +5,7 @@ export default makeStyles((theme) => ({
     landingBody:{
         
     backgroundColor:'#f5f6ff',
+    minWidth:'100%',
     width:'100%',
     height:'auto',
     minHeight:'100vh',
