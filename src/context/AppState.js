@@ -1,40 +1,33 @@
 import React, { useState } from 'react'
-import AppContext from './app-context'
-import axios from 'axios'
+import AppContext from './app-context';
 
-const baseurl = 'https://stocklens.herokuapp.com/stock-lens/api/1.0';
-const accessToken = localStorage.getItem('accesstoken');
+const registrationData = {
+    first_name:'',
+    last_name:'',
+    password1:'',
+    password2:'',
+    email:'',
+    phone:'',
+    showPassword: false,
+}
+const loginData = {
+    email:'',
+    password:'',
+    showPassword: false,
+}
 
-axios.interceptors.request.use(
- config => {
-  config.headers.authorization = `Bearer ${accessToken}`;
-  return config;
- },
- error => {
-  return Promise.reject(error);
- }
-)
+
 const AppState = (props) => {
- const [isAuth, setIsAuth] = useState(true);
- const [login, setLogin] = useState(false);
- const [loading, setLoading] = useState(false);
- const [page,setPage] = useState("default");
- const [message,setMessage] = useState('');
- const [error,setError] = useState(false);
 
-
- const [component,setComponent] =  useState("StationCreate");
- const [userData, setUserData] = useState('');
- const handleGet = () => {
-  axios.get(`${baseurl}/auth/userContext`).then((res) => {
-   // console.log(res.data.response);
-   setUserData(res.data.response);
-  })
- }
+const [values, setValues] = useState(registrationData);
+const [loginValues, setLoginValues] = useState(loginData);
  return (
   <AppContext.Provider value={{
 
-   isAuth, setIsAuth, login,setLogin,handleGet,userData,component,setComponent,setLoading,loading,setPage,page,message,setMessage,error,setError
+   values, 
+   setValues,
+   setLoginValues,
+   loginValues,
 
   }}>
    {/* The below makes the value to be made available for all the children have access to it */}

@@ -2,17 +2,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
  
-    landingBody:{
-        
-    backgroundColor:'#f5f6ff',
-    minWidth:'100%',
-    width:'100%',
-    height:'auto',
-    minHeight:'100vh',
-    
-    },
+  
+  
 container:{
-    display:'grid',
+    display:'block',
     width:'100%',
     height:'auto',
     margin:'auto',
@@ -22,6 +15,8 @@ container:{
     maxWidth:'1200px',
     [theme.breakpoints.down('sm')]:{
         padding:'1rem',
+        minWidth:'100%',
+        
 
     }
 
@@ -38,6 +33,10 @@ LandingNav:{
 logo:{
     width:'40px',
     height:'auto',
+    // [theme.breakpoints.down('sm')]:{
+    //     width:'100%',
+    //     height:'auto',
+    // }
 },
 btnContainer:{
 display:'flex',

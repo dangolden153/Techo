@@ -1,28 +1,21 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import useStyles from './styles'
 import { Grid, Typography, Button, Container, CssBaseline } from '@material-ui/core'
 import svg from '../../assets/signupsvg.jpg'
 import linkedin from '../../assets/linkedin.jpg';
 import google from '../../assets/google.jpg'
 import {Link} from 'react-router-dom'
-
+import LoginInput from '../../components/Input/LoginInput';
+import PasswordInput from '../../components/Input/PasswordInput';
+import AppContext from '../../context/app-context';
+import LoginPasswordInput from '../../components/Input/LoginPasswordInput';
 const Login = () => {
-  
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-   
-
-   
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    }
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-    }
-   
+    const {loginValues, setLoginValues} =  useContext(AppContext);
     
-
-
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(loginValues);
+   }
     const classes = useStyles();
     return (
         <>
@@ -53,25 +46,32 @@ const Login = () => {
                                     </Link>
                             </div>
                             <Typography variant="h4" className={classes.create}>
-                            Create your account
+                            Login to your account
                             </Typography>
                             <div className={classes.formSection}>
                            
                             
-                            <div className={classes.formItem}>
-                            <input  type="email" placeholder="Email" value={email} className={classes.formId}  onChange={handleEmail} />
+                            <div className={classes.formIt}>
+                            <LoginInput placeholder="Email" name="email" label="" type="email" ErrorMessage="" />
                             </div>
-                            <div className={classes.formItem}>
-                            <input  type="password" placeholder="Password" value={password} className={classes.formId}  onChange={handlePassword} />
+                            <div className={classes.formI}>
+                            <LoginPasswordInput placeholder="Password" name="password"   />
                             </div>
+                          
                            
 
-                            <Button  className={classes.mainRegBtn} >
+                            <Button  className={classes.mainRegBtn} onClick={handleSubmit} >
                             Login
                             </Button>
-                            <Typography variant="body1" component={Link} to="/register" className={classes.acc}>
-                            Not a member?Register
+                            <div className={classes.forgetContainer}>
+                            <Typography variant="body2" component={Link} to="/register" className={classes.acc}>
+                            Dont have an account? Register
                             </Typography>
+                            <Typography variant="body2" component={Link} to="/forgetPassword" className={classes.acc}>
+                            Forget your password?
+                            </Typography>
+
+                               </div> 
 
 
 

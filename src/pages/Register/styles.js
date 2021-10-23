@@ -5,7 +5,9 @@ export default makeStyles((theme) => ({
   container:{
     width:'100%',
     overflowX:'hidden',
-    height:'auto',
+    height:'100vh',
+    overflowY:'hidden',
+    paddingTop:'0rem',
     [theme.breakpoints.down('sm')] : {
       backgroundColor:'#f5f6ff',
       paddingTop:'1rem',
@@ -16,8 +18,13 @@ export default makeStyles((theme) => ({
           justifyContent:'center',
           marginTop:theme.spacing(2),
           alignItems:'center',
-          height:'auto',
+          height:'100vh',
+          width:'100%',
           backgroundColor:'white',
+          top:'0',
+          left:'0',
+         
+          
           [theme.breakpoints.down('sm')]: {
             width:'100%',
             padding:'1rem',
@@ -42,7 +49,8 @@ export default makeStyles((theme) => ({
         alignItems:'center',
         paddingBottom:'2rem',
         
-        height:'auto',
+        height:'100vh',
+        overflowY:'scroll',
         [theme.breakpoints.down('sm')]: {
           width:'100%',
           padding:'1rem'
@@ -65,7 +73,7 @@ export default makeStyles((theme) => ({
 
 
       },
-      registerBtn:{
+      loginBtn:{
              color:'#444444',
              backgroundColor:'white',
              textDecoration:'none',
@@ -74,7 +82,7 @@ export default makeStyles((theme) => ({
                padding: '1rem 4rem',
              }
       },
-      loginBtn:{
+      registerBtn:{
              
              backgroundColor:'#100E86',
              textDecoration:'none',
@@ -82,7 +90,10 @@ export default makeStyles((theme) => ({
              color:'white',
              [theme.breakpoints.down('sm')]:{
               padding: '1rem 4rem',
-            }
+            },
+            '&:hover':{
+              backgroundColor:'#100E60',
+             } ,
       },
       mainRegBtn:{
         backgroundColor:'#100E86',
@@ -92,6 +103,9 @@ export default makeStyles((theme) => ({
         padding:'0.5rem 0',
         borderRadius:'10px',
         fontSize:'1.5rem',
+        '&:hover':{
+          backgroundColor:'#100E60',
+         } ,
       },
       registrationContainer:{
             width:'80%',
@@ -110,7 +124,7 @@ export default makeStyles((theme) => ({
           justifyContent:'center',
           alignItems:'center',
           marginTop:'2rem',
-          marginBottom:'3rem',
+          marginBottom:'2rem',
       },
       socialIcon:{
           marginRight:'2rem',
@@ -124,9 +138,9 @@ export default makeStyles((theme) => ({
       formItem:{
         width:'100%',
         // border:'1px solid #555555',
-        padding:'1rem ',
+        padding:'0rem ',
         backgroundColor:'#ffffff',
-        marginBottom:'2rem',
+        marginBottom:'1rem',
         borderRadius:'5px',
 
         
@@ -138,11 +152,21 @@ export default makeStyles((theme) => ({
         outlineStyle:'none',
 
       },
+
       acc:{
         textDecoration:'none',
           color:'#333',
           marginTop:'1rem',
-          fontSize:'1.5rem'
+          fontSize:'1rem',
+      },
+      forgetContainer:{
+        display:'flex',
+        justifyContent:'space-between',
+        padding:'0.25rem',
+        width:'100%',
+        [theme.breakpoints.down('sm')]:{
+          flexDirection:'column'
+        }
       },
 
 

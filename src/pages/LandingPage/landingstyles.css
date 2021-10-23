@@ -1,13 +1,16 @@
 body{
-    background-color:#f5f6ff;
 
 }
 .landingBody{
+    
+    /* background-color:#ffffff; */
     background-color:#f5f6ff;
-    min-width:100%;
+
+    /* min-width:100%; */
     width:100%;
     height:auto;
     min-height:100vh;
+    overflow-x: hidden;
 
 
 }
@@ -33,7 +36,10 @@ body{
 }
 .sectionTwo{
     background: linear-gradient(180deg, #100E86 0%, #0A66C2 100%);
-    width: inherit;
+    /* width: 100%; */
+    max-width: 1000px;
+    margin: auto;
+    display: block;
     height: auto;
     /* display: grid; */
     text-align: center;
@@ -43,6 +49,8 @@ body{
     margin-top: 3rem;
     border-radius: 25px;
     padding: 4rem 4rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 .career{
     color: white;
@@ -55,21 +63,25 @@ body{
 
 }
 .sectionThree{
-    width: 100%;
+    /* width: 100%; */
     height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 3rem;
     margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 .sectionFour{
-    width: 100%;
+    /* width: 100%; */
     height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 3rem;
     margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 .b-right{
@@ -117,8 +129,9 @@ body{
 .timeline-div{
     background: #100E86;
 height: auto;
-width: 100%;
+/* width: 100%; */
 border-radius: 25px;
+margin: auto;
 padding: 3rem 2rem;
 }
 
@@ -238,7 +251,7 @@ padding: 3rem 2rem;
 }
 
 .sectionFive{
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     margin-top: 3rem;
     margin-bottom: 4rem;
@@ -268,9 +281,10 @@ justify-content: flex-end;
 
 .sectionSix{
     background: linear-gradient(180deg, #100E86 0%, #0A66C2 100%);
-    width: inherit;
+    /* width: 100%; */
     height: auto;
-
+    max-width: 1000px;
+    margin: auto;
    
   
     border-radius: 25px;
@@ -366,6 +380,11 @@ list-style: none;
     padding-right: 0;
         
     }
+    .landingBody{
+        width: 100%;
+        padding: 0rem 1rem;
+        /* overflow-x: hidden; */
+    }
     .aRight{
         width: 100%;
     }
@@ -413,6 +432,7 @@ list-style: none;
         display: flex;
         flex-direction: column-reverse;
         padding: 1rem;
+        margin: auto;
     }
     .d-right{
         width: 100%;
@@ -455,11 +475,22 @@ list-style: none;
     }
     .sectionSix-a{
         grid-template-columns: 1fr ;
-        padding: 1rem;
+        padding: 0;
+        
     }
     .footer-icon{
         width: 60px;
         height: auto;
+        margin: auto;
+        display: block;
     }
-
+    .timeline-div{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+    }
+    .footer-list{
+        padding: 0;
+    }
 }

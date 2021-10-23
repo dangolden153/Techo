@@ -69,6 +69,7 @@ const LandingPage = () => {
                 </Button>
                 </Grid>
             </Container>
+            
                 <div className='sectionOne'>
                 <div className='aLeft'> 
                     <Typography variant='h3' className={classes.intro}>

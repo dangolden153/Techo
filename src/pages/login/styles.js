@@ -63,7 +63,7 @@ export default makeStyles((theme) => ({
 
 
       },
-      registerBtn:{
+      loginBtn:{
              color:'#444444',
              backgroundColor:'white',
              textDecoration:'none',
@@ -72,7 +72,7 @@ export default makeStyles((theme) => ({
               padding: '1rem 4rem',
             }
       },
-      loginBtn:{
+      registerBtn:{
              
              backgroundColor:'#100E86',
              textDecoration:'none',
@@ -80,7 +80,10 @@ export default makeStyles((theme) => ({
              color:'white',
              [theme.breakpoints.down('sm')]:{
               padding: '1rem 4rem',
-            }
+            },
+            '&:hover':{
+              backgroundColor:'#100E60',
+             } ,
       },
       mainRegBtn:{
         backgroundColor:'#100E86',
@@ -90,6 +93,9 @@ export default makeStyles((theme) => ({
         padding:'0.5rem 0',
         borderRadius:'10px',
         fontSize:'1.5rem',
+        '&:hover':{
+          backgroundColor:'#100E60',
+         } ,
       },
       registrationContainer:{
             width:'80%',
@@ -140,7 +146,16 @@ export default makeStyles((theme) => ({
         textDecoration:'none',
           color:'#333',
           marginTop:'1rem',
-          fontSize:'1.5rem'
+          fontSize:'1rem'
+      },
+      forgetContainer:{
+        display:'flex',
+        justifyContent:'space-between',
+        padding:'0.25rem',
+        width:'100%',
+        [theme.breakpoints.down('sm')]:{
+          flexDirection:'column'
+        }
       },
 
 

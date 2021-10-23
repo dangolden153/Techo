@@ -1,69 +1,23 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import useStyles from './styles'
 import { Grid, Typography, Button, Container, CssBaseline } from '@material-ui/core'
-import svg from '../../assets/signupsvg.jpg'
+import svg from '../../assets/transparent1.png'
 import linkedin from '../../assets/linkedin.jpg';
 import google from '../../assets/google.jpg'
 import {Link} from 'react-router-dom'
+import TextInput from '../../components/Input/TextInput';
+import AppContext from '../../context/app-context'
+import PasswordInput from '../../components/Input/PasswordInput';
+
+
 
 const Register = () => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
-    const [passwordError, setPasswordError] = useState(false);
-
-
- 
-   
-        
-
-    const handleFirstName = (e) => {
-        setFirstName(e.target.value);
-    }
-    const handleLastName = (e) => {
-        setLastName(e.target.value);
-    }
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    }
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-    }
-    const handleConfirmPassword = (e) => {
-        setConfirmPassword(e.target.value);
-    }
-    // const handleSubmit = (pass, confirmpass) => {
-    //     // checkPassword();
-    //     if (passwordError === true) {
-    //         alert('password doesnt match')
-    //     }
-    //     else{
-    //         alert('password correct')
-    //     }
-
-    // }
+    const {values, setValues} =  useContext(AppContext);
     
-    
-    const checkPassword = (password, confirmPassword) => {
-        if(password !== confirmPassword) {
-            setPasswordError(true);
-            setPasswordErrorMessage("Passwords doesnot match at all")
-        // console.log('password is bad matching')
-            
-        }
-        else {
-            setPasswordError(false);
-            setPasswordErrorMessage('');
-            // console.log('password macthed well')
-        }
-    }
-
-    useEffect(() => {
-      
-    }, [])
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(values);
+   }
 
     const classes = useStyles();
     return (
@@ -98,29 +52,43 @@ const Register = () => {
                             Create your account
                             </Typography>
                             <div className={classes.formSection}>
-                            <div className={classes.formItem}>
-                            <input  type="text" placeholder="First Name" value={firstName} className={classes.formId}  onChange={handleFirstName} />
+                            <div>
+                                <TextInput   placeholder="First Name" name="first_name" label="" type="text" ErrorMessage=""  />
+                            
                             </div>
-                            <div className={classes.formItem}>
-                            <input  type="text" placeholder="Last Name" value={lastName} className={classes.formId}  onChange={handleLastName} />
+                            <div>
+                                <TextInput   placeholder="Last Name" name="last_name" label="" type="text" ErrorMessage=""  />
+                            
                             </div>
-                            <div className={classes.formItem}>
-                            <input  type="email" placeholder="Email" value={email} className={classes.formId}  onChange={handleEmail} />
+                            <div>
+                                <TextInput   placeholder="Email" name="email" label="" type="email" ErrorMessage=""  />
+                            
                             </div>
-                            <div className={classes.formItem}>
-                            <input  type="password" placeholder="Password" value={password} className={classes.formId}  onChange={handlePassword} />
+                            <div>
+                                <TextInput   placeholder="Phone number" name="phone" label="" type="tel" ErrorMessage=""  />
+                            
                             </div>
-                            <div className={classes.formItem}>
-                            <input  type="password" placeholder="Confirm Password" value={confirmPassword} className={classes.formId}  onChange={handleConfirmPassword} />
+                          
+                            <div >
+                           <PasswordInput  name="password1" placeholder="Password" size="small" />
                             </div>
+                            <div >
+                           <PasswordInput  name="password2" placeholder="Confirm Password" size="small" />
+                            </div>
+                         
 
-                            <Button  className={classes.mainRegBtn} onClick={ (password, confirmPassword) => checkPassword()} >
+                            <Button  className={classes.mainRegBtn} onClick={handleSubmit} >
                             REGISTER
                             </Button>
-                            <Typography variant="body1" component={Link} to="/login" className={classes.acc}>
+                            <div className={classes.forgetContainer}>
+                            <Typography variant="body2" component={Link} to="/login" className={classes.acc}>
                             Have account already? Login
                             </Typography>
+                            <Typography variant="body2" component={Link} to="/forgetPassword" className={classes.acc}>
+                            Forget your password?
+                            </Typography>
 
+                               </div> 
 
 
 
