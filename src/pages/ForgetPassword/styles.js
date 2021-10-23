@@ -186,7 +186,40 @@ export default makeStyles((theme) => ({
           width:'100%',
           display:'grid',
           placeItems:'center',
-      }
+      },
+      usermail:{
+        textAlign:'center'
+      },
+      progressContainer:{
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center',
+            marginTop:'1rem',
+      },
+      dotActive:{
+          width:'15px',
+          height:'15px',
+          borderRadius:'50%',
+          backgroundColor:'#100E86',
+          marginRight:'1rem',
+      },
+      dot:{
+          width:'15px',
+          height:'15px',
+          borderRadius:'50%',
+          backgroundColor:'#b5b5b5',
+          marginRight:'1rem',
+      },
+      resetNote:{
+          marginBottom:'1rem',
+      },
+      success:{
+        color: '#06AD05',
+        textAlign:'center',
+
+
+      },
+
 
 
 

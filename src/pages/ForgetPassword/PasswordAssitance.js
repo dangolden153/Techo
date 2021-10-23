@@ -9,15 +9,15 @@ import LoginInput from '../../components/Input/LoginInput';
 import PasswordInput from '../../components/Input/PasswordInput';
 import AppContext from '../../context/app-context';
 import LoginPasswordInput from '../../components/Input/LoginPasswordInput';
-const ForgetPassword = () => {
-    const {forgetEmail, setForgetEmail} =  useContext(AppContext);
+const PasswordAssitance = () => {
+    const {forgetEmail, setResetPin, resetPin} =  useContext(AppContext);
     
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(forgetEmail);
    }
    const handleChange = (e)=> {
-    setForgetEmail(e.target.value);
+    setResetPin(e.target.value);
    }
 
 
@@ -32,34 +32,34 @@ const ForgetPassword = () => {
                     <Grid item xs={12} sm={6} className={classes.center}>
                 
                     <div className={classes.registrationContainer}>
-                  
+
                             <Typography variant="h4" className={classes.create}>
                             Password Assitance
+                            </Typography>
+                            <Typography variant="h5" className={classes.usermail}>
+                            {forgetEmail}
                             </Typography>
                             <div className={classes.formSection}>
                                 <div className={classes.forgetText}>
                             <Typography variant="body1" className={classes.create}>
-                            Enter your username or email to recover your password. 
-                            You will receive an email with instructions.
-                             If you are having problems recovering your password
+                            Please input the code sent to the above address 
                             </Typography>
                             </div>
+
                             <div className={classes.forgetInput} >
-                            <input placeholder="Email or Username" name="forgetEemail" value={forgetEmail} className={classes.Finput} type="email" onChange={handleChange} />
+                            <input placeholder="PIN" name="resetPin" value={resetPin} className={classes.Finput} type="text" onChange={handleChange} />
                             </div>
                         
-                            <Button component={Link} to="/passwordAssitance"  className={classes.mainRegBtn}   >
-                            Continue
+                            <Button  className={classes.mainRegBtn} component={Link} to="/resetPassword" >
+                            Next
                             </Button>
-                            <div className={classes.forgetContainer}>
-                            <Typography variant="body2" component={Link} to="/login" className={classes.acc}>
-                            Login
-                            </Typography>
-                            <Typography variant="body2" component={Link} to="/register" className={classes.acc}>
-                            Dont have account? Register
-                            </Typography>
 
-                               </div> 
+                            <div className={classes.progressContainer}>
+                            <div className={classes.dotActive} />
+                            <div className={classes.dot} />
+                            <div className={classes.dot} />
+
+                                </div>
 
 
 
@@ -72,4 +72,4 @@ const ForgetPassword = () => {
     )
 }
 
-export default ForgetPassword
+export default PasswordAssitance
