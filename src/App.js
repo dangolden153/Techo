@@ -7,6 +7,7 @@ import Register from './pages/Register/Register'
 import Forming from './components/Form/Forming'
 import Former from './components/Form/Former'
 import AppState from './context/AppState';
+import ForgetPassword from './pages/ForgetPassword/ForgetPassword'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
     <Router>
       <Switch>
         <Route exact path="/" component={LandingPage} />
+        <Route exact path="/forgetPassword" component={ForgetPassword} />
         
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
