@@ -472,6 +472,7 @@ list-style: none;
     }
     .pathway-list{
         grid-template-columns: 1fr;
+        padding: 0;
     }
     .sectionSix-a{
         grid-template-columns: 1fr ;
@@ -492,5 +493,8 @@ list-style: none;
     }
     .footer-list{
         padding: 0;
+    }
+    .sectionSix{
+        padding: 1rem;
     }
 }
