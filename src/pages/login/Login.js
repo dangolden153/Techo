@@ -60,7 +60,11 @@ const Login = () => {
                           
                            
 
-                            <Button  className={classes.mainRegBtn} onClick={handleSubmit} >
+                            <Button  className={classes.mainRegBtn} 
+                            // onClick={handleSubmit}
+                            component={Link} to="/home"
+                            
+                            >
                             Login
                             </Button>
                             <div className={classes.forgetContainer}>

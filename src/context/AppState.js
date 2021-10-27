@@ -31,6 +31,8 @@ const [loginValues, setLoginValues] = useState(loginData);
 const [forgetEmail, setForgetEmail] = useState('');
 const [resetPin, setResetPin] = useState('');
 const [resetPassword, setResetPassword] = useState(resetPasswordData);
+const [home, setHome] = useState(true);
+
 
 
  return (
@@ -46,6 +48,8 @@ const [resetPassword, setResetPassword] = useState(resetPasswordData);
    resetPin,
    resetPassword,
    setResetPassword,
+   home, 
+   setHome,
 
 
   }}>

@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme) => (
     }
   },
  }
+ 
 ));
 const Navbar = () => {
   const [open,setOpen] = useState(false);
