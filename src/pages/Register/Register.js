@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom'
 import TextInput from '../../components/Input/TextInput';
 import AppContext from '../../context/app-context'
 import PasswordInput from '../../components/Input/PasswordInput';
+import { HandleSignup } from '../../services/PostServices';
 
 
 
@@ -78,11 +79,8 @@ const Register = () => {
                          
 
                             <Button  className={classes.mainRegBtn}
-                            //  onClick={handleSubmit}
-                            component={Link} to="/home"
-
-                             
-                             
+                             onClick={HandleSignup(values)}
+                            // component={Link} to="/home"
                              >
                             REGISTER
                             </Button>

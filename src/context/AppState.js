@@ -32,6 +32,11 @@ const [forgetEmail, setForgetEmail] = useState('');
 const [resetPin, setResetPin] = useState('');
 const [resetPassword, setResetPassword] = useState(resetPasswordData);
 const [home, setHome] = useState(true);
+const [login, setLogin] = useState(false);
+const [auth, setAuth] = useState('');
+const [openSidebar, setOpenSidebar] = useState(false);
+
+
 
 
 
@@ -50,6 +55,10 @@ const [home, setHome] = useState(true);
    setResetPassword,
    home, 
    setHome,
+   auth,
+   setAuth,
+   openSidebar,
+   setOpenSidebar,
 
 
   }}>

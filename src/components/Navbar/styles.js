@@ -7,6 +7,8 @@ export default makeStyles((theme) => ({
         display:"flex",
         justifyContent:"space-between",
         padding:'0.5rem 4rem',
+        zIndex:'2100',
+        
         position:"sticky",
         top:0,
         backgroundColor:'#ffffff',

@@ -10,7 +10,7 @@ import AppContext from '../../context/app-context'
 
 
 const Navbar = () => {
-    const {home, setHome} =  useContext(AppContext);
+    const {home, setHome,setOpenSidebar,openSidebar} =  useContext(AppContext);
 
   const [open,setOpen] = useState(false);
   const [activeBtn, setActiveBtn] = useState(true);
@@ -31,7 +31,7 @@ const Navbar = () => {
     return (
         <AppBar>
             <Toolbar className={classes.toolbar} >
-            <img  src={logo}  className={classes.navImg} alt="nav image"    />
+            <img  src={logo}  className={classes.navImg} alt="nav image" onClick={() => setOpenSidebar(!openSidebar)}   />
             <div className={classes.search}>
               <Search className={classes.searcher} />
  
@@ -57,7 +57,7 @@ const Navbar = () => {
     <Badge badgeContent={4} color="secondary" className={classes.barge} >
     <Notifications  />
     </Badge>
-    <Avatar src="https://res.cloudinary.com/www-daniekeys-com/image/upload/v1605272141/use6_xyqgs4.jpg" />
+    <Avatar src="https://res.cloudinary.com/www-daniekeys-com/image/upload/v1605272141/use6_xyqgs4.jpg"   onClick={() => setOpenSidebar(!openSidebar)}/>
        <Button className={classes.askBtn}>
                 Ask Question
           </Button> 

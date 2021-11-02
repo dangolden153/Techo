@@ -1,8 +1,12 @@
 import React from 'react'
+import useStyles from './styles'
+
 
 const Home = () => {
+    const classes = useStyles();
+
     return (
-        <div>
+        <div className={classes.container}>
             i am the Home part
         </div>
     )

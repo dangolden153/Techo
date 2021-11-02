@@ -5,6 +5,7 @@ import {Button, Container, Grid, Typography, } from '@material-ui/core'
 import Home from '../../components/Home/Home'
 import Media from '../../components/Media/Media'
 import useStyles from './styles'
+import Sidebar from '../../components/Sidebar/Sidebar'
 
 
 
@@ -13,11 +14,14 @@ const Homepage = () => {
     const classes = useStyles();
 
 
+
     
     return (
-        <Grid container >
+        <>
+        
         <Navbar />
-        <Grid  className={classes.container}>
+        <Grid  className={classes.container} container>
+            <Sidebar />
         <Grid item xs={12} md={8} className={classes.left} >
             {home ? <Home /> : <Media />}
         </Grid>
@@ -31,8 +35,7 @@ const Homepage = () => {
 
 
 
-
-        </Grid>
+        </>
     )
 }
 
