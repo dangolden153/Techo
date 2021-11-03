@@ -13,7 +13,6 @@ selectTop:{
     justifyContent:'space-between',
     alignItems: 'center',
     width:'100%',
-    // backgroundColor:'blue',
     height:'auto',
     
 },
