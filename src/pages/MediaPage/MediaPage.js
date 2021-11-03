@@ -9,7 +9,7 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 
 
 
-const Homepage = () => {
+const MediaPage = () => {
     const {home, setHome} =  useContext(AppContext);
     const classes = useStyles();
 
@@ -25,7 +25,7 @@ const Homepage = () => {
         <Grid item xs={12} md={8} className={classes.left} >
             {/* {home ? <Home /> : <Media />} */}
             <Typography varaint="h2" >
-                This is the Home page
+                This is the media page
             </Typography>
         </Grid>
         <Grid item xs={0} md={4} className={classes.right} >
@@ -42,4 +42,4 @@ const Homepage = () => {
     )
 }
 
-export default Homepage
+export default MediaPage

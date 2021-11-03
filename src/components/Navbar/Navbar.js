@@ -1,9 +1,11 @@
-import React,{useState, useContext} from 'react'
+import React,{useState, useContext,useEffect} from 'react'
 import useStyles from './styles'
 import { Button, makeStyles,AppBar, Toolbar, Typography, InputBase, alpha, Badge, Avatar } from '@material-ui/core'
 import { Search, Mail, Notifications,Cancel } from '@material-ui/icons';
 import logo from '../../assets/bluelogo.png'
 import AppContext from '../../context/app-context'
+import {useHistory} from 'react-router-dom';
+
 
 
 
@@ -26,7 +28,15 @@ const Navbar = () => {
 
 
     const classes = useStyles({open,activeBtn});
-    
+    const history = useHistory();
+    useEffect(() => {
+      if (home) {
+           history.push('/home')
+      }
+      if (!home) {
+           history.push('/media')
+      }
+ }, [home, history]);
 
     return (
         <AppBar>

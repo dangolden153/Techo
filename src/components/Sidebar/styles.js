@@ -8,12 +8,14 @@ export default makeStyles((theme) => ({
         display:(props) => (props.openSidebar ? "flex" : "none"),
         height:'100vh',
         position:'absolute',
-        width:'50vw',
-        top:'5rem',
+        width:'60vw',
+        top:'4rem',
         left:'0',
-        zIndex:'2000',
+        zIndex:'200',
+        paddingTop:'1rem',
+        overflowY:'hidden',
         
-         backgroundColor:'#f5f5f5',
+         backgroundColor:'#ffffff',
       background:'transparent',
         animationName: '$blinker',
         animationDuration: '1s',
@@ -36,17 +38,19 @@ export default makeStyles((theme) => ({
         },
      },
      sidebarContent:{
-      width:'50vw',
+      width:'100vw',
       height:'100%',
       // filter:'blur(1px)',
       zIndex:'1000',
+      padding:'0.5rem',
+
 
 
      },
      sidebarItem:{
       zIndex:'1200',
-         backgroundColor:'#f5f5f5',
-         // backgroundColor:'#ffffff',
+         // backgroundColor:'#f5f5f5',
+         backgroundColor:'#ffffff',
       width:'100%',
       height:'100%',
       position:'absolute',
