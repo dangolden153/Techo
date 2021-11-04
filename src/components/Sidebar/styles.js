@@ -13,7 +13,7 @@ export default makeStyles((theme) => ({
         left:'0',
         zIndex:'200',
         paddingTop:'1rem',
-        overflowY:'hidden',
+        
         
          backgroundColor:'#ffffff',
       background:'transparent',
