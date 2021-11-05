@@ -9,6 +9,7 @@ import CheckboxSelect from '../../components/SelectComponent/CheckboxSelect'
 import CategoryCheckbox from '../../components/SelectComponent/CategoryCheckbox'
 import MediaCard from '../../components/MediaCard/MediaCard'
 import TagsPaper from '../../components/PaperComponent/TagsPaper'
+import MediaNavbar from '../../components/Navbar/MediaNavbar'
 
 
 
@@ -24,7 +25,7 @@ const MediaPage = () => {
         <div className={classes.root}>
 
       
-        <Navbar />
+        <MediaNavbar />
         <Grid  className={classes.container} container>
             <Sidebar />
             <Grid item xs={0} md={3} className={classes.left}>

@@ -11,24 +11,24 @@ import {useHistory,Link} from 'react-router-dom';
 
 
 
-const Navbar = () => {
+const MediaNavbar = () => {
     const {home, setHome,setOpenSidebar,openSidebar} =  useContext(AppContext);
 
   const [open,setOpen] = useState(false);
-  const [activeBtn, setActiveBtn] = useState(true);
+  const [activeBtn, setActiveBtn] = useState(false);
 
-  // const handleHome = () => {
-  //       setActiveBtn(true);
-  //       setHome(true);
-  // }
-  // const handleMedia = () => {
-  //       setActiveBtn(false);
-  //       setHome(false);
-  // }
+//   const handleHome = () => {
+//         setActiveBtn(true);
+//         setHome(true);
+//   }
+//   const handleMedia = () => {
+//         setActiveBtn(false);
+//         setHome(false);
+//   }
 
 
     const classes = useStyles({open,activeBtn});
-    // const history = useHistory();
+//     const history = useHistory();
 //     useEffect(() => {
 //       if (home) {
 //            history.push('/home')
@@ -51,10 +51,14 @@ const Navbar = () => {
            }} />
          </div>
          <div className={classes.navBtnContainer}>
-            <Button className={classes.homeBtn} component={Link} to='/home' >
+            <Button className={classes.homeBtn} 
+            component={Link} to='/home'
+            >
                     Home
                 </Button>
-            <Button className={classes.mediaBtn} component={Link} to='/media' >
+            <Button className={classes.mediaBtn} 
+            component={Link} to='/media'
+            >
                     Media
                 </Button>
              </div>
@@ -81,4 +85,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default MediaNavbar
