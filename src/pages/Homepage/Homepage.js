@@ -9,6 +9,7 @@ import {Button, Container, Grid, Typography, } from '@material-ui/core'
 // import Media from '../../components/Media/Media'
 import useStyles from './styles'
 import Sidebar from '../../components/Sidebar/Sidebar'
+import HomeSidebar from '../../components/Sidebar/HomeSidebar'
 
 
 
@@ -24,7 +25,7 @@ const Homepage = () => {
         
         <Navbar />
         <Grid  className={classes.container} container>
-            <Sidebar />
+            <HomeSidebar />
         <Grid item xs={12} md={8} className={classes.left} >
             {/* {home ? <Home /> : <Media />} */}
             <Typography varaint="h2" >

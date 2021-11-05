@@ -9,17 +9,29 @@ import TextInput from '../../components/Input/TextInput';
 import AppContext from '../../context/app-context'
 import PasswordInput from '../../components/Input/PasswordInput';
 import { HandleSignup } from '../../services/PostServices';
+import axiosInstance from '../../services/AxiosInstance'
 
 
 
 const Register = () => {
     const {values, setValues} =  useContext(AppContext);
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(values);
-   }
+    const [submitValues, setSubmitValues] = useState(values);
 
+    
+    
+//     const handleSubmit = (e) => {
+//         console.log(values);
+//    }
+   const HandleSignup = (e) => {
+    e.preventDefault();
+        setSubmitValues(values);
+        console.log(submitValues)
+    axiosInstance.post('/api/users/auth/register/', submitValues).then((res) => {
+        console.log(res)
+        
+    })
+
+}
     const classes = useStyles();
     return (
         <>
@@ -79,7 +91,7 @@ const Register = () => {
                          
 
                             <Button  className={classes.mainRegBtn}
-                             onClick={HandleSignup(values)}
+                             onClick={HandleSignup}
                             // component={Link} to="/home"
                              >
                             REGISTER

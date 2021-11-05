@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
   
     Sidebar:{
         display:(props) => (props.openSidebar ? "flex" : "none"),
-        height:'100vh',
+        height:'85vh',
         position:'absolute',
         width:'60vw',
         top:'4rem',
@@ -49,15 +49,44 @@ export default makeStyles((theme) => ({
      },
      sidebarItem:{
       zIndex:'1200',
-         // backgroundColor:'#f5f5f5',
-         backgroundColor:'#ffffff',
+        
       width:'100%',
       height:'100%',
       position:'absolute',
 
      },
-   
+   listItemContainer:{
+      padding:'1rem'
+   },
+   listItem:{
+      listStyle:'none',
 
+   },
+   linkItem:{
+      display:'flex',
+      listStyle:'none',
+      // justifyContent:'space-between',
+      alignItem:'center',
+      marginBottom:'1rem',
+      textDecoration:'none',
+
+   },
+   linkText:{
+         textDecoration:'none',
+         color:'#474747',
+         fontSize:'1.1rem',
+
+
+   },
+   linkImg:{
+         width:'20px',
+         height:'20px',
+         marginRight:'1rem',
+   
+      },
+
+//
+ 
 
 
       
