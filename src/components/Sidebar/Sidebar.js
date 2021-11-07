@@ -6,9 +6,12 @@ import CheckboxSelect from '../SelectComponent/CheckboxSelect';
 import CategoryCheckbox from '../SelectComponent/CategoryCheckbox';
 
 const Sidebar = () => {
-    const {openSidebar} = useContext(AppContext);
+    const {openSidebar, open} = useContext(AppContext);
 
-    const classes = useStyles({openSidebar});
+    const classes = useStyles({
+        // openSidebar,
+        
+        open});
     return (
                 <>
         <div className={classes.Sidebar}>

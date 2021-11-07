@@ -13,7 +13,7 @@ import ResetPassword from './pages/ForgetPassword/ResetPassword'
 import ResetSuccessful from './pages/ForgetPassword/ResetSuccessful'
 import Homepage from './pages/Homepage/Homepage'
 import MediaPage from './pages/MediaPage/MediaPage'
-
+import TestNav from './components/Testing/Test'
 
 const App = () => {
   return (
@@ -27,6 +27,7 @@ const App = () => {
         <Route exact path="/resetSuccessful" component={ResetSuccessful} />
         <Route exact path="/home" component={Homepage} />
         <Route exact path="/media" component={MediaPage} />
+        <Route exact path="/test" component={TestNav} />
         
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />

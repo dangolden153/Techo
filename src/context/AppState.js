@@ -34,7 +34,10 @@ const [resetPassword, setResetPassword] = useState(resetPasswordData);
 const [home, setHome] = useState(true);
 const [login, setLogin] = useState(false);
 const [auth, setAuth] = useState('');
-const [openSidebar, setOpenSidebar] = useState(false);
+const [openSidebar, setOpenSidebar] = useState(true);
+const [open, setOpen] = useState(false);
+
+// 
 
 
 
@@ -59,6 +62,8 @@ const [openSidebar, setOpenSidebar] = useState(false);
    setAuth,
    openSidebar,
    setOpenSidebar,
+   setOpen,
+   open,
 
 
   }}>

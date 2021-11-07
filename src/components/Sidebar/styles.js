@@ -1,15 +1,15 @@
 import { makeStyles,alpha } from '@material-ui/core/styles';
 
 
-
+const drawerWidth = 240;
 export default makeStyles((theme) => ({
   
-    Sidebar:{
-        display:(props) => (props.openSidebar ? "flex" : "none"),
+    Sidebary:{
+        display:(props) => (props.open ? "flex" : "none"),
         height:'85vh',
         position:'absolute',
         width:'60vw',
-        top:'4rem',
+        top:'0',
         left:'0',
         zIndex:'200',
         paddingTop:'1rem',
@@ -22,7 +22,7 @@ export default makeStyles((theme) => ({
         animationTimingFunction: 'linear',
         animationIterationCount: '1',
         transition: 'all 1000ms',
-        transform:'translateX(-100%)',
+        transform:'translateX(0)',
         [theme.breakpoints.down('md')]:{
             transform:'translateX(0)'
         },
@@ -86,7 +86,21 @@ export default makeStyles((theme) => ({
       },
 
 //
- 
+drawer: {
+   width: drawerWidth,
+   flexShrink: 0,
+ },
+ drawerPaper: {
+   width: drawerWidth,
+ },
+ drawerHeader: {
+   display: 'flex',
+   alignItems: 'center',
+   padding: theme.spacing(0, 1),
+   // necessary for content to be below app bar
+   ...theme.mixins.toolbar,
+   justifyContent: 'flex-end',
+ },
 
 
       

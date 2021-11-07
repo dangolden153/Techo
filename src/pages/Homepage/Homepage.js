@@ -12,6 +12,7 @@ import ProfilePaper from '../../components/PaperComponent/ProfilePaper'
 import AskQuestionPaper from '../../components/PaperComponent/AskQuestionPaper'
 import PostCard from '../../components/PostCard/PostCard'
 import HomeSidebar from '../../components/Sidebar/HomeSidebar'
+import LinkSidebar from '../../components/Sidebar/LinkSidebar'
 
 
 
@@ -26,7 +27,9 @@ const HomePage = () => {
       
         <Navbar />
         <Grid  className={classes.container} container>
-            <HomeSidebar />
+            {/* <HomeSidebar /> */}
+        {/* <LinkSidebar variant="temporary" anchor="left"  /> */}
+            
             <Grid item xs={0} md={3} className={classes.left}>
                 <div className={classes.selectContainer}>
                 <CheckboxSelect />
@@ -39,6 +42,8 @@ const HomePage = () => {
             
         <AskQuestionPaper />
             <PostCard imageLink="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+
+            
             <PostCard imageLink="https://images.unsplash.com/photo-1633113088983-12fb3b2fe0ac?ixid=MnwxMjA3fDF8MHxzZWFyY2h8OHx8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
             <PostCard imageLink="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
             <PostCard imageLink="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHRlY2hub2xvZ3l8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />

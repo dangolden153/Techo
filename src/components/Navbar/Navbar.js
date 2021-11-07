@@ -5,6 +5,8 @@ import { Search, Mail, Notifications,Cancel } from '@material-ui/icons';
 import logo from '../../assets/bluelogo.png'
 import AppContext from '../../context/app-context'
 import {useHistory,Link} from 'react-router-dom';
+import TestNav from '../Testing/TestNav' 
+
 
 
 
@@ -12,43 +14,26 @@ import {useHistory,Link} from 'react-router-dom';
 
 
 const Navbar = () => {
-    const {home, setHome,setOpenSidebar,openSidebar} =  useContext(AppContext);
-
-  const [open,setOpen] = useState(false);
+    const {home, setHome,setOpenSidebar,openSidebar,open,setOpen} =  useContext(AppContext);
   const [activeBtn, setActiveBtn] = useState(true);
 
-  // const handleHome = () => {
-  //       setActiveBtn(true);
-  //       setHome(true);
-  // }
-  // const handleMedia = () => {
-  //       setActiveBtn(false);
-  //       setHome(false);
-  // }
-
+ 
+const handleSidebar = () => {
+  setOpen(!open);
+}
 
     const classes = useStyles({open,activeBtn});
-    // const history = useHistory();
-//     useEffect(() => {
-//       if (home) {
-//            history.push('/home')
-//       }
-//       if (!home) {
-//            history.push('/media')
-//       }
-//  }, [home, history]);
+ 
 
     return (
         <AppBar>
             <Toolbar className={classes.toolbar} >
-            <img  src={logo}  className={classes.navImg} alt="nav image" onClick={() => setOpenSidebar(!openSidebar)}   />
+            <img  src={logo}  className={classes.navImg} alt="nav image" onClick={handleSidebar}   />
             <div className={classes.search}>
               <Search className={classes.searcher} />
  
              <InputBase placeholder="Search...." className={classes.input} />
-           <Cancel className={classes.cancel} onClick={() => {
-             setOpen(false)
-           }} />
+           <Cancel className={classes.cancel}  />
          </div>
          <div className={classes.navBtnContainer}>
             <Button className={classes.homeBtn} component={Link} to='/home' >
@@ -71,7 +56,7 @@ const Navbar = () => {
        <Button className={classes.askBtn}>
                 Ask Question
           </Button> 
- 
+        <TestNav />
   </div>
 
             </Toolbar>

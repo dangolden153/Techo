@@ -27,7 +27,7 @@ const MediaPage = () => {
       
         <MediaNavbar />
         <Grid  className={classes.container} container>
-            <Sidebar />
+            {/* <Sidebar /> */}
             <Grid item xs={0} md={3} className={classes.left}>
                 <div className={classes.selectContainer}>
                 <CheckboxSelect />

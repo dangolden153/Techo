@@ -5,6 +5,7 @@ import { Search, Mail, Notifications,Cancel } from '@material-ui/icons';
 import logo from '../../assets/bluelogo.png'
 import AppContext from '../../context/app-context'
 import {useHistory,Link} from 'react-router-dom';
+import TestNav from '../Testing/TestNav'
 
 
 
@@ -17,26 +18,9 @@ const MediaNavbar = () => {
   const [open,setOpen] = useState(false);
   const [activeBtn, setActiveBtn] = useState(false);
 
-//   const handleHome = () => {
-//         setActiveBtn(true);
-//         setHome(true);
-//   }
-//   const handleMedia = () => {
-//         setActiveBtn(false);
-//         setHome(false);
-//   }
-
 
     const classes = useStyles({open,activeBtn});
-//     const history = useHistory();
-//     useEffect(() => {
-//       if (home) {
-//            history.push('/home')
-//       }
-//       if (!home) {
-//            history.push('/media')
-//       }
-//  }, [home, history]);
+
 
     return (
         <AppBar>
@@ -75,7 +59,7 @@ const MediaNavbar = () => {
        <Button className={classes.askBtn}>
                 Ask Question
           </Button> 
- 
+  <TestNav />
   </div>
 
             </Toolbar>
