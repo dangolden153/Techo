@@ -52,7 +52,7 @@ const handleSidebar = () => {
     <Badge badgeContent={4} color="secondary" className={classes.barge} >
     <Notifications  />
     </Badge>
-    <Avatar src="https://res.cloudinary.com/www-daniekeys-com/image/upload/v1605272141/use6_xyqgs4.jpg"   onClick={() => setOpenSidebar(!openSidebar)}/>
+    <Avatar src="https://res.cloudinary.com/www-daniekeys-com/image/upload/v1605272141/use6_xyqgs4.jpg" />
        <Button className={classes.askBtn}>
                 Ask Question
           </Button> 

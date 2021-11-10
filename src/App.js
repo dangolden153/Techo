@@ -13,7 +13,8 @@ import ResetPassword from './pages/ForgetPassword/ResetPassword'
 import ResetSuccessful from './pages/ForgetPassword/ResetSuccessful'
 import Homepage from './pages/Homepage/Homepage'
 import MediaPage from './pages/MediaPage/MediaPage'
-import TestNav from './components/Testing/Test'
+import TestNav from './components/Testing/Test';
+import Profile from './pages/ProfilePage/Profile'
 
 const App = () => {
   return (
@@ -32,6 +33,8 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/form" component={Forming} />
+        <Route exact path="/profile" component={Profile} />
+        
         
 
       
