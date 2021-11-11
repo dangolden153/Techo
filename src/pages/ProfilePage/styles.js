@@ -43,7 +43,7 @@ width:'100%',
 display:'block',
 position:'sticky',
 
-height:'100vh',
+height:'auto',
 top:'0',
 paddingTop:"1rem",
 

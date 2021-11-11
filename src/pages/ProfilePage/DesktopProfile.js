@@ -4,6 +4,9 @@ import useStyles from './styles'
 import Navbar from '../../components/Navbar/Navbar';
 import DesktopProfilePaper from '../../components/PaperComponent/DesktopProfile';
 import ProfileTabs from '../../components/Tabs/ProfileTab'
+import SummaryPaper from '../../components/PaperComponent/SummaryPaper';
+import HighlightPaper from '../../components/PaperComponent/HighlightPaper';
+import SuggestConnection from '../../components/PaperComponent/SuggestConnection';
 const DesktopProfile = () => {
     const classes = useStyles();
     return (
@@ -21,9 +24,11 @@ const DesktopProfile = () => {
         </Grid> 
         <Grid item sm={3} className={classes.right}> 
         
-        <Typography>
-            Hello i am The Desktop view
-        </Typography>
+        
+            <SummaryPaper />
+            <HighlightPaper />
+            <SuggestConnection />
+        
         </Grid> 
 
         </Grid>

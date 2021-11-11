@@ -50,20 +50,20 @@ marginTop:'1rem',
 },
 
 profileItemContainer:{
-padding:'0.25rem',
-display:'flex',
-alignItems:'center',
-marginBottom:'1rem'
-// justifyContent:'flex-start',
+    padding:'0.25rem',
+    display:'flex',
+    alignItems:'center',
+    marginBottom:'1rem'
+    // justifyContent:'flex-start',
 },
 
-profileImg:{
+    profileImg:{
     width:'50px',
     height:'50px',
     marginRight:'2rem',
 
 },
-askquestionImg:{
+    askquestionImg:{
     
     marginRight:'2rem',
 
@@ -107,8 +107,89 @@ askText:{
     color:'#474747',
     fontSize:'2rem',
     marginTop:'2rem',
-
 },
+sRoot:{
+backgroundColor:'#fff',
+padding:'1.5rem',
+borderRadius:'25px',
+border:'1px solid #100e86',
+marginTop:'2.2rem',
+},
+sContainer:{
+    display:'flex',
+    flexDirection:'column',
+    flexWrap:'wrap',
+    [theme.breakpoints.down('sm')]:{
+        display:'flex',
+        flexDirection:'row',
+        flexWrap:'wrap',
+
+    }
+},
+
+    sItem:{
+    display:'flex',
+    alignItems:'center',
+    marginBottom:'1rem',
+
+
+    },
+    sLogo:{
+    width:'15px',
+    height:'15px',
+    marginRight:'0.5rem',
+    },
+    hTitle:{
+        marginLeft:'0.5rem'
+    },
+    hMain:{
+        marginLeft:'0.5rem'
+    },
+    cItem:{
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'flex-start',
+        
+        alignItems:'center',
+        marginBottom:'1rem'
+
+    },
+    cLeft:{
+        display:'flex',
+        flexDirection:'column',
+        
+
+    },
+    cName:{
+        marginBottom:'0rem',
+        fontSize:'1rem'
+    },
+    connectBtn:{
+        borderRadius:'15px',
+        padding:'0.5rem 1rem',
+        border:'1px solid #100e86' 
+    },
+    sImg:{
+        marginRight:'1rem',
+
+    },
+
+    moreBtn:{
+    color:'#100e86',
+    border:'3px solid #100e86',
+    padding:'0.25rem 0.5rem'
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
