@@ -5,7 +5,9 @@ import DesktopProfile from './DesktopProfile'
 const Profile = () => {
     const [mobile, SetMobile] = useState(false);
 
-    
+    useEffect(() => {
+        window.scroll(0,0)
+}, [])
     useEffect(() => {
     if(window.innerWidth < 700) {
         SetMobile(true);

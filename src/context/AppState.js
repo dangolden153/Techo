@@ -36,8 +36,11 @@ const [login, setLogin] = useState(false);
 const [auth, setAuth] = useState('');
 const [openSidebar, setOpenSidebar] = useState(true);
 const [open, setOpen] = useState(false);
+const [userData, setUserData] = useState({});
+const [country, setCountry] = useState({});
 
-// 
+
+
 
 
 
@@ -64,6 +67,10 @@ const [open, setOpen] = useState(false);
    setOpenSidebar,
    setOpen,
    open,
+   userData,
+   setUserData,
+   country,
+   setCountry,
 
 
   }}>

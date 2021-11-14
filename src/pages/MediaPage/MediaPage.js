@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import AppContext from '../../context/app-context'
 import {Button, Container, Grid, Typography, } from '@material-ui/core'
@@ -14,6 +14,9 @@ import MediaNavbar from '../../components/Navbar/MediaNavbar'
 
 
 const MediaPage = () => {
+    useEffect(() => {
+            window.scroll(0,0)
+    }, [])
     const {home, setHome} =  useContext(AppContext);
     const classes = useStyles();
 

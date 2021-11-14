@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {Grid, Typography } from '@material-ui/core'
 import useStyles from './styles'
 import Navbar from '../../components/Navbar/Navbar';
@@ -8,6 +8,9 @@ import SummaryPaper from '../../components/PaperComponent/SummaryPaper';
 import HighlightPaper from '../../components/PaperComponent/HighlightPaper';
 import SuggestConnection from '../../components/PaperComponent/SuggestConnection';
 const DesktopProfile = () => {
+    useEffect(() => {
+        window.scroll(0,0)
+}, [])
     const classes = useStyles();
     return (
         <>

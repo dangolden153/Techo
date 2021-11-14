@@ -4,34 +4,71 @@ import { Grid, Typography, Button, Container, CssBaseline } from '@material-ui/c
 import svg from '../../assets/transparent1.png'
 import linkedin from '../../assets/linkedin.jpg';
 import google from '../../assets/google.jpg'
-import {Link} from 'react-router-dom'
+import {Link,useHistory} from 'react-router-dom'
 import TextInput from '../../components/Input/TextInput';
 import AppContext from '../../context/app-context'
 import PasswordInput from '../../components/Input/PasswordInput';
-import { HandleSignup } from '../../services/PostServices';
-import axiosInstance from '../../services/AxiosInstance'
+import { userRegister,getCountry } from '../../services/PostServices'
+import CountrySelect from '../../components/SelectComponent/CountrySelect';
 
 
 
 const Register = () => {
-    const {values, setValues} =  useContext(AppContext);
+    const {values, setValues,setUserData,setCountry} =  useContext(AppContext);
     const [submitValues, setSubmitValues] = useState(values);
-
+    const [live, setLive] = useState({});
+    const [countries, setCountries] = useState('');
+    const fixed = true
     
-    
-//     const handleSubmit = (e) => {
-//         console.log(values);
-//    }
-   const HandleSignup = (e) => {
-    e.preventDefault();
-        setSubmitValues(values);
-        console.log(submitValues)
-    axiosInstance.post('/api/users/auth/register/', submitValues).then((res) => {
-        console.log(res)
+    // const [country, setCountry] = useState('');
+    const test = async () => {
+        const res = await getCountry(); 
+        setCountries(res.data.results);
+        setCountry(res.data.results);
         
-    })
+    }
+    
+    useEffect(() => {
+        if(live.length !== 1) {
+             test();
+            }
+            //   const data =  test();
+    //   setCountry(data);
+}, [fixed])
+console.log(countries.length);
+    
+    const history = useHistory();
+    
+    
+const handleRegister = async (e) => {  //login function    
+    e.preventDefault();
 
-}
+    const {email,password1,password2, first_name, last_name,phone} = values;   //get values from context
+
+    const item = {
+        "first_name":first_name,
+        "last_name":last_name,
+        "email":email,
+        "password1":password1,
+        "password2":password2,
+        "phone":phone,
+
+
+    };
+    console.log(item);
+    const response = await userRegister(item); 
+    console.log(response)
+    console.log(response.data.user)
+    if(response.status === 200){
+        localStorage.setItem('token',response.data.access_token);
+        localStorage.setItem('refreshToken',response.data.refresh_token);
+            setUserData(response.data.user);
+        history.push('/home'); //redirect to dashboard page if login is successful 
+    } else { 
+        alert('Invalid email or password');
+    }   //if login is unsuccessful, alert user with error message 
+
+}  
     const classes = useStyles();
     return (
         <>
@@ -42,7 +79,11 @@ const Register = () => {
                     </Grid>
                     <Grid item xs={12} sm={6} className={classes.center}>
                     <div className={classes.loginButton}>
-                            <Button component={Link} to="/register" className={classes.registerBtn} >
+                            <Button 
+                            // component={Link} to="/register"
+                            onClick={test}
+                            
+                            className={classes.registerBtn} >
                                     REGISTER
                             </Button>
                             <Button component={Link} to="/login" className={classes.loginBtn} >
@@ -88,10 +129,13 @@ const Register = () => {
                             <div >
                            <PasswordInput  name="password2" placeholder="Confirm Password" size="small" />
                             </div>
+                            <div>
+                        <CountrySelect  />
+                                </div>
                          
 
                             <Button  className={classes.mainRegBtn}
-                             onClick={HandleSignup}
+                             onClick={handleRegister}
                             // component={Link} to="/home"
                              >
                             REGISTER

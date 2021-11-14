@@ -1,7 +1,9 @@
-import React from 'react'
+import React,{useContext, useState} from 'react'
 import { Paper,Avatar, Typography,Chip } from '@material-ui/core';
 import icon from '../../assets/tagicon.png' ;
 import {Link} from 'react-router-dom';
+import AppContext from '../../context/app-context';
+
 
 import useStyles from './styles'
 
@@ -9,6 +11,10 @@ import useStyles from './styles'
 
 
 const TagsPaper = () => {
+    const {userData} =  useContext(AppContext);
+    console.log(userData);
+    const {email, first_name, last_name} = userData;
+
 const classes = useStyles();
     return (
         <>
@@ -18,7 +24,7 @@ const classes = useStyles();
 
           <Avatar src="https://res.cloudinary.com/www-daniekeys-com/image/upload/v1605272141/use6_xyqgs4.jpg" alt="profile pick" className={classes.profileImg} />
             <Typography variant="h6" >
-                Ayeni Daniel
+                {last_name +" " + first_name }
             </Typography>
           </div>
             <Link className={classes.profileLinkContainer} to="/profile">

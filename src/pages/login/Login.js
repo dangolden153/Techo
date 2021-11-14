@@ -1,21 +1,48 @@
-import React,{useState,useContext} from 'react'
+import React,{useState,useContext,useEffect} from 'react'
 import useStyles from './styles'
 import { Grid, Typography, Button, Container, CssBaseline } from '@material-ui/core'
 import svg from '../../assets/signupsvg.jpg'
 import linkedin from '../../assets/linkedin.jpg';
 import google from '../../assets/google.jpg'
-import {Link} from 'react-router-dom'
+import {Link,useHistory} from 'react-router-dom'
 import LoginInput from '../../components/Input/LoginInput';
 import PasswordInput from '../../components/Input/PasswordInput';
 import AppContext from '../../context/app-context';
 import LoginPasswordInput from '../../components/Input/LoginPasswordInput';
+import { userLogin } from '../../services/PostServices'
 const Login = () => {
-    const {loginValues, setLoginValues} =  useContext(AppContext);
+    const {loginValues, setLoginValues,setUserData, userData} =  useContext(AppContext);
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(loginValues);
-   }
+    const history = useHistory();
+
+    useEffect(() => {
+        window.scroll(0,0)
+}, [])
+
+   const handleLogin = async (e) => {  //login function    
+    e.preventDefault();
+    
+    const {email,password} = loginValues;   //get values from context
+
+    const item = {"email":email,"password":password};
+    try {
+        const response = await userLogin(item); 
+      
+        if(response.status === 200){
+            localStorage.setItem('token',response.data.access_token);
+            localStorage.setItem('refreshToken',response.data.refresh_token);
+                setUserData(response.data.user);
+            history.push('/home'); //redirect to dashboard page if login is successful 
+        } 
+    }
+    catch (error) {
+        // console.log(error.response.data.errors[0]); 
+        
+        
+    }
+
+
+}      
     const classes = useStyles();
     return (
         <>
@@ -61,7 +88,7 @@ const Login = () => {
                            
 
                             <Button  className={classes.mainRegBtn} 
-                            // onClick={handleSubmit}
+                            onClick={handleLogin}
                             component={Link} to="/home"
                             
                             >
