@@ -10,6 +10,7 @@ import PasswordInput from '../../components/Input/PasswordInput';
 import AppContext from '../../context/app-context';
 import LoginPasswordInput from '../../components/Input/LoginPasswordInput';
 import { userLogin } from '../../services/PostServices'
+import GoogleLogin from './GoogleLogin';
 const Login = () => {
     const {loginValues, setLoginValues,setUserData, userData} =  useContext(AppContext);
     
@@ -36,9 +37,7 @@ const Login = () => {
         } 
     }
     catch (error) {
-        // console.log(error.response.data.errors[0]); 
-        
-        
+
     }
 
 
@@ -65,12 +64,13 @@ const Login = () => {
                             with your social account
                         </Typography>
                         <div className={classes.socialContainer}>
-                                    <Link to="/google">
+                                    {/* <Link to="/google">
                                     <img alt="google" src={google} className={classes.socialIcon} />
-                                    </Link>
+                                    </Link> */}
                                     <Link to="/linkedin">
                                     <img alt="google" src={linkedin} className={classes.socialIcon} />
                                     </Link>
+                                    <GoogleLogin  /> 
                             </div>
                             <Typography variant="h4" className={classes.create}>
                             Login to your account

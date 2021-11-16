@@ -44,23 +44,18 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const CountrySelect = () => {
-    const {country,setRegionData,regionData} =  useContext(AppContext);
-
+const RegionSelect = () => {
+    const {country, regionData} =  useContext(AppContext);
+        console.log(regionData);
     const [mapData, setMapData] = useState([]);
     useEffect(() => {
-        if (country.length  ) {
-            setMapData(country);
-          
+        if (regionData !== undefined  ) {
+            setMapData([]);
         
         }
     
-    }, [country])
-
-    const handleRegion = (id) => {
-        setRegionData(country[id].regions)
-    }
-
+    }, [regionData])
+    
     const classes = useStyles();
   const [state, setState] = React.useState({
     age: '',
@@ -69,14 +64,13 @@ const CountrySelect = () => {
 
   const handleChange = (event) => {
     const name = event.target.name;
-    handleRegion(event.target.value)
     setState({
       ...state,
       [name]: event.target.value,
     });
   };
 
-  console.log(regionData)
+  
     return (
         <>
             <FormControl className={classes.formControl}>
@@ -86,15 +80,16 @@ const CountrySelect = () => {
           value={state.age}
           onChange={handleChange}
           inputProps={{
-            name: 'age',
+            name: 'Region',
             id: 'age-native-simple',
           }}
         >
           <option aria-label="None" value="None" />
-          {  mapData.map((item) => {
-                const {id,flag,code, dial,regions} = item;
+          {  regionData?.map((item) => {
+                const {id,name} = item;
+                
                 return (
-                    <option value={id} key={id} onClick={ () => handleRegion(id)}>{id}</option>
+                    <option value={name} key={id}>{name}</option>
           
                               )
 
@@ -126,4 +121,4 @@ const CountrySelect = () => {
     )
 }
 
-export default CountrySelect
+export default RegionSelect

@@ -36,8 +36,12 @@ const [login, setLogin] = useState(false);
 const [auth, setAuth] = useState('');
 const [openSidebar, setOpenSidebar] = useState(true);
 const [open, setOpen] = useState(false);
-const [userData, setUserData] = useState({});
-const [country, setCountry] = useState({});
+const [userData, setUserData] = useState([]);
+const [country, setCountry] = useState([]);
+const [regionData, setRegionData] = useState([]);
+const [googleData, setGoogleData] = useState([]);
+
+
 
 
 
@@ -71,7 +75,10 @@ const [country, setCountry] = useState({});
    setUserData,
    country,
    setCountry,
-
+    setRegionData,
+    regionData,
+    googleData,
+    setGoogleData,
 
   }}>
    {/* The below makes the value to be made available for all the children have access to it */}

@@ -10,6 +10,8 @@ import AppContext from '../../context/app-context'
 import PasswordInput from '../../components/Input/PasswordInput';
 import { userRegister,getCountry } from '../../services/PostServices'
 import CountrySelect from '../../components/SelectComponent/CountrySelect';
+import RegionSelect from '../../components/SelectComponent/RegionSelect';
+
 
 
 
@@ -23,8 +25,8 @@ const Register = () => {
     // const [country, setCountry] = useState('');
     const test = async () => {
         const res = await getCountry(); 
-        setCountries(res.data.results);
         setCountry(res.data.results);
+        setCountries(res.data.results);
         
     }
     
@@ -35,7 +37,7 @@ const Register = () => {
             //   const data =  test();
     //   setCountry(data);
 }, [fixed])
-console.log(countries.length);
+console.log(countries);
     
     const history = useHistory();
     
@@ -131,6 +133,9 @@ const handleRegister = async (e) => {  //login function
                             </div>
                             <div>
                         <CountrySelect  />
+                                </div>
+                            <div>
+                        <RegionSelect  />
                                 </div>
                          
 
