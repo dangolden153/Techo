@@ -53,7 +53,7 @@ const handleSidebar = () => {
     <Notifications  />
     </Badge>
     <Avatar src="https://res.cloudinary.com/www-daniekeys-com/image/upload/v1605272141/use6_xyqgs4.jpg" />
-       <Button className={classes.askBtn}>
+       <Button className={classes.askBtn } component={Link} to="/ask">
                 Ask Question
           </Button> 
         <TestNav />
