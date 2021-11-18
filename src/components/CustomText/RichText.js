@@ -22,6 +22,7 @@ const RichText = () => {
   editorClassName="richtext-editor"
   onEditorStateChange={onEditorStateChange}
 />;
+
         </>
     )
 }

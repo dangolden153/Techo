@@ -6,8 +6,9 @@ import appContext from '../../context/app-context';
 
 const AskQuestionPaper = () => {
     const classes = useStyles();
-    const {googleData} = useContext(appContext);
-    const {email,imageUrl,name,} = googleData;
+    // const {googleData} = useContext(appContext);
+    const data = localStorage.getItem('user');
+    const {email,imageUrl,name,} = JSON.parse(data);
     const photoURL = imageUrl;
     return (
         <>

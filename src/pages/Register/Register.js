@@ -68,6 +68,8 @@ const handleRegister = async (e) => {  //login function
         history.push('/home'); //redirect to dashboard page if login is successful 
     } else { 
         alert('Invalid email or password');
+        history.push('/register'); //redirect to login page if login is unsuccessful
+        
     }   //if login is unsuccessful, alert user with error message 
 
 }  
@@ -138,7 +140,6 @@ const handleRegister = async (e) => {  //login function
                         <RegionSelect  />
                                 </div>
                          
-
                             <Button  className={classes.mainRegBtn}
                              onClick={handleRegister}
                             // component={Link} to="/home"
@@ -154,9 +155,6 @@ const handleRegister = async (e) => {  //login function
                             </Typography>
 
                                </div> 
-
-
-
                             </div>
                     </div>
                     </Grid>

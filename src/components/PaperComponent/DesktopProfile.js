@@ -1,10 +1,12 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import useStyles from './profilestyle'
 import {Grid, Typography, Avatar, Divider, Button,Paper } from '@material-ui/core'
 import GroupAvatars from '../Avatar/GroupAvatar';
 import locationIcon from '../../assets/locationIcon.png'
 import officeIcon from '../../assets/officeIcon.png'
 import studentIcon from '../../assets/studentIcon.png'
+import AppContext from '../../context/app-context';
+import ProfilleImgModal from '../../components/Modal/ProfileImgModal'
 
 
 import {Link} from 'react-router-dom';
@@ -12,6 +14,11 @@ import {Link} from 'react-router-dom';
 
 const DesktopProfile = () => {
 const [data, setData] = useState(false);
+const dataItem = localStorage.getItem('user');
+const {email,imageUrl,name,} = JSON.parse(dataItem);
+let personName = name; 
+let personEmail = email;
+let personImage = imageUrl; 
 
     const classes = useStyles();
     return (
@@ -23,22 +30,23 @@ const [data, setData] = useState(false);
             <Grid container className={classes.profileSection}>
             <Grid item className={classes.profileLeft} sm={3}>
 
-            <Avatar src="https://res.cloudinary.com/www-daniekeys-com/image/upload/v1605272141/use6_xyqgs4.jpg" className={classes.profileAvatar} />
+            <Avatar src={personImage} className={classes.profileAvatar} />
 
             </Grid>
             <Grid item className={classes.profileRight} sm={9} >
                 <div className={classes.profileDetails}>
                     <Typography variant="h3" className={classes.profileName} > 
-                    {data ? "Name" : "Ayeni Daniel"}
+                    {personName}
                     </Typography>
                     <Typography variant="body2" className={classes.profileStory} > 
-                    {data ? "Name" : "I am an experinced web Developer with great skills in frontend development. I have participated in many couple of intresting projects and am still working on More am currently working at Techsemester"} 
+                    {data ? "This is " : "Kindly update Your profile in the about session" } 
 
                     </Typography>
 
                     <Typography variant="body1" className={classes.profileRole} > 
-                    {data ? "Name" : "FrontEnd Development"}
+                    {data ? "Name" : `${personEmail}`}
                     </Typography> 
+                    <ProfilleImgModal />
                     <div className={classes.followContainer}>
                         <div className={classes.follow}>
                             <p className={classes.followValue}>

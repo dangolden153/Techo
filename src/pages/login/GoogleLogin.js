@@ -16,6 +16,8 @@ const GoogleAuth = () => {
         console.log(response.profileObj);
         setGoogleData(response.profileObj);
         setShowLoginButton(false);
+        const {name, email, imageUrl} = response.profileObj;
+        localStorage.setItem('user', JSON.stringify({name, email, imageUrl})); 
         history.push('/home'); 
         showLogoutButton(true);
 

@@ -11,9 +11,13 @@ import useStyles from './styles'
 
 
 const TagsPaper = () => {
-    const {userData} =  useContext(AppContext);
-    console.log(userData);
-    const {email, first_name, last_name} = userData;
+    
+    const data = localStorage.getItem('user');
+    const {email,imageUrl,name,} = JSON.parse(data);
+    let personName = name; 
+    let personEmail = email;
+    let personImage = imageUrl; 
+    // const {email, first_name, last_name} = userData;
 
 const classes = useStyles();
     return (
@@ -22,9 +26,10 @@ const classes = useStyles();
               <div className={classes.profileItemContainer}>
 
 
-          <Avatar src="https://res.cloudinary.com/www-daniekeys-com/image/upload/v1605272141/use6_xyqgs4.jpg" alt="profile pick" className={classes.profileImg} />
+          <Avatar src={personImage} alt="profile pick" className={classes.profileImg} />
             <Typography variant="h6" >
-                {last_name +" " + first_name }
+                {/* {last_name +" " + first_name } */}
+                {personName}
             </Typography>
           </div>
             <Link className={classes.profileLinkContainer} to="/profile">

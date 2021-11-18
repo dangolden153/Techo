@@ -17,7 +17,8 @@ const MediaNavbar = () => {
 
   const [open,setOpen] = useState(false);
   const [activeBtn, setActiveBtn] = useState(false);
-
+  const data = localStorage.getItem('user');
+    const {email,imageUrl,name,} = JSON.parse(data);
 
     const classes = useStyles({open,activeBtn});
 
@@ -55,7 +56,7 @@ const MediaNavbar = () => {
     <Badge badgeContent={4} color="secondary" className={classes.barge} >
     <Notifications  />
     </Badge>
-    <Avatar src="https://res.cloudinary.com/www-daniekeys-com/image/upload/v1605272141/use6_xyqgs4.jpg"   onClick={() => setOpenSidebar(!openSidebar)}/>
+    <Avatar src={imageUrl}   alt={name} component={ Link} to='/profile' />
        <Button className={classes.askBtn}>
                 Ask Question
           </Button> 

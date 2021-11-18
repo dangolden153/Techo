@@ -16,6 +16,8 @@ import TestNav from '../Testing/TestNav'
 const Navbar = () => {
     const {home, setHome,setOpenSidebar,openSidebar,open,setOpen} =  useContext(AppContext);
   const [activeBtn, setActiveBtn] = useState(true);
+  const data = localStorage.getItem('user');
+  const {email,imageUrl,name,} = JSON.parse(data);
 
  
 const handleSidebar = () => {
@@ -52,7 +54,7 @@ const handleSidebar = () => {
     <Badge badgeContent={4} color="secondary" className={classes.barge} >
     <Notifications  />
     </Badge>
-    <Avatar src="https://res.cloudinary.com/www-daniekeys-com/image/upload/v1605272141/use6_xyqgs4.jpg" />
+    <Avatar src={imageUrl} alt={name} component={Link} to='/profile' />
        <Button className={classes.askBtn } component={Link} to="/ask">
                 Ask Question
           </Button> 
