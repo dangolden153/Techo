@@ -46,6 +46,7 @@ profileAvatar:{
 width:'140px',
 height:'140px',
 border:'6px solid purple',
+cursor:'pointer',
 
 },
 

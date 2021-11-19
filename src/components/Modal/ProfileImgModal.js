@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
@@ -59,24 +59,50 @@ const useStyles = makeStyles((theme) => ({
         margin:'0 auto',
         border:'1px solid #000',
     },
+    imgBtn:{
+        position:'relative',
+
+    },
+    imgUpload:{
+      position:'absolute',
+      top:'0',
+      bottom:'0',
+      right:'0',
+      left:'0',
+      opacity:'0',
+
+
+    },
+    imgUploadIcon:{
+        color:'#474747',
+      fontSize:'2rem',
+    },
 
 }));
 
-export default function SimpleModal() {
+export default function SimpleModal({handleOpen, handleClose,open}) {
   const classes = useStyles();
   const dataItem = localStorage.getItem('user');
 const {email,imageUrl,name,} = JSON.parse(dataItem);
+const [prevImg, setPrevImg] = useState(imageUrl);
+
+
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+ const handleImgUpload = (e) => {
+    e.preventDefault();
+  const files = e.target.files;
+  Array.from(files).map((file) => { 
+    // URL.createObjectURL(file);
+    setPrevImg(URL.createObjectURL(file));
+  })
+  const data = new FormData();
+  data.append('image', files[0]);
+  // axios.post('/api/users/upload', data)
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+
+ }
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
@@ -90,12 +116,13 @@ const {email,imageUrl,name,} = JSON.parse(dataItem);
         </div>
         <div className={classes.imgContainer}>
 
-        <Avatar alt={name} src={imageUrl} className={classes.Avatar} />
+        <Avatar alt={name} src={prevImg} className={classes.Avatar} />
         </div>
         <div className={classes.modalTop}>
       
-        <Button >
-            < AddPhotoAlternateIcon className={classes.modalIcon} /> 
+        <Button className={classes.imgBtn} >
+          <input type="file" id="file" name="file" accept="image/*" className={classes.imgUpload} onChange={handleImgUpload} />
+            < AddPhotoAlternateIcon className={classes.imgUploadIcon} /> 
         </Button>
         <Button >
             < DeleteIcon className={classes.modalIcon} /> 
@@ -109,7 +136,7 @@ const {email,imageUrl,name,} = JSON.parse(dataItem);
   return (
     <div>
       <Button type="button"  onClick={handleOpen}>
-        change picture
+        
       </Button>
       <Modal
         open={open}

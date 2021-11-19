@@ -16,9 +16,18 @@ const DesktopProfile = () => {
 const [data, setData] = useState(false);
 const dataItem = localStorage.getItem('user');
 const {email,imageUrl,name,} = JSON.parse(dataItem);
+const [open, setOpen] = useState(false);
+
 let personName = name; 
 let personEmail = email;
 let personImage = imageUrl; 
+const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+    };
+
 
     const classes = useStyles();
     return (
@@ -30,7 +39,7 @@ let personImage = imageUrl;
             <Grid container className={classes.profileSection}>
             <Grid item className={classes.profileLeft} sm={3}>
 
-            <Avatar src={personImage} className={classes.profileAvatar} />
+            <Avatar src={personImage} className={classes.profileAvatar} onClick={handleOpen} />
 
             </Grid>
             <Grid item className={classes.profileRight} sm={9} >
@@ -46,7 +55,7 @@ let personImage = imageUrl;
                     <Typography variant="body1" className={classes.profileRole} > 
                     {data ? "Name" : `${personEmail}`}
                     </Typography> 
-                    <ProfilleImgModal />
+                    <ProfilleImgModal handleOpen={handleOpen} handleClose={handleClose} open={open} />
                     <div className={classes.followContainer}>
                         <div className={classes.follow}>
                             <p className={classes.followValue}>
