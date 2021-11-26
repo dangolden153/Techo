@@ -8,32 +8,8 @@ import NativeSelect from '@material-ui/core/NativeSelect';
 import AppContext from '../../context/app-context';
 
 
-// const yoga = [
-//     {
-//         id:1,
-//         code:'234',
-//         flag:'pop',
-//         dail:'afr',
-// },
-//     {
-//         id:2,
-//         code:'345',
-//         flag:'tyu',
-//         dail:'wewe',
-// },
-//     {
-//         id:3,
-//         code:'232',
-//         flag:'pope',
-//         dail:'h3h',
-// },
-//     {
-//         id:4,
-//         code:'4545',
-//         flag:'3434',
-//         dail:'223',
-// },
-// ]
+
+
 const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(1),
@@ -100,26 +76,7 @@ const CountrySelect = () => {
 
           } )}
 
-           {/* {country? ( country.map((item) => {
-                const {id,flag,code, dail} = item;
-                    return (
-          <option value={flag} key={id}>{dail}</option>
 
-                    )
-            }) ) :(yoga.map((item) => {
-                const {id,flag,code, dail} = item;
-                return (
-                    <option value={flag} key={id}>{dail}</option>
-          
-                              )
-
-            })) } */}
-
-
-
-          {/* <option value={10}>Ten</option>
-          <option value={20}>Twenty</option>
-          <option value={30}>Thirty</option> */}
         </Select>
       </FormControl>  
         </>

@@ -25,8 +25,10 @@ export const userRegister = (info) => {
     return axiosInstance.post('api/users/auth/register/', info)
 }
 export const getCountry = async () => {
-    const res =  await axiosInstance.get('api/users/countries');
+    
+    const res =  await axiosInstance.get('api/users/countries')
     if(res.status) {
-        return res
+        const output =  res.data.results;
+        return output;
     }
 }

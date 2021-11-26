@@ -12,41 +12,19 @@ import { userRegister,getCountry } from '../../services/PostServices'
 import CountrySelect from '../../components/SelectComponent/CountrySelect';
 import RegionSelect from '../../components/SelectComponent/RegionSelect';
 
-
+import tempFlag from '../../assets/flag.png';
 
 
 const Register = () => {
     const {values, setValues,setUserData,setCountry} =  useContext(AppContext);
     const [submitValues, setSubmitValues] = useState(values);
-    const [live, setLive] = useState({});
-    const [countries, setCountries] = useState('');
-    const fixed = true
-    
-    // const [country, setCountry] = useState('');
-    const test = async () => {
-        const res = await getCountry(); 
-        setCountry(res.data.results);
-        setCountries(res.data.results);
-        
-    }
-    
-    useEffect(() => {
-        if(live.length !== 1) {
-             test();
-            }
-            //   const data =  test();
-    //   setCountry(data);
-}, [fixed])
-console.log(countries);
+
+
     
     const history = useHistory();
-    
-    
 const handleRegister = async (e) => {  //login function    
     e.preventDefault();
-
     const {email,password1,password2, first_name, last_name,phone} = values;   //get values from context
-
     const item = {
         "first_name":first_name,
         "last_name":last_name,
@@ -54,10 +32,10 @@ const handleRegister = async (e) => {  //login function
         "password1":password1,
         "password2":password2,
         "phone":phone,
-
-
+        "country":0,
+        "region":0,
     };
-    console.log(item);
+
     const response = await userRegister(item); 
     console.log(response)
     console.log(response.data.user)
@@ -73,6 +51,7 @@ const handleRegister = async (e) => {  //login function
     }   //if login is unsuccessful, alert user with error message 
 
 }  
+
     const classes = useStyles();
     return (
         <>
@@ -84,9 +63,8 @@ const handleRegister = async (e) => {  //login function
                     <Grid item xs={12} sm={6} className={classes.center}>
                     <div className={classes.loginButton}>
                             <Button 
-                            // component={Link} to="/register"
-                            onClick={test}
                             
+                    component={Link} to="/register"
                             className={classes.registerBtn} >
                                     REGISTER
                             </Button>
@@ -133,13 +111,6 @@ const handleRegister = async (e) => {  //login function
                             <div >
                            <PasswordInput  name="password2" placeholder="Confirm Password" size="small" />
                             </div>
-                            <div>
-                        <CountrySelect  />
-                                </div>
-                            <div>
-                        <RegionSelect  />
-                                </div>
-                         
                             <Button  className={classes.mainRegBtn}
                              onClick={handleRegister}
                             // component={Link} to="/home"

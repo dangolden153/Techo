@@ -16,10 +16,13 @@ import MediaPage from './pages/MediaPage/MediaPage'
 import TestNav from './components/Testing/Test';
 import Profile from './pages/ProfilePage/Profile'
 import Error from './pages/ErrorPage/Error'
-import AskQuestion from './pages/AskQuestion/AskQuestion'
+import AskQuestion from './pages/AskQuestion/AskQuestion';
+
+
 
 
 const App = () => {
+  
   return (
     <AppState>
     <Router>
