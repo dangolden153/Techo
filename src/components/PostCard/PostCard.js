@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -15,7 +15,7 @@ import upvotetIcon from '../../assets/upvote.png'
 import likeIcon from '../../assets/like.png';
 import colorlike from '../../assets/colorlike.png';
 
-
+import AskComment from '../Comment/AskComment';
 
 
 
@@ -26,7 +26,11 @@ export default function PostCard({imageLink}) {
   const classes = useStyles();
   let likeNo = "230.";
   let commentNo = "30";
+  const [openComment, setOpenComment] = useState(false);
 
+  const handleClickOpenComment = () => {
+    setOpenComment(!openComment);
+  };
   return (
     <Card className={classes.root} >
       <CardActionArea>
@@ -93,7 +97,9 @@ export default function PostCard({imageLink}) {
             Like
           </Typography>
         </Button>
-        <Button className={classes.actionBtnContainer}>
+        <Button className={classes.actionBtnContainer}
+        onClick={handleClickOpenComment}
+        >
           <img src={commentIcon} alt="likeIcon" className={classes.actionIcon} />
           <Typography variant="body1" color="textSecondary" >
             Comments
@@ -107,6 +113,8 @@ export default function PostCard({imageLink}) {
         </Button>
       
       </CardActions>
+      {openComment && <AskComment />}
+      
    
     </Card>
   );

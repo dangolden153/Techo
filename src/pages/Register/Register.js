@@ -32,8 +32,8 @@ const handleRegister = async (e) => {  //login function
         "password1":password1,
         "password2":password2,
         "phone":phone,
-        "country":0,
-        "region":0,
+        "country":2,
+        "region":2,
     };
 
     const response = await userRegister(item); 
