@@ -95,7 +95,7 @@ profileLink:{
 
 askPaperContainer:{
 width:'100%',
-padding:'2rem 1rem 4rem',
+padding:'2rem 1rem 0rem',
 [theme.breakpoints.down('sm')] :{
     padding:'1rem 1rem 2rem',
 
@@ -179,8 +179,55 @@ sContainer:{
     border:'3px solid #100e86',
     padding:'0.25rem 0.5rem'
 
-    }
+    },
 
+    TagContainer:{
+            padding:'1rem',
+            backgroundColor:'#ffffff',
+            width:'100%',
+            margin:'auto',
+            paddingBottom:'2rem',
+    },
+    TagTitle:{
+        color:'#474747',
+        fontSize:'1.2rem',
+        marginBottom:'1rem',
+    },
+    TagSubTitle:{
+        color:'#474747',
+        fontSize:'0.9rem',
+        marginBottom:'1rem',
+    },
+    TagPaperInput:{
+        padding:'0.5rem',
+    },
+    TagInput:{
+        width:'100%',
+        border:'none',
+        outline:'none',
+        padding:'0.5rem',
+        backgroundColor:'#fff',
+        '&::placeholder':{
+            color:'#474747',
+            opacity:0.5,
+        },
+        '&:focus':{
+            border:'none',
+            outline:'none',
+        },
+    },
+
+    TagButton:{
+        color:'#fff',
+        padding:'0.7rem 1.5rem',
+        borderRadius:'25px',
+        backgroundColor:'#00B4D7',
+        border:'none',
+        outline:'none',
+        marginTop:'1.5rem',
+        textTransform:'capitalize',
+
+    },
 
 
 

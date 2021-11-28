@@ -12,7 +12,7 @@ const AskQuestionPaper = () => {
     const photoURL = imageUrl;
     return (
         <>
-      <Paper elevation={2} className={classes.askPaperContainer}>
+      <Paper elevation={0} className={classes.askPaperContainer}>
       <div className={classes.profileItemContainer}>
 
 
@@ -21,9 +21,7 @@ const AskQuestionPaper = () => {
       {name}
   </Typography>
 </div>
-<Typography variant="h6" >
-      {email}
-  </Typography>
+
 <Typography variant="h2" className={classes.askText}>
     Ask your Question!
 </Typography>

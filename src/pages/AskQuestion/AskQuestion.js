@@ -1,7 +1,7 @@
 import React,{useContext,useEffect} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import AppContext from '../../context/app-context'
-import {Button, Container, Grid, Typography, } from '@material-ui/core'
+import {Button, Container, Grid, Typography,Paper } from '@material-ui/core'
 
 import useStyles from './styles'
 import Sidebar from '../../components/Sidebar/Sidebar'
@@ -14,6 +14,9 @@ import PostCard from '../../components/PostCard/PostCard'
 import HomeSidebar from '../../components/Sidebar/HomeSidebar'
 import LinkSidebar from '../../components/Sidebar/LinkSidebar'
 import RichText from '../../components/CustomText/RichText' 
+import Tagpaper from '../../components/PaperComponent/Tagpaper'
+import TutorialText from '../../components/CustomText/TutorialText'
+import ReactHtmlParser from 'react-html-parser';
 
 
 
@@ -22,6 +25,9 @@ const AskQuestion = () => {
     useEffect(() => {
         window.scroll(0,0)
 }, [])
+const [contentValue, setContentValue] = React.useState('')
+console.log(ReactHtmlParser(contentValue));
+
     
     const classes = useStyles();
     
@@ -32,8 +38,7 @@ const AskQuestion = () => {
       
         <Navbar />
         <Grid  className={classes.container} container>
-            {/* <HomeSidebar /> */}
-        {/* <LinkSidebar variant="temporary" anchor="left"  /> */}
+          
             
             <Grid item xs={0} md={3} className={classes.left}>
                 <div className={classes.selectContainer}>
@@ -44,14 +49,17 @@ const AskQuestion = () => {
        
         </Grid>
         <Grid item xs={12} md={6} className={classes.center} >
+            <Paper className={classes.paper}>
         <AskQuestionPaper />
             
-         <RichText />
+         {/* <RichText /> */}
+         <TutorialText setContentValue={setContentValue} />
+         <Tagpaper  />
             
-        
+        </Paper>
         </Grid>
         <Grid item xs={0} md={3} className={classes.right} >
-            {/* {home ? <Home /> : <Media />} */}
+        
            <ProfilePaper  />
         </Grid>
       

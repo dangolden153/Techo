@@ -98,6 +98,7 @@
     padding: 0.5rem;
     background-color: #fff;
     border-top: 1px solid #e5e5e5;
+    height: 40vh;
     color: #100e86  !important;
 }   
 .richtext-wrapper .richtext-toolbar{
@@ -131,6 +132,7 @@
     width: 100% !important;
     background-color: #f5f6ff;
     cursor: pointer;
+    
     
     color: #474747  !important;
 }
