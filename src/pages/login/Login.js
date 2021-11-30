@@ -11,6 +11,8 @@ import AppContext from '../../context/app-context';
 import LoginPasswordInput from '../../components/Input/LoginPasswordInput';
 import { userLogin } from '../../services/PostServices'
 import GoogleLogin from './GoogleLogin';
+import logo from '../../assets/bluelogo.png'
+
 const Login = () => {
     const {loginValues, setLoginValues,setUserData, userData} =  useContext(AppContext);
     
@@ -23,6 +25,8 @@ const Login = () => {
    const handleLogin = async (e) => {  //login function    
     e.preventDefault();
     
+ 
+    
     const {email,password} = loginValues;   //get values from context
 
     const item = {"email":email,"password":password};
@@ -33,6 +37,14 @@ const Login = () => {
             localStorage.setItem('token',response.data.access_token);
             localStorage.setItem('refreshToken',response.data.refresh_token);
                 setUserData(response.data.user);
+                localStorage.setItem('user', JSON.stringify(response.data.user));
+                const{first_name,last_name,email,id} = response.data.user;
+
+                const name= first_name + " " + last_name;
+                const userEmail= email;
+              const   imageUrl= logo;
+                localStorage.setItem('user', JSON.stringify({name, userEmail, imageUrl})); 
+
             history.push('/home'); //redirect to dashboard page if login is successful 
         } 
     }

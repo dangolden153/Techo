@@ -1,5 +1,6 @@
 import axiosInstance from "./AxiosInstance";
 import {useContext} from 'react'
+import axios from 'axios'
 
 
 // import AppContext from '../context/app-context'
@@ -18,11 +19,11 @@ import {useContext} from 'react'
 
 
 export const userLogin = (post) => {
-    return axiosInstance.post('api/users/auth/login/', post)
+    return axios.post('api/users/auth/login/', post)
 }
 
 export const userRegister = (info) => {
-    return axiosInstance.post('api/users/auth/register/', info)
+    return axios.post('api/users/auth/register/', info)
 }
 export const getCountry = async () => {
     

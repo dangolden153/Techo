@@ -17,7 +17,7 @@ const Navbar = () => {
     const {home, setHome,setOpenSidebar,openSidebar,open,setOpen} =  useContext(AppContext);
   const [activeBtn, setActiveBtn] = useState(true);
   const data = localStorage.getItem('user');
-  const {email,imageUrl,name,} = JSON.parse(data);
+  const {userEmail,imageUrl,name,} = JSON.parse(data);
 
  
 const handleSidebar = () => {

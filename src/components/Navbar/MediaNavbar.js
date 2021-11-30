@@ -18,7 +18,7 @@ const MediaNavbar = () => {
   const [open,setOpen] = useState(false);
   const [activeBtn, setActiveBtn] = useState(false);
   const data = localStorage.getItem('user');
-    const {email,imageUrl,name,} = JSON.parse(data);
+    const {userEmail,imageUrl,name,} = JSON.parse(data);
 
     const classes = useStyles({open,activeBtn});
 

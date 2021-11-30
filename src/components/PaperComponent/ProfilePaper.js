@@ -13,9 +13,9 @@ import useStyles from './styles'
 const TagsPaper = () => {
     
     const data = localStorage.getItem('user');
-    const {email,imageUrl,name,} = JSON.parse(data);
+    const {userEmail,imageUrl,name,} = JSON.parse(data);
     let personName = name; 
-    let personEmail = email;
+    let personEmail = userEmail;
     let personImage = imageUrl; 
     // const {email, first_name, last_name} = userData;
 
