@@ -32,3 +32,10 @@ export const getCountry = async () => {
         return output;
     }
 }
+export const postQuestion = async (info) => {
+    const res =  await axiosInstance.post('api/question/', info)
+    if(res.status) {
+        const output =  res.data.results;
+        return output;
+    }
+}

@@ -10,13 +10,11 @@ import CategoryCheckbox from '../../components/SelectComponent/CategoryCheckbox'
 import MediaCard from '../../components/MediaCard/MediaCard'
 import ProfilePaper from '../../components/PaperComponent/ProfilePaper'
 import AskQuestionPaper from '../../components/PaperComponent/AskQuestionPaper'
-import PostCard from '../../components/PostCard/PostCard'
-import HomeSidebar from '../../components/Sidebar/HomeSidebar'
-import LinkSidebar from '../../components/Sidebar/LinkSidebar'
-import RichText from '../../components/CustomText/RichText' 
+
 import Tagpaper from '../../components/PaperComponent/Tagpaper'
 import TutorialText from '../../components/CustomText/TutorialText'
 import ReactHtmlParser from 'react-html-parser';
+import {postQuestion} from '../../services/PostServices'
 
 
 
@@ -26,7 +24,33 @@ const AskQuestion = () => {
         window.scroll(0,0)
 }, [])
 const [contentValue, setContentValue] = React.useState('')
-console.log(ReactHtmlParser(contentValue));
+// console.log(ReactHtmlParser(contentValue));
+
+const handleQuestionPost = (e) => {
+    e.preventDefault()
+    const data = {
+        "user": 0,
+        "code": "string",
+        "body": contentValue,
+        "active": true,
+        "title": "string",
+        "url": "string",
+        "imageUrl": "string",
+        "audio_url": "string",
+        "video_url": "string",
+        "youtube_url": "string",
+        "tags": [
+          0
+        ]
+      }
+      try {
+        postQuestion(data)
+      } catch (error) {
+        console.log(error)
+        }
+    
+
+}
 
     
     const classes = useStyles();
@@ -53,8 +77,8 @@ console.log(ReactHtmlParser(contentValue));
         <AskQuestionPaper />
             
          {/* <RichText /> */}
-         <TutorialText setContentValue={setContentValue} />
-         <Tagpaper  />
+         <TutorialText setContentValue={setContentValue} contentValue={contentValue} />
+         <Tagpaper handleQuestionPost={handleQuestionPost}  />
             
         </Paper>
         </Grid>

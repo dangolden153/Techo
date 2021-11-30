@@ -2,8 +2,9 @@ import React from 'react'
 import { Paper, Button, Typography } from '@material-ui/core'
 import useStyles from './styles'
 
-const Tagpaper = () => {
-    const classes = useStyles()
+const Tagpaper = ({handleQuestionPost}) => {
+    const classes = useStyles();
+    
     return (
         <Paper className={classes.TagContainer}>
             <Typography  className={classes.TagTitle}>
@@ -15,7 +16,9 @@ const Tagpaper = () => {
             <Paper className={classes.TagPaperInput} elevation={2}>
                 <input className={classes.TagInput} placeholder="eg. (html, css)" />
                 </Paper>
-                <Button className={classes.TagButton}>Post your question</Button>
+                <Button className={classes.TagButton} 
+                onClick={handleQuestionPost}
+                >Post your question</Button>
         </Paper>
     )
 }
