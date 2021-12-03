@@ -6,7 +6,8 @@ import logo from '../../assets/bluelogo.png'
 import AppContext from '../../context/app-context'
 import {useHistory,Link} from 'react-router-dom';
 import TestNav from '../Testing/TestNav'
-
+import {FaHome} from 'react-icons/fa'
+import {BsYoutube} from 'react-icons/bs'
 
 
 
@@ -39,12 +40,23 @@ const MediaNavbar = () => {
             <Button className={classes.homeBtn} 
             component={Link} to='/home'
             >
+                          <div className={classes.btnStack}>
+              <FaHome className={classes.homeIcon} />
+              
+              <Typography className={classes.navTitle} variant="h6">
                     Home
+                    </Typography>
+                    </div>
                 </Button>
             <Button className={classes.mediaBtn} 
             component={Link} to='/media'
             >
+                          <div className={classes.btnStack}>
+              <BsYoutube className={classes.mediaIcon} />
+              <div className={classes.navTitle}>
                     Media
+                    </div>
+                    </div>
                 </Button>
              </div>
          <div className={classes.icons}>

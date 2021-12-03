@@ -1,14 +1,13 @@
-import React,{useState,useContext} from 'react'
+import React,{useContext} from 'react'
 import useStyles from './styles'
-import { Grid, Typography, Button, Container, CssBaseline } from '@material-ui/core'
+import { Grid, Typography, Button } from '@material-ui/core'
 import svg from '../../assets/signupsvg.jpg'
-import linkedin from '../../assets/linkedin.jpg';
-import google from '../../assets/google.jpg'
+
 import {Link} from 'react-router-dom'
-import LoginInput from '../../components/Input/LoginInput';
-import PasswordInput from '../../components/Input/PasswordInput';
+
+
 import AppContext from '../../context/app-context';
-import LoginPasswordInput from '../../components/Input/LoginPasswordInput';
+
 import ResetPasswordInput from '../../components/Input/ResetPasswordInput';
 const ResetPassword = () => {
     const {forgetEmail, setResetPin, resetPin} =  useContext(AppContext);

@@ -60,6 +60,15 @@ selectContainer:{
     
 
 },
+profileSection:{
+    marginTop:'3rem',
+    
+    width:'95%',
+    margin:'auto',
+    [theme.breakpoints.down('sm')]:{
+        width:'100%',
+    }
+},
 center:{
     backgroundColor:'#f5f6ff',
     paddingTop:'3rem',

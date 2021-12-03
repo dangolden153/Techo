@@ -1,15 +1,16 @@
 import React,{useContext,useEffect} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import AppContext from '../../context/app-context'
-import {Button, Container, Grid, Typography, } from '@material-ui/core'
+import { Grid, Typography, } from '@material-ui/core'
 
 import useStyles from './styles'
-import Sidebar from '../../components/Sidebar/Sidebar'
+
 import CheckboxSelect from '../../components/SelectComponent/CheckboxSelect'
 import CategoryCheckbox from '../../components/SelectComponent/CategoryCheckbox'
 import MediaCard from '../../components/MediaCard/MediaCard'
 import TagsPaper from '../../components/PaperComponent/TagsPaper'
 import MediaNavbar from '../../components/Navbar/MediaNavbar'
+import ProfileSummary from '../../components/PaperComponent/ProfileSummary'
 
 
 
@@ -17,7 +18,7 @@ const MediaPage = () => {
     useEffect(() => {
             window.scroll(0,0)
     }, [])
-    const {home, setHome} =  useContext(AppContext);
+    
     const classes = useStyles();
 
 
@@ -32,6 +33,9 @@ const MediaPage = () => {
         <Grid  className={classes.container} container>
             
             <Grid item xs={0} md={3} className={classes.left}>
+                <div className={classes.profileSection}>
+                    <ProfileSummary />
+                </div>
                 <div className={classes.selectContainer}>
                 <CheckboxSelect />
                 <hr />

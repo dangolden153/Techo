@@ -112,6 +112,11 @@ export default makeStyles((theme) => ({
         marginRight:'1rem',
         color:'#444444',
         borderRadius:'0',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        flexDirection:'column',
+        
         fontWeight:(props) => 
         (props.activeBtn ? "400" : "700"),
         borderBottom:(props) => 
@@ -122,12 +127,40 @@ export default makeStyles((theme) => ({
            marginRight:'1rem',
            color:'#444444',
            borderRadius:'0',
+           display:'flex',
+           flexDirection:'column',
+           alignItems:'center',
+              justifyContent:'center',
            fontWeight:(props) => 
            (props.activeBtn ? "700" : "400"),
            borderBottom:(props) => 
            (props.activeBtn ? "2px solid #444444" : "none") 
 
        },
+       mediaIcon:{
+           display:'block !important',
+           alignSelf:'center',
+           textAlign:'center',
+              fontSize:'1.2rem',
+              flexGrow:'1',
+              width:'100%',
+
+       },
+       homeIcon:{
+              display:'block !important',
+              width:'100%',
+              marginRight:'1rem',
+              flexGrow:1,
+              fontSize:'1.2rem',
+                alignSelf:'center',
+                textAlign:'center',
+         },
+       navTitle:{
+              display:'block',
+                alignItems:'center',
+                justifyContent:'center',
+                fontSize:'0.8rem',
+       }
 
 
 

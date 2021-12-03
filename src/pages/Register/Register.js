@@ -1,6 +1,6 @@
-import React,{useState,useEffect,useContext} from 'react'
+import React,{useState,useContext} from 'react'
 import useStyles from './styles'
-import { Grid, Typography, Button, Container, CssBaseline } from '@material-ui/core'
+import { Grid, Typography, Button } from '@material-ui/core'
 import svg from '../../assets/transparent1.png'
 import linkedin from '../../assets/linkedin.jpg';
 import google from '../../assets/google.jpg'
@@ -8,16 +8,15 @@ import {Link,useHistory} from 'react-router-dom'
 import TextInput from '../../components/Input/TextInput';
 import AppContext from '../../context/app-context'
 import PasswordInput from '../../components/Input/PasswordInput';
-import { userRegister,getCountry } from '../../services/PostServices'
-import CountrySelect from '../../components/SelectComponent/CountrySelect';
-import RegionSelect from '../../components/SelectComponent/RegionSelect';
+import { userRegister } from '../../services/PostServices'
 
-import tempFlag from '../../assets/flag.png';
+
+
 
 
 const Register = () => {
-    const {values, setValues,setUserData,setCountry} =  useContext(AppContext);
-    const [submitValues, setSubmitValues] = useState(values);
+    const {values, setUserData} =  useContext(AppContext);
+  
 
 
     

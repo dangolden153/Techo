@@ -1,12 +1,12 @@
-import React,{useState,useContext,useEffect} from 'react'
+import React,{useContext,useEffect} from 'react'
 import useStyles from './styles'
-import { Grid, Typography, Button, Container, CssBaseline } from '@material-ui/core'
+import { Grid, Typography, Button} from '@material-ui/core'
 import svg from '../../assets/signupsvg.jpg'
 import linkedin from '../../assets/linkedin.jpg';
-import google from '../../assets/google.jpg'
+
 import {Link,useHistory} from 'react-router-dom'
 import LoginInput from '../../components/Input/LoginInput';
-import PasswordInput from '../../components/Input/PasswordInput';
+
 import AppContext from '../../context/app-context';
 import LoginPasswordInput from '../../components/Input/LoginPasswordInput';
 import { userLogin } from '../../services/PostServices'
@@ -14,7 +14,7 @@ import GoogleLogin from './GoogleLogin';
 import logo from '../../assets/bluelogo.png'
 
 const Login = () => {
-    const {loginValues, setLoginValues,setUserData, userData} =  useContext(AppContext);
+    const {loginValues, setUserData } =  useContext(AppContext);
     
     const history = useHistory();
 

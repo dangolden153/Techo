@@ -1,15 +1,15 @@
-import React,{useState,useContext} from 'react'
+import React,{useContext} from 'react'
 import useStyles from './styles'
-import { Grid, Typography, Button, Container, CssBaseline } from '@material-ui/core'
+import { Grid, Typography, Button } from '@material-ui/core'
 import svg from '../../assets/successful.png'
 
 import {Link} from 'react-router-dom'
-import LoginInput from '../../components/Input/LoginInput';
-import PasswordInput from '../../components/Input/PasswordInput';
+
+
 import AppContext from '../../context/app-context';
-import LoginPasswordInput from '../../components/Input/LoginPasswordInput';
+
 const ResetSuccessful = () => {
-    const {forgetEmail, setForgetEmail} =  useContext(AppContext);
+    // const {forgetEmail, setForgetEmail} =  useContext(AppContext);
     
     const classes = useStyles();
     return (
