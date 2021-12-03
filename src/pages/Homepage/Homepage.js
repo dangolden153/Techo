@@ -11,6 +11,9 @@ import MediaCard from '../../components/MediaCard/MediaCard'
 import ProfilePaper from '../../components/PaperComponent/ProfilePaper'
 import AskQuestionPaper from '../../components/PaperComponent/AskQuestionPaper'
 import PostCard from '../../components/PostCard/PostCard'
+import ProfileSummary from '../../components/PaperComponent/ProfileSummary'
+
+
 
 
 
@@ -33,6 +36,10 @@ const HomePage = () => {
         {/* <LinkSidebar variant="temporary" anchor="left"  /> */}
             
             <Grid item xs={0} md={3} className={classes.left}>
+            <div className={classes.profileSection}>
+
+                <ProfileSummary />
+                </div>
                 <div className={classes.selectContainer}>
                 <CheckboxSelect />
                 <hr />
