@@ -30,6 +30,12 @@ display:'block',
 position:'sticky',
 // overflowY:'scroll',
 height:'100vh',
+overflowY:'scroll',
+'&::-webkit-scrollbar':{
+    width:'0.2rem',
+    height:'0.2rem',
+    backgroundColor:'#f5f6ff',
+},
 top:'0',
 paddingTop:"1rem",
 

@@ -95,7 +95,7 @@ profileLink:{
 
 askPaperContainer:{
 width:'100%',
-padding:'2rem 1rem 0rem',
+padding:'2rem 1rem 1rem',
 [theme.breakpoints.down('sm')] :{
     padding:'1rem 1rem 2rem',
 

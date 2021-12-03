@@ -50,27 +50,27 @@ const CategoryCheckbox = () =>  {
               </div>
         <FormGroup className={classes.selectItem}>
           <FormControlLabel  color="primary"
-            control={<Checkbox checked={Technology} onChange={handleChange} name="Technology " />}
+            control={<Checkbox checked={Technology} onChange={handleChange} name="Technology "  color="primary" />}
             label="Technology "
           />
           <FormControlLabel color="primary"
-            control={<Checkbox checked={Music} onChange={handleChange} name="Music" variant="primary" />}
+            control={<Checkbox checked={Music} onChange={handleChange} name="Music" variant="primary" color="primary" />}
             label="Music"
           />
           <FormControlLabel color="primary"
-            control={<Checkbox checked={Health} onChange={handleChange} name="Health" />}
+            control={<Checkbox checked={Health} onChange={handleChange} name="Health" color="primary" />}
             label="Health"
           />
           <FormControlLabel color="primary"
-            control={<Checkbox checked={Education} onChange={handleChange} name="Education" />}
+            control={<Checkbox checked={Education} onChange={handleChange} name="Education" color="primary" />}
             label="Education"
           />
           <FormControlLabel color="primary"
-            control={<Checkbox checked={Games} onChange={handleChange} name="Games" />}
+            control={<Checkbox checked={Games} onChange={handleChange} name="Games" color="primary" />}
             label="Games"
           />
           <FormControlLabel color="primary"
-            control={<Checkbox checked={Sport} onChange={handleChange} name="Sport" />}
+            control={<Checkbox checked={Sport} onChange={handleChange} name="Sport" color="primary" />}
             label="Sport"
           />
         </FormGroup>

@@ -8,11 +8,20 @@ root:{
     width:'100%',
     height:'auto',
     backgroundColor:'#f5f6ff',
+    '&::-webkit-scrollbar':{
+        width:'0.2rem',
+        height:'0.2rem',
+        backgroundColor:'#f5f6ff',
+    },
 
 },
 
 container:{
-    
+    '&::-webkit-scrollbar':{
+        width:'0.2rem',
+        height:'0.2rem',
+        backgroundColor:'#f5f6ff',
+    },
     marginTop:'3rem',
     
     padding:'1rem',
@@ -30,6 +39,12 @@ display:'block',
 position:'sticky',
 // overflowY:'scroll',
 height:'100vh',
+overflowY:'scroll',
+'&::-webkit-scrollbar':{
+    width:'0.2rem',
+    height:'0.2rem',
+    backgroundColor:'#f5f6ff',
+},
 top:'0',
 paddingTop:"1rem",
 

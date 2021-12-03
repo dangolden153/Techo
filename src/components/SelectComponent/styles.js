@@ -33,7 +33,9 @@ selectItem:{
     display:(props) => (props.collapse ? "none" : "flex"),
     flexDirection:'column',
 },
-
+check:{
+  color:'#1976d2'
+}
 
 
       

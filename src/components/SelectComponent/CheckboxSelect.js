@@ -5,7 +5,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel  from '@material-ui/core/FormControlLabel';
 import {Button } from '@material-ui/core';
-
+import './styles.css';
 import Checkbox from '@material-ui/core/Checkbox';
 
 import useStyles from './styles'
@@ -49,23 +49,23 @@ const CheckboxSelect = () =>  {
               </div>
         <FormGroup className={classes.selectItem}>
           <FormControlLabel color="primary"
-            control={<Checkbox checked={All} onChange={handleChange} name="All media types" />}
+            control={<Checkbox checked={All} onChange={handleChange} name="All media types" color="primary" className={classes.check} />}
             label="All media types"
           />
           <FormControlLabel color="primary"
-            control={<Checkbox checked={Blogs} onChange={handleChange} name="Blogs" variant="primary" />}
+            control={<Checkbox checked={Blogs} onChange={handleChange} name="Blogs" variant="primary" color="primary" className={classes.check} />}
             label="Blogs"
           />
           <FormControlLabel color="primary"
-            control={<Checkbox checked={Others} onChange={handleChange} name="Others" />}
+            control={<Checkbox checked={Others} onChange={handleChange} name="Others" className={classes.check} />}
             label="Others"
           />
           <FormControlLabel color="primary"
-            control={<Checkbox checked={Podcast} onChange={handleChange} name="Podcast" />}
+            control={<Checkbox checked={Podcast} onChange={handleChange} name="Podcast" color="primary" className={classes.check} />}
             label="Podcast"
           />
           <FormControlLabel color="primary"
-            control={<Checkbox checked={Video} onChange={handleChange} name="Video" />}
+            control={<Checkbox checked={Video} onChange={handleChange} name="Video" color="primary" className={classes.check} />}
             label="Video"
           />
         </FormGroup>
