@@ -5,11 +5,10 @@ import GroupAvatars from '../Avatar/GroupAvatar';
 import locationIcon from '../../assets/locationIcon.png'
 import officeIcon from '../../assets/officeIcon.png'
 import studentIcon from '../../assets/studentIcon.png'
-import AppContext from '../../context/app-context';
+
 import ProfilleImgModal from '../../components/Modal/ProfileImgModal'
 
 
-import {Link} from 'react-router-dom';
 
 
 const DesktopProfile = () => {
@@ -31,11 +30,8 @@ const handleOpen = () => {
 
     const classes = useStyles();
     return (
-        <Paper className={classes.root} >
-            <div className={classes.background}>
-        <img src=" https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHRlY2hub2xvZ3l8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="backdrop"  className={classes.backgroundImg} />
-            </div>
-            <Divider />
+        <Paper className={classes.root} elevation={1} >
+   
             <Grid container className={classes.profileSection}>
             <Grid item className={classes.profileLeft} sm={3}>
 
@@ -55,7 +51,7 @@ const handleOpen = () => {
                     <Typography variant="body1" className={classes.profileRole} > 
                     {data ? "Name" : `${personEmail}`}
                     </Typography> 
-                    <ProfilleImgModal handleOpen={handleOpen} handleClose={handleClose} open={open} />
+            
                     <div className={classes.followContainer}>
                         <div className={classes.follow}>
                             <p className={classes.followValue}>
@@ -75,7 +71,7 @@ const handleOpen = () => {
 
                         </div>
                     </div>    
-                    <div className={classes.followContainer}>
+                    {/* <div className={classes.followContainer}>
                     <GroupAvatars />
                     <div className={classes.follow}>
                             <p className={classes.followValue}>
@@ -86,11 +82,10 @@ const handleOpen = () => {
                             </p>
 
                         </div>
-                     </div>   
+                     </div>    */}
                     
                 </div>
-            </Grid>
-          
+                
             <Grid container className={classes.trackInfo}>
             <Grid item xm={12} className={classes.dFlexContainer}>
                 <div className={classes.dFlex}>
@@ -114,7 +109,7 @@ const handleOpen = () => {
             </Grid>
             <Grid item xm={12} className={classes.dFlexContainer}>
                 <div className={classes.dFlex}>
-                <Button className={classes.actionBtn}>
+                <Button className={classes.actionBtns}>
                 Follow
                 </Button>
                 </div>
@@ -123,14 +118,12 @@ const handleOpen = () => {
                 Message
                 </Button>
                 </div>
-                <div className={classes.dFlex}>
-                <Button className={classes.actionBtn}>
-                More
-                </Button>
-                </div>
+         
             </Grid>
            
             </Grid>
+            </Grid>
+          
             </Grid>
         </Paper>
     )

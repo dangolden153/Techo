@@ -5,10 +5,11 @@ import { makeStyles,alpha } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   root:{
       backgroundColor:'#fff',
-      borderRadius:'25px',
+      
       width:'90%',
       margin:'auto',
      paddingBottom:'1rem',
+     padding:'4rem 1rem',
 
   },
 
@@ -45,7 +46,10 @@ profileRight:{
 profileAvatar:{
 width:'140px',
 height:'140px',
-border:'6px solid purple',
+[theme.breakpoints.down('sm')]: {
+    width:'100px',
+    height:'100px',
+    },
 cursor:'pointer',
 
 },
@@ -67,12 +71,14 @@ color:'#474747',
 profileStory:{
     marginBottom:'0.25rem',
 color:'#474747',
+fontSize:'0.8rem',
 
 },
 profileRole:{
     marginBottom:'0.25rem',
 color:'#474747',
-fontSize:'1.1rem',
+fontSize:'0.9rem',
+fontWeight:'bold',
 },
 followContainer:{
     display:'flex',
@@ -95,9 +101,9 @@ marginRight:'0.2rem',
 dFlexContainer:{
     display:'flex',
     alignItems:'center',
-    justifyContent:'space-evenly',
+    
     width:'100%',
-    padding:'0.5rem 2rem'
+    padding:'0.5rem 0rem'
 
 },
 dFlex:{
@@ -114,13 +120,31 @@ profileIcon:{
 
 },
 trackInfo:{
-    marginLef:'2rem',
+    marginLeft:'0rem',
 },
 
 actionBtn:{
 border:'2px solid #100e86',
-padding:' 0.5rem 1rem',
-color:'#100e86'
+padding:' 0.5rem 3em',
+color:'#100e86',
+[theme.breakpoints.down('sm')]:{
+    padding:'0.5rem 1rem',
+},
+},
+
+actionBtns:{
+    color:'#fff',
+    backgroundColor:'#100e86',
+    padding:'0.5rem 3rem',
+    border:'none',
+    fontSize:'0.8rem',
+    fontWeight:'500',
+    cursor:'pointer',
+    marginRight:'0.5rem',
+    [theme.breakpoints.down('sm')]:{
+        padding:'0.5rem 1rem',
+
+    },
 },
 
       
