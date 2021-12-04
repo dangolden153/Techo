@@ -1,10 +1,15 @@
-import React from 'react';
+import React,{useState,useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import {BiEditAlt} from 'react-icons/bi';
+import { FiEdit2 } from 'react-icons/fi';
+import AboutModal from '../Modal/AboutModal';
+import GlobalContext from '../../context/app-context';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,11 +24,42 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary,
   },
+  editContainer:{
+    width:'100%',
+    display:'flex',
+    justifyContent:'flex-end',
+    alignItems:'center',
+    marginTop:'10px',
+    marginBottom:'1rem',
+
+  },
+  icon:{
+    color:'#474747',
+    fontSize:'1.4rem',
+    marginRight:'10px',
+    cursor:'pointer',
+
+  },
+  AccordionDetails:{
+    display:'flex',
+    flexDirection:'column',
+    width:'100%',
+  },
+
 }));
 
 export default function ControlledAccordions() {
+  const {aboutData} = useContext(GlobalContext);
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const [openAboutModal, setOpenAboutModal] = useState(false);
+
+  // const aboutInfo = localStorage.getItem('aboutInfo');
+  // const abt = JSON.parse(aboutInfo);
+
+  const handleOpenAboutModal = () => {
+    setOpenAboutModal(true);
+  };
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -42,10 +78,14 @@ export default function ControlledAccordions() {
               Kindly update your profile
           </Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AboutModal open={openAboutModal} setOpen={setOpenAboutModal} />
+        <AccordionDetails className={classes.AccordionDetails}>
+          <div className={classes.editContainer} >
+          <FiEdit2 className={classes.icon} onClick={handleOpenAboutModal}/>
+          </div>
           <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-            maximus est, id dignissim quam.
+          {aboutData}
+          
           </Typography>
         </AccordionDetails>
       </Accordion>

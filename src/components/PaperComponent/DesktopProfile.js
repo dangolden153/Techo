@@ -36,7 +36,7 @@ const handleOpen = () => {
             <Grid item className={classes.profileLeft} sm={3}>
 
             <Avatar src={personImage} className={classes.profileAvatar} onClick={handleOpen} />
-
+            <ProfilleImgModal open={open} handleClose={handleClose}/>
             </Grid>
             <Grid item className={classes.profileRight} sm={9} >
                 <div className={classes.profileDetails}>
