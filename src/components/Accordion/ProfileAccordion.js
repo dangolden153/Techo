@@ -8,6 +8,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import {BiEditAlt} from 'react-icons/bi';
 import { FiEdit2 } from 'react-icons/fi';
 import AboutModal from '../Modal/AboutModal';
+import  SkillsModal  from '../Modal/SkillsModal';
+import  ProjectModal  from '../Modal/ProjectModal';
+import  ExperienceModal  from '../Modal/ExperienceModal';
+import  EducationModal  from '../Modal/EducationModal';
 import GlobalContext from '../../context/app-context';
 
 
@@ -49,10 +53,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ControlledAccordions() {
-  const {aboutData} = useContext(GlobalContext);
+  const {aboutData,skillsData,   experienceData, projectData, educationData} = useContext(GlobalContext);
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [openAboutModal, setOpenAboutModal] = useState(false);
+  const [openExperienceModal, setOpenExperienceModal] = useState(false);
+  const [openEducationModal, setOpenEducationModal] = useState(false);
+  const [openSkillsModal, setOpenSkillsModal] = useState(false);
+  const [openProjectModal, setOpenProjectModal] = useState(false);
 
   // const aboutInfo = localStorage.getItem('aboutInfo');
   // const abt = JSON.parse(aboutInfo);
@@ -60,6 +68,19 @@ export default function ControlledAccordions() {
   const handleOpenAboutModal = () => {
     setOpenAboutModal(true);
   };
+  const handleOpenExperienceModal = () => {
+    setOpenExperienceModal(true);
+  };
+  const handleOpenEducationModal = () => {
+    setOpenEducationModal(true);
+  };
+  const handleOpenSkillsModal = () => {
+    setOpenSkillsModal(true);
+  };
+  const handleOpenProjectModal = () => {
+    setOpenProjectModal(true);
+  };
+ 
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -74,11 +95,11 @@ export default function ControlledAccordions() {
           id="panel1bh-header"
         >
           <Typography className={classes.heading}>About</Typography>
-          <Typography className={classes.secondaryHeading}>
-              Kindly update your profile
-          </Typography>
+        
         </AccordionSummary>
+
         <AboutModal open={openAboutModal} setOpen={setOpenAboutModal} />
+
         <AccordionDetails className={classes.AccordionDetails}>
           <div className={classes.editContainer} >
           <FiEdit2 className={classes.icon} onClick={handleOpenAboutModal}/>
@@ -96,14 +117,16 @@ export default function ControlledAccordions() {
           id="panel2bh-header"
         >
           <Typography className={classes.heading}>Experience</Typography>
-          <Typography className={classes.secondaryHeading}>
-            You are currently have no experience added
-          </Typography>
+          
         </AccordionSummary>
-        <AccordionDetails>
+        <ExperienceModal open={openExperienceModal} setOpen={setOpenExperienceModal} />
+        
+        <AccordionDetails className={classes.AccordionDetails}>
+        <div className={classes.editContainer} >
+          <FiEdit2 className={classes.icon} onClick={handleOpenExperienceModal}/>
+          </div>
           <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
-            diam eros in elit. Pellentesque convallis laoreet laoreet.
+          { experienceData}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -114,14 +137,15 @@ export default function ControlledAccordions() {
           id="panel3bh-header"
         >
           <Typography className={classes.heading}>Education</Typography>
-          <Typography className={classes.secondaryHeading}>
-            You are currently have no education added
-          </Typography>
+        
         </AccordionSummary>
-        <AccordionDetails>
+        <EducationModal open={openEducationModal} setOpen={setOpenEducationModal} />
+        <AccordionDetails className={classes.AccordionDetails}>
+        <div className={classes.editContainer} >
+          <FiEdit2 className={classes.icon} onClick={handleOpenEducationModal}/>
+          </div>
           <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-            vitae egestas augue. Duis vel est augue.
+          {educationData}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -132,14 +156,15 @@ export default function ControlledAccordions() {
           id="panel4bh-header"
         >
           <Typography className={classes.heading}>Projects</Typography>
-          <Typography className={classes.secondaryHeading}>
-            You are currently have no projects added
-          </Typography>
+         
         </AccordionSummary>
-        <AccordionDetails>
+        <ProjectModal open={openProjectModal} setOpen={setOpenProjectModal} />
+        <AccordionDetails className={classes.AccordionDetails}>
+        <div className={classes.editContainer} >
+          <FiEdit2 className={classes.icon} onClick={handleOpenProjectModal}/>
+          </div>
           <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-            vitae egestas augue. Duis vel est augue.
+          {projectData}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -150,14 +175,15 @@ export default function ControlledAccordions() {
           id="panel5bh-header"
         >
           <Typography className={classes.heading}>Skills</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Kindly add your skills
-          </Typography>
+          
         </AccordionSummary>
-        <AccordionDetails>
+        <SkillsModal open={openSkillsModal} setOpen={setOpenSkillsModal} />
+        <AccordionDetails className={classes.AccordionDetails}>
+        <div className={classes.editContainer} >
+          <FiEdit2 className={classes.icon} onClick={handleOpenSkillsModal}/>
+          </div>
           <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-            vitae egestas augue. Duis vel est augue.
+          {skillsData}
           </Typography>
         </AccordionDetails>
       </Accordion>

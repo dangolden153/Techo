@@ -4,8 +4,7 @@ import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import {Typography, Avatar} from '@material-ui/core'; 
 import { Cancel } from '@material-ui/icons';
-import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate'; 
-import DeleteIcon from '@material-ui/icons/Delete';
+
 import GlobalContext from '../../context/app-context';
 
 
@@ -146,39 +145,30 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleModal({setOpen,open}) {
   const classes = useStyles();
 
-const {aboutData, setAboutData} = useContext(GlobalContext);
+const { setProjectData} = useContext(GlobalContext);
 
-
-
-
-  // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const [aboutText, setAboutText] = useState('');
+
   const handleChange = (e) => {
     setAboutText(e.target.value);
-    // setAboutData(e.target.value);
   };
 
   const handleSave = () => {
-    // localStorage.setItem('aboutInfo', aboutText);
-    setAboutData(aboutText);
-    setOpen(false);
-    
+
+    setProjectData(aboutText);
+    setOpen(false);    
   };
-
-
 
    const handleCloseAbout = () => {
     setOpen(false);
   };
 
-
-
   const body = (
     <div style={modalStyle} className={classes.paper}>
         <div className={classes.modalTop}>
         <Typography variant="h5" className={classes.title}>
-            Edit About
+            Edit Projects
         </Typography>
         <Button onClick={handleCloseAbout}>
             <Cancel className={classes.modalIcon} /> 
@@ -189,7 +179,7 @@ const {aboutData, setAboutData} = useContext(GlobalContext);
           Description
         </Typography>
         <div className={classes.textContainer}>
-        <textarea className={classes.text} value={aboutText} placeholder="Write about yourself" onChange={handleChange}></textarea>
+        <textarea className={classes.text} value={aboutText} placeholder="Tell us about some project you have done" onChange={handleChange}></textarea>
 
         </div>
 

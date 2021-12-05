@@ -41,6 +41,10 @@ const [country, setCountry] = useState([]);
 const [regionData, setRegionData] = useState([]);
 const [googleData, setGoogleData] = useState([]);
 const [aboutData, setAboutData] = useState('');
+const [skillsData, setSkillsData] = useState('');
+const [experienceData, setExperienceData] = useState('');
+const [projectData, setProjectData] = useState('');
+const [educationData, setEducationData] = useState('');
 
 
 
@@ -82,6 +86,15 @@ const [aboutData, setAboutData] = useState('');
     setGoogleData,
     aboutData,
     setAboutData,
+    skillsData,
+    setSkillsData,
+    experienceData,
+    setExperienceData,
+    projectData,
+    setProjectData,
+    educationData,
+    setEducationData,
+    
   }}>
    {/* The below makes the value to be made available for all the children have access to it */}
    {props.children}

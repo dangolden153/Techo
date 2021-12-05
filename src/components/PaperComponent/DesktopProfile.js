@@ -1,10 +1,12 @@
 import React,{useState,useContext} from 'react'
 import useStyles from './profilestyle'
-import {Grid, Typography, Avatar, Divider, Button,Paper } from '@material-ui/core'
-import GroupAvatars from '../Avatar/GroupAvatar';
+import {Grid, Typography, Avatar,  Button,Paper } from '@material-ui/core'
+
 import locationIcon from '../../assets/locationIcon.png'
 import officeIcon from '../../assets/officeIcon.png'
 import studentIcon from '../../assets/studentIcon.png'
+import GlobalContext from '../../context/app-context';
+
 
 import ProfilleImgModal from '../../components/Modal/ProfileImgModal'
 
@@ -12,13 +14,14 @@ import ProfilleImgModal from '../../components/Modal/ProfileImgModal'
 
 
 const DesktopProfile = () => {
+    const {aboutData} = useContext(GlobalContext)
 const [data, setData] = useState(false);
 const dataItem = localStorage.getItem('user');
-const {email,imageUrl,name,} = JSON.parse(dataItem);
+const {userEmail,imageUrl,name,} = JSON.parse(dataItem);
 const [open, setOpen] = useState(false);
 
 let personName = name; 
-let personEmail = email;
+let personEmail = userEmail;
 let personImage = imageUrl; 
 const handleOpen = () => {
     setOpen(true);
@@ -36,7 +39,7 @@ const handleOpen = () => {
             <Grid item className={classes.profileLeft} sm={3}>
 
             <Avatar src={personImage} className={classes.profileAvatar} onClick={handleOpen} />
-            <ProfilleImgModal open={open} handleClose={handleClose}/>
+            <ProfilleImgModal open={open} handleClose={handleClose} setOpen={setOpen}/>
             </Grid>
             <Grid item className={classes.profileRight} sm={9} >
                 <div className={classes.profileDetails}>
@@ -44,7 +47,7 @@ const handleOpen = () => {
                     {personName}
                     </Typography>
                     <Typography variant="body2" className={classes.profileStory} > 
-                    {data ? "This is " : "Kindly update Your profile in the about session" } 
+                    {aboutData ? `${aboutData}` : "Kindly update Your profile in the about session" } 
 
                     </Typography>
 
@@ -71,18 +74,7 @@ const handleOpen = () => {
 
                         </div>
                     </div>    
-                    {/* <div className={classes.followContainer}>
-                    <GroupAvatars />
-                    <div className={classes.follow}>
-                            <p className={classes.followValue}>
-                                {data? 'number': '42'}
-                            </p>
-                            <p>
-                            Mutual Connections
-                            </p>
-
-                        </div>
-                     </div>    */}
+            
                     
                 </div>
                 

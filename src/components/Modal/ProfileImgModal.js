@@ -80,10 +80,10 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function SimpleModal({handleOpen, handleClose,open}) {
+export default function SimpleModal({handleOpen, handleClose,open,setOpen}) {
   const classes = useStyles();
   const dataItem = localStorage.getItem('user');
-const {email,imageUrl,name,} = JSON.parse(dataItem);
+const {imageUrl,name,} = JSON.parse(dataItem);
 const [prevImg, setPrevImg] = useState(imageUrl);
 
 
@@ -100,9 +100,21 @@ const [prevImg, setPrevImg] = useState(imageUrl);
   const data = new FormData();
   data.append('image', files[0]);
   // axios.post('/api/users/upload', data)
+  localStorage.setItem('user', JSON.stringify({
+    imageUrl: prevImg,  
+
+  }));
 
 
  }
+ const handleImageSave = () => {
+  localStorage.setItem('user', JSON.stringify({
+    imageUrl: prevImg,
+
+  }));
+  setOpen(false);
+
+  }
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
@@ -124,6 +136,11 @@ const [prevImg, setPrevImg] = useState(imageUrl);
           <input type="file" id="file" name="file" accept="image/*" className={classes.imgUpload} onChange={handleImgUpload} />
             < AddPhotoAlternateIcon className={classes.imgUploadIcon} /> 
         </Button>
+        <Button onClick={handleImageSave} variant="contained" color="primary">
+        save
+        </Button>
+
+
         <Button >
             < DeleteIcon className={classes.modalIcon} /> 
         </Button>
@@ -149,3 +166,4 @@ const [prevImg, setPrevImg] = useState(imageUrl);
     </div>
   );
 }
+
