@@ -10,6 +10,18 @@ container:{
     width:'95%',
     margin:'auto',
     marginTop:'3rem',
+    [theme.breakpoints.down('sm')]: {
+        width:'100%',
+        margin:'0',
+        padding:'0',
+        marginTop:'0',
+        backgroundColor:'transparent',
+        boxShadow:'none',
+        borderRadius:'0',
+        border:'none',
+
+
+    },
 
 
 },
@@ -114,6 +126,13 @@ padding:'1.5rem',
 borderRadius:'25px',
 border:'1px solid #100e86',
 marginTop:'2.2rem',
+[theme.breakpoints.down('sm')] :{
+    // padding:'1rem 1rem 2rem',
+    width:'90%',
+    margin:'1rem auto',
+    
+
+},
 },
 sContainer:{
     display:'flex',
@@ -121,8 +140,9 @@ sContainer:{
     flexWrap:'wrap',
     [theme.breakpoints.down('sm')]:{
         display:'flex',
-        flexDirection:'row',
+        flexDirection:'column',
         flexWrap:'wrap',
+        width:'95%',
 
     }
 },

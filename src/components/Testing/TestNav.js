@@ -4,17 +4,26 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 
+
 import MenuIcon from '@material-ui/icons/Menu';
 import HomeSidebar from '../Sidebar/HomeSidebar';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   list: {
     width: 250,
+    [theme.breakpoints.down('sm')]:{
+      width: 300,
+      overflowX: 'hidden',
+    },
   },
   fullList: {
     width: 'auto',
   },
-});
+
+
+
+
+}));
 
 export default function TemporaryDrawer() {
   const classes = useStyles();
@@ -43,7 +52,7 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       
-      <HomeSidebar />
+      <HomeSidebar  />
     </div>
   );
 

@@ -14,6 +14,7 @@ export default makeStyles((theme) => ({
         backgroundColor:'#ffffff',
         [theme.breakpoints.down('sm')]:{
             padding: '1rem',
+            width:'100%',
         }
        },
      
@@ -32,6 +33,10 @@ export default makeStyles((theme) => ({
        navImg:{
            width:'40px',
            height:'auto',
+            [theme.breakpoints.down('sm')]:{
+                width:'30px',
+                height:'auto',
+            },
 
        },
        search:{

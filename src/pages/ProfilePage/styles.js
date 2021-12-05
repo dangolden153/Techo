@@ -4,10 +4,26 @@ import { makeStyles,alpha } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   
+    mobileContainer:{
+        width:'100%',
+        height:'auto',
+        overflowX:'hidden',
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
+        
+
+    },
 root:{
     width:'100%',
     height:'auto',
     backgroundColor:'#f5f6ff',
+    [theme.breakpoints.down('sm')]: {
+        height:'auto',
+        overflowX:'hidden',
+    },
+    
 
 },
 
@@ -20,6 +36,9 @@ container:{
     margin:'auto',
   [theme.breakpoints.down('sm')]:{
       width:'100%',
+        marginTop:'2rem',
+        overflowX:'hidden',
+        // padding:'0',
 
   }
 },

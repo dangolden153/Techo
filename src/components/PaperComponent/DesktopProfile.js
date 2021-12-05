@@ -33,7 +33,7 @@ const handleOpen = () => {
 
     const classes = useStyles();
     return (
-        <Paper className={classes.root} elevation={1} >
+        <Paper className={classes.root} elevation={0} >
    
             <Grid container className={classes.profileSection}>
             <Grid item className={classes.profileLeft} sm={3}>

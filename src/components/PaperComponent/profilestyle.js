@@ -10,6 +10,13 @@ export default makeStyles((theme) => ({
       margin:'auto',
      paddingBottom:'1rem',
      padding:'4rem 1rem',
+     [theme.breakpoints.down('sm')]: {
+        padding:'2rem 1rem',
+     
+        marginTop:'2rem',
+
+
+     },
 
   },
 
@@ -17,6 +24,12 @@ export default makeStyles((theme) => ({
     padding:'0rem 1rem 2rem',
     width:'100%',
     marginTop:'1rem',
+    [theme.breakpoints.down('sm')]: {
+        padding:'0rem 1rem 2rem',
+        width:'100%',
+        marginTop:'0rem',
+        paddingBottom:'1rem',
+    },  
   },
 background:{
 width:'100%',
