@@ -1,18 +1,18 @@
-import React,{useContext,useEffect} from 'react'
+import React,{useContext,useEffect,useState} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import AppContext from '../../context/app-context'
 import { Grid } from '@material-ui/core'
 
 import useStyles from './styles'
 
-import CheckboxSelect from '../../components/SelectComponent/CheckboxSelect'
-import CategoryCheckbox from '../../components/SelectComponent/CategoryCheckbox'
+
 import MediaCard from '../../components/MediaCard/MediaCard'
 import ProfilePaper from '../../components/PaperComponent/ProfilePaper'
 import AskQuestionPaper from '../../components/PaperComponent/AskQuestionPaper'
 import PostCard from '../../components/PostCard/PostCard'
 import ProfileSummary from '../../components/PaperComponent/ProfileSummary'
 
+import TagsPaper from '../../components/PaperComponent/TagsPaper'
 
 
 
@@ -24,28 +24,22 @@ const HomePage = () => {
 }, [])
     const {home, setHome} =  useContext(AppContext);
     const classes = useStyles();
+    const [profileShow, setProfileShow] = useState(false);
     
     return (
         <>
         <div className={classes.root}>
 
-      
-        <Navbar />
+        <Navbar setProfileShow={setProfileShow} profileShow={profileShow} />
         <Grid  className={classes.container} container>
-            {/* <HomeSidebar /> */}
-        {/* <LinkSidebar variant="temporary" anchor="left"  /> */}
+           
             
             <Grid item xs={0} md={3} className={classes.left}>
             <div className={classes.profileSection}>
 
                 <ProfileSummary />
                 </div>
-                <div className={classes.selectContainer}>
-                <CheckboxSelect />
-                <hr />
-                <CategoryCheckbox />
-                </div>
-       
+         
         </Grid>
         <Grid item xs={12} md={6} className={classes.center} >
             
@@ -61,8 +55,8 @@ const HomePage = () => {
             <MediaCard />
         </Grid>
         <Grid item xs={0} md={3} className={classes.right} >
+           {profileShow ? <ProfilePaper /> : <TagsPaper />}
            
-           <ProfilePaper  />
         </Grid>
       
 

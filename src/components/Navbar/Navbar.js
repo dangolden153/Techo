@@ -14,13 +14,15 @@ import {BsYoutube} from 'react-icons/bs'
 
 
 
-const Navbar = () => {
+const Navbar = ({setProfileShow, profileShow}) => {
     const {home, setHome,setOpenSidebar,openSidebar,open,setOpen} =  useContext(AppContext);
   const [activeBtn, setActiveBtn] = useState(true);
   const data = localStorage.getItem('user');
   const {userEmail,imageUrl,name,} = JSON.parse(data);
 
- 
+ const handleProfile = () => {
+  setProfileShow(!profileShow)
+ }
 const handleSidebar = () => {
   setOpen(!open);
 }
@@ -66,7 +68,7 @@ const handleSidebar = () => {
     <Badge badgeContent={4} color="secondary" className={classes.barge} >
     <Notifications  />
     </Badge>
-    <Avatar src={imageUrl} alt={name} component={Link} to='/profile' />
+    <Avatar src={imageUrl} alt={name} onClick={handleProfile} />
        <Button className={classes.askBtn } component={Link} to="/ask">
                 Ask Question
           </Button> 
