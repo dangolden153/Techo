@@ -7,7 +7,7 @@ import appContext from '../../context/app-context';
 const GoogleAuth = () => {
     const history = useHistory();
     const {setGoogleData} = useContext(appContext);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    
     const [showLoginButton, setShowLoginButton] = useState(true);
     const [showLogoutButton, setShowLogoutButton] = useState(false);
     const clientId = "294593151688-664n87nepifpao2ftnfknlb5ek60eha5.apps.googleusercontent.com";

@@ -38,6 +38,10 @@ const useStyles = makeStyles(theme => ({
         width: '50px',
         height: '50px',
         margin: '1rem',
+        [theme.breakpoints.down('sm')]:{
+            width:'45px',
+            height:'45px',
+        },
 
     },
     profileList: {

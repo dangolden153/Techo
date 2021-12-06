@@ -13,11 +13,11 @@ import useStyles from './styles'
 const TagsPaper = () => {
     
     const data = localStorage.getItem('user');
-    const {userEmail,imageUrl,name,} = JSON.parse(data);
+    const {imageUrl,name,} = JSON.parse(data);
     let personName = name; 
-    let personEmail = userEmail;
+    
     let personImage = imageUrl; 
-    // const {email, first_name, last_name} = userData;
+    
 
 const classes = useStyles();
     return (
@@ -28,7 +28,7 @@ const classes = useStyles();
 
           <Avatar src={personImage} alt="profile pick" className={classes.profileImg} />
             <Typography variant="h6" >
-                {/* {last_name +" " + first_name } */}
+                
                 {personName}
             </Typography>
           </div>

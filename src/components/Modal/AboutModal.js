@@ -2,10 +2,9 @@ import React,{useState, useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
-import {Typography, Avatar} from '@material-ui/core'; 
+import {Typography} from '@material-ui/core'; 
 import { Cancel } from '@material-ui/icons';
-import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate'; 
-import DeleteIcon from '@material-ui/icons/Delete';
+
 import GlobalContext from '../../context/app-context';
 
 
@@ -21,7 +20,7 @@ function getModalStyle() {
 
     top: '40%',
     left: '50%',
-    // transform: `translate(-${top}%, -${left}%)`,
+    
     transform: 'translate(-50%, -50%)',
   };
 }
@@ -36,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
     '&::-webkit-scrollbar': {
       width: '0.4em'
     },
-    // backgroundColor: theme.palette.background.paper,
+    
     backgroundColor:'#fff',
     
     boxShadow: theme.shadows[5],
-    // padding: theme.spacing(2, 4, 3),
+    
   },
   modalTop: {
     display:'flex',
@@ -156,7 +155,7 @@ const {aboutData, setAboutData} = useContext(GlobalContext);
   const [aboutText, setAboutText] = useState('');
   const handleChange = (e) => {
     setAboutText(e.target.value);
-    // setAboutData(e.target.value);
+    
   };
 
   const handleSave = () => {

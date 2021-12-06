@@ -1,19 +1,19 @@
-import React,{useContext,useEffect} from 'react'
+import React,{useEffect} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
-import AppContext from '../../context/app-context'
-import {Button, Container, Grid, Typography,Paper } from '@material-ui/core'
+
+import { Grid, Typography,Paper } from '@material-ui/core'
 
 import useStyles from './styles'
-import Sidebar from '../../components/Sidebar/Sidebar'
+
 import CheckboxSelect from '../../components/SelectComponent/CheckboxSelect'
 import CategoryCheckbox from '../../components/SelectComponent/CategoryCheckbox'
-import MediaCard from '../../components/MediaCard/MediaCard'
+
 import ProfilePaper from '../../components/PaperComponent/ProfilePaper'
 import AskQuestionPaper from '../../components/PaperComponent/AskQuestionPaper'
 
 import Tagpaper from '../../components/PaperComponent/Tagpaper'
 import TutorialText from '../../components/CustomText/TutorialText'
-import ReactHtmlParser from 'react-html-parser';
+
 import {postQuestion} from '../../services/PostServices'
 
 
@@ -24,7 +24,7 @@ const AskQuestion = () => {
         window.scroll(0,0)
 }, [])
 const [contentValue, setContentValue] = React.useState('')
-// console.log(ReactHtmlParser(contentValue));
+
 
 const handleQuestionPost = (e) => {
     e.preventDefault()

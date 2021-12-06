@@ -1,14 +1,14 @@
-import React,{useContext} from 'react'
-import { Paper,Avatar, Typography,Chip } from '@material-ui/core';
+import React from 'react'
+import { Paper,Avatar, Typography } from '@material-ui/core';
 import useStyles from './styles';
-import appContext from '../../context/app-context';
+
 
 
 const AskQuestionPaper = () => {
     const classes = useStyles();
-    // const {googleData} = useContext(appContext);
+    
     const data = localStorage.getItem('user');
-    const {userEmail,imageUrl,name,} = JSON.parse(data);
+    const {imageUrl,name,} = JSON.parse(data);
     const photoURL = imageUrl;
     return (
         <>

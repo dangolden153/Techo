@@ -1,6 +1,5 @@
-import React,{useContext,useEffect} from 'react'
-import Navbar from '../../components/Navbar/Navbar'
-import AppContext from '../../context/app-context'
+import React,{useEffect} from 'react'
+
 import { Grid, Typography, } from '@material-ui/core'
 
 import useStyles from './styles'

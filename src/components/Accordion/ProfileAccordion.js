@@ -5,7 +5,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import {BiEditAlt} from 'react-icons/bi';
+
 import { FiEdit2 } from 'react-icons/fi';
 import AboutModal from '../Modal/AboutModal';
 import  SkillsModal  from '../Modal/SkillsModal';
@@ -62,8 +62,7 @@ export default function ControlledAccordions() {
   const [openSkillsModal, setOpenSkillsModal] = useState(false);
   const [openProjectModal, setOpenProjectModal] = useState(false);
 
-  // const aboutInfo = localStorage.getItem('aboutInfo');
-  // const abt = JSON.parse(aboutInfo);
+  
 
   const handleOpenAboutModal = () => {
     setOpenAboutModal(true);

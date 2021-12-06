@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React from 'react'
 import useStyles from './styles'
 import { Grid, Typography, Button } from '@material-ui/core'
 import svg from '../../assets/successful.png'
@@ -6,10 +6,10 @@ import svg from '../../assets/successful.png'
 import {Link} from 'react-router-dom'
 
 
-import AppContext from '../../context/app-context';
+
 
 const ResetSuccessful = () => {
-    // const {forgetEmail, setForgetEmail} =  useContext(AppContext);
+    
     
     const classes = useStyles();
     return (

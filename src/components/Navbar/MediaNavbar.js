@@ -1,10 +1,10 @@
-import React,{useState, useContext,useEffect} from 'react'
+import React,{useState, useContext} from 'react'
 import useStyles from './styles'
-import { Button, makeStyles,AppBar, Toolbar, Typography, InputBase, alpha, Badge, Avatar } from '@material-ui/core'
-import { Search, Mail, Notifications,Cancel } from '@material-ui/icons';
+import { Button, AppBar, Toolbar, Typography, InputBase,  Badge, Avatar } from '@material-ui/core'
+import { Search,  Notifications,Cancel } from '@material-ui/icons';
 import logo from '../../assets/bluelogo.png'
 import AppContext from '../../context/app-context'
-import {useHistory,Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import TestNav from '../Testing/TestNav'
 import {FaHome} from 'react-icons/fa'
 import {BsYoutube} from 'react-icons/bs'
@@ -14,12 +14,12 @@ import {BsYoutube} from 'react-icons/bs'
 
 
 const MediaNavbar = () => {
-    const {home, setHome,setOpenSidebar,openSidebar} =  useContext(AppContext);
+    const {setOpenSidebar,openSidebar} =  useContext(AppContext);
 
   const [open,setOpen] = useState(false);
   const [activeBtn, setActiveBtn] = useState(false);
   const data = localStorage.getItem('user');
-    const {userEmail,imageUrl,name,} = JSON.parse(data);
+    const {imageUrl,name,} = JSON.parse(data);
 
     const classes = useStyles({open,activeBtn});
 
@@ -27,7 +27,7 @@ const MediaNavbar = () => {
     return (
         <AppBar>
             <Toolbar className={classes.toolbar} >
-            <img  src={logo}  className={classes.navImg} alt="nav image" onClick={() => setOpenSidebar(!openSidebar)}   />
+            <img  src={logo}  className={classes.navImg} alt="nav" onClick={() => setOpenSidebar(!openSidebar)}   />
             <div className={classes.search}>
               <Search className={classes.searcher} />
  

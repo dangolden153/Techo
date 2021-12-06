@@ -1,9 +1,7 @@
 import React,{useContext} from 'react'
 import useStyles from './styles' 
 import AppContext from '../../context/app-context';
-import MediaSelect from '../SelectComponent/MediaSelect'
-import CheckboxSelect from '../SelectComponent/CheckboxSelect';
-import CategoryCheckbox from '../SelectComponent/CategoryCheckbox';
+
 import  {Link} from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 import tagIcon from '../../assets/tagIcon1.png'

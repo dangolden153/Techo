@@ -15,7 +15,7 @@ import ProfilleImgModal from '../../components/Modal/ProfileImgModal'
 
 const DesktopProfile = () => {
     const {aboutData} = useContext(GlobalContext)
-const [data, setData] = useState(false);
+const data = false;
 const dataItem = localStorage.getItem('user');
 const {userEmail,imageUrl,name,} = JSON.parse(dataItem);
 const [open, setOpen] = useState(false);
