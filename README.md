@@ -1,2 +1,2 @@
-# Techo
+# Techno
  codes
