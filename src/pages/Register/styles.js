@@ -168,7 +168,37 @@ export default makeStyles((theme) => ({
           flexDirection:'column'
         }
       },
-
+      locationFamily:{
+        display:'flex',
+        justifyContent:'space-between',
+        padding:'0.25rem',
+        width:'100%', 
+        marginBottom:'1rem',
+        [theme.breakpoints.down('sm')]:{
+          flexDirection:'column'
+        }
+      },
+      location:{
+        width:'100%',
+        
+        border:'none',
+        outline:'none',
+        backgroundColor:'#ffffff',
+        },
+        locationContainer:{
+        
+        borderRadius:'5px',
+        padding:'1rem',
+        width:'40%',
+        display:'flex',
+        backgroundColor:'#fff',
+        },
+        locationIcon:{
+        width:'20px',
+        height:'auto',
+        marginright: '1rem',
+        },
+        
 
 
 

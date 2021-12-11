@@ -31,6 +31,28 @@ const [loginValues, setLoginValues] = useState(loginData);
 const [forgetEmail, setForgetEmail] = useState('');
 const [resetPin, setResetPin] = useState('');
 const [resetPassword, setResetPassword] = useState(resetPasswordData);
+const [home, setHome] = useState(true);
+const [login, setLogin] = useState(false);
+const [auth, setAuth] = useState('');
+const [openSidebar, setOpenSidebar] = useState(true);
+const [open, setOpen] = useState(false);
+const [userData, setUserData] = useState([]);
+const [country, setCountry] = useState([]);
+const [regionData, setRegionData] = useState([]);
+const [googleData, setGoogleData] = useState([]);
+const [aboutData, setAboutData] = useState('');
+const [skillsData, setSkillsData] = useState('');
+const [experienceData, setExperienceData] = useState('');
+const [projectData, setProjectData] = useState('');
+const [educationData, setEducationData] = useState('');
+
+
+
+
+
+
+
+
 
 
  return (
@@ -46,8 +68,33 @@ const [resetPassword, setResetPassword] = useState(resetPasswordData);
    resetPin,
    resetPassword,
    setResetPassword,
-
-
+   home, 
+   setHome,
+   auth,
+   setAuth,
+   openSidebar,
+   setOpenSidebar,
+   setOpen,
+   open,
+   userData,
+   setUserData,
+   country,
+   setCountry,
+    setRegionData,
+    regionData,
+    googleData,
+    setGoogleData,
+    aboutData,
+    setAboutData,
+    skillsData,
+    setSkillsData,
+    experienceData,
+    setExperienceData,
+    projectData,
+    setProjectData,
+    educationData,
+    setEducationData,
+    
   }}>
    {/* The below makes the value to be made available for all the children have access to it */}
    {props.children}

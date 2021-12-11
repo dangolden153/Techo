@@ -1,23 +1,55 @@
-import React,{useState,useEffect,useContext} from 'react'
+import React,{useState,useContext} from 'react'
 import useStyles from './styles'
-import { Grid, Typography, Button, Container, CssBaseline } from '@material-ui/core'
+import { Grid, Typography, Button } from '@material-ui/core'
 import svg from '../../assets/transparent1.png'
 import linkedin from '../../assets/linkedin.jpg';
 import google from '../../assets/google.jpg'
-import {Link} from 'react-router-dom'
+import {Link,useHistory} from 'react-router-dom'
 import TextInput from '../../components/Input/TextInput';
 import AppContext from '../../context/app-context'
 import PasswordInput from '../../components/Input/PasswordInput';
+import { userRegister } from '../../services/PostServices'
+
+
 
 
 
 const Register = () => {
-    const {values, setValues} =  useContext(AppContext);
+    const {values, setUserData} =  useContext(AppContext);
+  
+
+
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(values);
-   }
+    const history = useHistory();
+const handleRegister = async (e) => {  //login function    
+    e.preventDefault();
+    const {email,password1,password2, first_name, last_name,phone} = values;   //get values from context
+    const item = {
+        "first_name":first_name,
+        "last_name":last_name,
+        "email":email,
+        "password1":password1,
+        "password2":password2,
+        "phone":phone,
+        "country":2,
+        "region":2,
+    };
+
+    const response = await userRegister(item); 
+    console.log(response)
+    console.log(response.data.user)
+    if(response.status === 200){
+        localStorage.setItem('token',response.data.access_token);
+        localStorage.setItem('refreshToken',response.data.refresh_token);
+            setUserData(response.data.user);
+        history.push('/home'); //redirect to dashboard page if login is successful 
+    } else { 
+        alert('Invalid email or password');
+        history.push('/register'); //redirect to login page if login is unsuccessful
+        
+    }   //if login is unsuccessful, alert user with error message 
+
+}  
 
     const classes = useStyles();
     return (
@@ -29,7 +61,10 @@ const Register = () => {
                     </Grid>
                     <Grid item xs={12} sm={6} className={classes.center}>
                     <div className={classes.loginButton}>
-                            <Button component={Link} to="/register" className={classes.registerBtn} >
+                            <Button 
+                            
+                    component={Link} to="/register"
+                            className={classes.registerBtn} >
                                     REGISTER
                             </Button>
                             <Button component={Link} to="/login" className={classes.loginBtn} >
@@ -75,9 +110,10 @@ const Register = () => {
                             <div >
                            <PasswordInput  name="password2" placeholder="Confirm Password" size="small" />
                             </div>
-                         
-
-                            <Button  className={classes.mainRegBtn} onClick={handleSubmit} >
+                            <Button  className={classes.mainRegBtn}
+                             onClick={handleRegister}
+                            // component={Link} to="/home"
+                             >
                             REGISTER
                             </Button>
                             <div className={classes.forgetContainer}>
@@ -89,9 +125,6 @@ const Register = () => {
                             </Typography>
 
                                </div> 
-
-
-
                             </div>
                     </div>
                     </Grid>

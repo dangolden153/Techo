@@ -1,0 +1,1 @@
+Here is the sidebar with its stylying You can create your own if you want to but the logic is set already for you just a little tweek will do .. 

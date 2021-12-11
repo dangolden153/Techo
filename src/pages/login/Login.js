@@ -1,21 +1,57 @@
-import React,{useState,useContext} from 'react'
+import React,{useContext,useEffect} from 'react'
 import useStyles from './styles'
-import { Grid, Typography, Button, Container, CssBaseline } from '@material-ui/core'
+import { Grid, Typography, Button} from '@material-ui/core'
 import svg from '../../assets/signupsvg.jpg'
 import linkedin from '../../assets/linkedin.jpg';
-import google from '../../assets/google.jpg'
-import {Link} from 'react-router-dom'
+
+import {Link,useHistory} from 'react-router-dom'
 import LoginInput from '../../components/Input/LoginInput';
-import PasswordInput from '../../components/Input/PasswordInput';
+
 import AppContext from '../../context/app-context';
 import LoginPasswordInput from '../../components/Input/LoginPasswordInput';
+import { userLogin } from '../../services/PostServices'
+import GoogleLogin from './GoogleLogin';
+import logo from '../../assets/bluelogo.png'
+
 const Login = () => {
-    const {loginValues, setLoginValues} =  useContext(AppContext);
+    const {loginValues, setUserData } =  useContext(AppContext);
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(loginValues);
-   }
+    const history = useHistory();
+
+    useEffect(() => {
+        window.scroll(0,0)
+}, [])
+
+   const handleLogin = async (e) => {  //login function    
+    e.preventDefault();
+    
+ 
+    
+    const {email,password} = loginValues;   //get values from context
+
+    const item = {"email":email,"password":password};
+    try {
+        const response = await userLogin(item); 
+      
+        if(response.status === 200){
+            localStorage.setItem('token',response.data.access_token);
+            localStorage.setItem('refreshToken',response.data.refresh_token);
+                setUserData(response.data.user);
+                localStorage.setItem('user', JSON.stringify(response.data.user));
+                const{first_name,last_name,email,id} = response.data.user;
+
+                const name= first_name + " " + last_name;
+                const userEmail= email;
+              const   imageUrl= logo;
+                localStorage.setItem('user', JSON.stringify({name, userEmail, imageUrl})); 
+
+            history.push('/home'); //redirect to dashboard page if login is successful 
+        } 
+    }
+    catch (error) {
+        console.log(error);
+    }
+}      
     const classes = useStyles();
     return (
         <>
@@ -38,12 +74,13 @@ const Login = () => {
                             with your social account
                         </Typography>
                         <div className={classes.socialContainer}>
-                                    <Link to="/google">
+                                    {/* <Link to="/google">
                                     <img alt="google" src={google} className={classes.socialIcon} />
-                                    </Link>
+                                    </Link> */}
                                     <Link to="/linkedin">
                                     <img alt="google" src={linkedin} className={classes.socialIcon} />
                                     </Link>
+                                    <GoogleLogin  /> 
                             </div>
                             <Typography variant="h4" className={classes.create}>
                             Login to your account
@@ -60,7 +97,11 @@ const Login = () => {
                           
                            
 
-                            <Button  className={classes.mainRegBtn} onClick={handleSubmit} >
+                            <Button  className={classes.mainRegBtn} 
+                            onClick={handleLogin}
+                            component={Link} to="/home"
+                            
+                            >
                             Login
                             </Button>
                             <div className={classes.forgetContainer}>
