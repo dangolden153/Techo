@@ -1,6 +1,6 @@
 {
-  "name": "Techsemester",
-  "homepage": "https://techsemester.netlify.app",
+  "name": "techsemester",
+  "homepage": "https://daniekeysnewsfeed.netlify.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
