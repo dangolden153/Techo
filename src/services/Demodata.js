@@ -1,14 +1,14 @@
-export const HomePosts = [
+ const HomePosts = [
     {
         id: 1,
         title: 'Welcome to the Docs',
-        content_image:'https://picsum.photos/id/1018/5616/3744',
+        content_image:'https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
         content: 'The Docs are a great place to get started, with a focus on API usage, components, and code examples.' ,
         date: '20 July, 2019',
-        like_Number: 0,
-        comment_Number: 0,
+        like_Number: 10,
+        comment_Number: 4,
         share_Number: 0,
-        userImage: 'https://picsum.photos/id/1018/5616/3744',
+        userImage: 'https://media.istockphoto.com/photos/learn-to-love-yourself-first-picture-id1291208214?b=1&k=20&m=1291208214&s=170667a&w=0&h=sAq9SonSuefj3d4WKy4KzJvUiLERXge9VgZO-oqKUOo=',
         userName: 'John Doe',
         userId: 1,
         userEmail: 'starlordflash@gmail.com',
@@ -17,7 +17,7 @@ export const HomePosts = [
         comments: [
             {
                 user_id: 1,
-                userImage: 'https://picsum.photos/id/1018/5616/3744',
+                userImage: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
                 userName: 'John Doe',
                 userId: 1,
                 userEmail: 'samuel joe',
@@ -28,7 +28,7 @@ export const HomePosts = [
             },
             {
                 user_id: 2,
-                userImage: 'https://picsum.photos/id/1018/5616/3744',
+                userImage: 'https://images.unsplash.com/photo-1530695440407-21fef47230b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGh1bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
                 userName: 'John Doe',
                 userId: 1,
                 userEmail: 'samuel joe',
@@ -39,7 +39,7 @@ export const HomePosts = [
             },
             {
                 user_id: 3,
-                userImage: 'https://picsum.photos/id/1018/5616/3744',
+                userImage: 'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8aHVtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
                 userName: 'John Doe',
                 userId: 1,
                 userEmail: 'samuel joe',
@@ -276,3 +276,4 @@ export const HomePosts = [
 
 
 ];
+export default  HomePosts;

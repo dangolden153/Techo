@@ -18,6 +18,8 @@ import Profile from './pages/ProfilePage/Profile'
 import Error from './pages/ErrorPage/Error'
 import AskQuestion from './pages/AskQuestion/AskQuestion';
 
+import CommentPage from './pages/CommentPage/Comment'
+
 
 
 
@@ -40,6 +42,7 @@ const App = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/form" component={Forming} />
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/comment" component={CommentPage} />
         <Route exact path="/ask" component={AskQuestion} />
         
         {/* <Route path="/cocktail/:id">

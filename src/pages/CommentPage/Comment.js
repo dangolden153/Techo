@@ -1,0 +1,66 @@
+import React,{useEffect, useState} from 'react'
+import { Grid } from '@material-ui/core'
+
+import useStyles from './styles'
+import MediaNavbar from '../../components/Navbar/MediaNavbar'
+import ProfileSummary from '../../components/PaperComponent/ProfileSummary'
+import TagsPaper from '../../components/PaperComponent/TagsPaper' 
+import SinglePostCard from '../../components/PostInfo/SinglePostCard'
+import CheckboxSelect from '../../components/SelectComponent/CheckboxSelect'
+import CategoryCheckbox from '../../components/SelectComponent/CategoryCheckbox'
+import Demodata from '../../services/Demodata'
+
+
+const CommentPage = () => {
+    const [dataId, setDataId] = useState(0);
+
+
+
+    useEffect(() => {
+        window.scroll(0,0)
+}, [])
+const classes = useStyles();
+
+const data  = Demodata[dataId];
+
+
+
+    return (
+        <div className={classes.root}>
+
+      
+        <MediaNavbar />
+        <Grid  className={classes.container} container>
+            
+            <Grid item xs={0} md={3} className={classes.left}>
+                <div className={classes.profileSection}>
+                    <ProfileSummary />
+                </div>
+                <div className={classes.selectContainer}>
+                <CheckboxSelect />
+                <hr />
+                <CategoryCheckbox />
+                </div>
+       
+        </Grid>
+        <Grid item xs={12} md={6} className={classes.center} >
+            <SinglePostCard data={data} />
+          
+
+        
+           
+        </Grid>
+        <Grid item xs={0} md={3} className={classes.right} >
+            {/* {home ? <Home /> : <Media />} */}
+           <TagsPaper />
+        </Grid>
+      
+
+        </Grid>
+
+
+        </div>
+    )
+}
+
+export default CommentPage
