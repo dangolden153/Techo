@@ -19,6 +19,7 @@ import Error from './pages/ErrorPage/Error'
 import AskQuestion from './pages/AskQuestion/AskQuestion';
 
 import CommentPage from './pages/CommentPage/Comment'
+import AskQuestionTest from './pages/AskQuestion/AskQuestionTest';
 
 
 
@@ -43,7 +44,10 @@ const App = () => {
         <Route exact path="/form" component={Forming} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/comment" component={CommentPage} />
-        <Route exact path="/ask" component={AskQuestion} />
+        <Route exact path="/askTest" component={AskQuestion} />
+        <Route exact path="/ask" component={AskQuestionTest} /> 
+
+
         
         {/* <Route path="/cocktail/:id">
       <SingleCocktail />

@@ -17,14 +17,26 @@ import colorlike from '../../assets/colorlike.png';
 
 import AskComment from '../Comment/AskComment';
 import PostComment from '../Comment/PostComment';
-
+import {useHistory} from 'react-router-dom';
+import Demodata from '../../services/Demodata'
 
 
 import useStyles from './styles'
 
 
-export default function SimplePostCard({data}) {
-const {title,content_image, content, like_Number,comment_Number, share_Number, userImage, up_vote, down_vote, userName, date, comments} = data;
+export default function SimplePostCard(
+  {data, rootId}) {
+
+const {content_image, content, like_Number,comment_Number, share_Number, userImage, up_vote, down_vote, userName, date, comments} = data;
+  let rootValue = rootId;
+  const history = useHistory();
+  
+
+  const handleClick = () => {
+    // history.push(`/comment/${rootId}`);
+    console.log('boy')
+  }
+
 
   const classes = useStyles();
   let likeNo = "230.";
@@ -35,7 +47,7 @@ const {title,content_image, content, like_Number,comment_Number, share_Number, u
     setOpenComment(!openComment);
   };
   return (
-    <Card className={classes.root} >
+    <Card className={classes.root} onClick={handleClick} >
       <CardActionArea>
         <CardContent>
             <div className={classes.cardHead}>

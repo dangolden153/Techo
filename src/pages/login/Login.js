@@ -24,9 +24,6 @@ const Login = () => {
 
    const handleLogin = async (e) => {  //login function    
     e.preventDefault();
-    
- 
-    
     const {email,password} = loginValues;   //get values from context
 
     const item = {"email":email,"password":password};
@@ -74,9 +71,7 @@ const Login = () => {
                             with your social account
                         </Typography>
                         <div className={classes.socialContainer}>
-                                    {/* <Link to="/google">
-                                    <img alt="google" src={google} className={classes.socialIcon} />
-                                    </Link> */}
+                                  
                                     <Link to="/linkedin">
                                     <img alt="google" src={linkedin} className={classes.socialIcon} />
                                     </Link>
@@ -86,22 +81,15 @@ const Login = () => {
                             Login to your account
                             </Typography>
                             <div className={classes.formSection}>
-                           
-                            
                             <div className={classes.formIt}>
                             <LoginInput placeholder="Email" name="email" label="" type="email" ErrorMessage="" />
                             </div>
                             <div className={classes.formI}>
                             <LoginPasswordInput placeholder="Password" name="password"   />
                             </div>
-                          
-                           
-
                             <Button  className={classes.mainRegBtn} 
                             onClick={handleLogin}
-                            component={Link} to="/home"
-                            
-                            >
+                            component={Link} to="/home"  >
                             Login
                             </Button>
                             <div className={classes.forgetContainer}>
@@ -111,12 +99,7 @@ const Login = () => {
                             <Typography variant="body2" component={Link} to="/forgetPassword" className={classes.acc}>
                             Forget your password?
                             </Typography>
-
                                </div> 
-
-
-
-
                             </div>
                     </div>
                     </Grid>

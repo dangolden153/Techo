@@ -40,3 +40,7 @@ export const postQuestion = async (info) => {
         return output;
     }
 }
+export const askQuestion = async (data) => {
+    const res =  await axiosInstance.post('api/question/', data)
+    return res;
+}

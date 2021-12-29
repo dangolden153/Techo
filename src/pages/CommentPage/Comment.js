@@ -9,10 +9,20 @@ import SinglePostCard from '../../components/PostInfo/SinglePostCard'
 import CheckboxSelect from '../../components/SelectComponent/CheckboxSelect'
 import CategoryCheckbox from '../../components/SelectComponent/CategoryCheckbox'
 import Demodata from '../../services/Demodata'
-
+import {useParams, useLocation, useHistory} from 'react-router-dom' ;
+ 
 
 const CommentPage = () => {
+    
+    
     const [dataId, setDataId] = useState(0);
+
+    const {id} = useParams();
+    const location = useLocation();
+    const history = useHistory();
+
+    
+    
 
 
 
@@ -20,6 +30,8 @@ const CommentPage = () => {
         window.scroll(0,0)
 }, [])
 const classes = useStyles();
+
+setDataId(id);
 
 const data  = Demodata[dataId];
 

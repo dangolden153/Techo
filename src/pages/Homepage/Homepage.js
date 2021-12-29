@@ -4,7 +4,7 @@ import AppContext from '../../context/app-context'
 import { Grid } from '@material-ui/core'
 
 import useStyles from './styles'
-
+import SinglePostCard from '../../components/PostInfo/SinglePostCard'
 
 import MediaCard from '../../components/MediaCard/MediaCard'
 import ProfilePaper from '../../components/PaperComponent/ProfilePaper'
@@ -13,6 +13,9 @@ import PostCard from '../../components/PostCard/PostCard'
 import ProfileSummary from '../../components/PaperComponent/ProfileSummary'
 
 import TagsPaper from '../../components/PaperComponent/TagsPaper'
+
+import Demodata from '../../services/Demodata'
+
 
 
 
@@ -34,7 +37,7 @@ const HomePage = () => {
         <Grid  className={classes.container} container>
            
             
-            <Grid item xs={0} md={3} className={classes.left}>
+            <Grid item  md={3} className={classes.left}>
             <div className={classes.profileSection}>
 
                 <ProfileSummary />
@@ -44,9 +47,19 @@ const HomePage = () => {
         <Grid item xs={12} md={6} className={classes.center} >
             
         <AskQuestionPaper />
+
+        {/* {Demodata.map((data, index) => {
+            return <SinglePostCard data={data} key={index} rootId={index} />
+        })
+        } */}
+
+
+        
             <PostCard imageLink="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
 
-            
+
+
+
             <PostCard imageLink="https://images.unsplash.com/photo-1633113088983-12fb3b2fe0ac?ixid=MnwxMjA3fDF8MHxzZWFyY2h8OHx8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
             <PostCard imageLink="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
             <PostCard imageLink="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHRlY2hub2xvZ3l8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
