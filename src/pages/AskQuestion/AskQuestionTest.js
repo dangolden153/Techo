@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
-import { Grid, Typography,Paper } from '@material-ui/core'
+import { Grid,Paper } from '@material-ui/core'
 import useStyles from './styles'
 import CheckboxSelect from '../../components/SelectComponent/CheckboxSelect'
 import CategoryCheckbox from '../../components/SelectComponent/CategoryCheckbox'
@@ -28,11 +28,13 @@ const AskQuestion = () => {
     const [language, setLanguage] = useState('javascript');
     const [theme, setTheme] = useState('dracula');
     const [showLineNumbers, setShowLineNumbers] = useState(true)
-
-
-
-
+    const [codePreview, setCodePreview] = useState(false);
     const classes = useStyles();
+
+    const handlePreview = (e) => {
+        e.preventDefault();
+        setCodePreview(!codePreview);
+    }
     const handleQuestionPost = (e) => {
         e.preventDefault()
         setLoading(true);
@@ -49,9 +51,8 @@ const AskQuestion = () => {
             "youtube_url": youtubeUrl,
             "tags": [
                 1
-            ]
+            ]}
 
-        }
        const result =  askQuestion(data)
          result.then(res => {
                 setResponseData(res)
@@ -68,46 +69,33 @@ const AskQuestion = () => {
                 alert('Question Posted Successfully');
 
             }
-        )
-
-
-        
+        )        
     }
 
-    
     return (
         <>
         <div className={classes.root}>
-
-      
         <Navbar />
         <Grid  className={classes.container} container>
-          
-            
             <Grid item xs={0} md={3} className={classes.left}>
                 <div className={classes.selectContainer}>
                 <CheckboxSelect />
                 <hr />
                 <CategoryCheckbox />
                 </div>
-       
         </Grid>
+
         <Grid item xs={12} md={6} className={classes.center} >
             <Paper className={classes.paper}>
-        <AskQuestionPaper />
-      
-                 
-    
-       
-            
+        <AskQuestionPaper />        
         </Paper>
+
         <Grid item>
         <div className="row">
         <div className="row">
             <div className="mb-3 col-md-6">
                 <input type="text" className="form-control" placeholder="Title" 
-                value={title} onChange={(e) => setTitle(e.target.value)}/>
-                
+                value={title} onChange={(e) => setTitle(e.target.value)}/>        
             </div>
             <div className="mb-3 col-md-6">
                 <input type="text" className="form-control" placeholder="URL"
@@ -117,59 +105,48 @@ const AskQuestion = () => {
             <div className="mb-3 col-md-6">
                 <input type="text" className="form-control" placeholder="Image URL" 
                 value={imageUrl} onChange={(e) => setImageUrl(e.target.value)}/>
-                
             </div>
             <div className="mb-3 col-md-6">
                 <input type="text" className="form-control" placeholder="Enter video URL" 
                 value={videoUrl} onChange={(e) => setVideoUrl(e.target.value)}/>
-                
             </div>
             <div className="mb-3 col-md-6">
                 <input type="text" className="form-control" placeholder="Enter youtube URL" 
                 value={youtubeUrl} onChange={(e) => setYoutubeUrl(e.target.value)}/>
-                
             </div>
             <div className="mb-3 col-md-6">
                 <input type="text" className="form-control" placeholder="Enter audio URL" 
                 value={audioUrl} onChange={(e) => setAudioUrl(e.target.value)}/>
-                
             </div>
             <div className="col-md-12 mb-3">
-  <textarea className="form-control" placeholder="place your code here"  style={{height: "100px"}}
-  value={code} onChange={(e) => setCode(e.target.value)}/>
-  
-  
-</div>
+         <textarea className="form-control" placeholder="place your question body here"  style={{height:"100px"}} value={body} onChange={(e) => setBody(e.target.value)}/>
+            </div>
             <div className="col-md-12 mb-3">
-  <textarea className="form-control" placeholder="place your question body here"  style={{height: "100px"}}
-  value={body} onChange={(e) => setBody(e.target.value)}/>
-  
-  
-</div>
+                  <textarea className="form-control" placeholder="place your code here"  style={{height: "100px"}}
+                     value={code} onChange={(e) => setCode(e.target.value)}/>
+                </div>
+                <div className="col-md-12 mb-3 d-flex justify-content-between">
+                {codePreview? <button onClick={handlePreview} className="btn btn-primary px-4"> Hide preview</button> : 
+                <button onClick={handlePreview} className="btn btn-primary px-4"> Show preview</button>
+                }
+                {codePreview &&
+                <button  className="btn btn-primary px-4"> Language</button> }
+                    </div>
             <div className="col-md-12 mb-3">
-          <Codeblock code={code} theme={theme} showLineNumbers={showLineNumbers} language={language} />
+                {codePreview && 
+          <Codeblock code={code} theme={theme} showLineNumbers={showLineNumbers} language={language} /> }
                 </div>
             <div className="col-md-12 mb-3">
                 <button className="btn btn-primary px-5 d-block mx-auto" onClick={handleQuestionPost}>
-                    {loading? 'Posting...' : 'Post'}
-                    
-                    
-                    </button>
-                </div>
-
+                    {loading? 'Posting...' : 'Post Question'} </button>                </div>
             </div>
             </div>
              </Grid>  
         </Grid>
         <Grid item xs={0} md={3} className={classes.right} >
-        
            <ProfilePaper  />
         </Grid>
-      
-
         </Grid>
-
-
         </div>
         </>
     )
