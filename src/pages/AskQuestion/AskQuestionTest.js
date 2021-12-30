@@ -1,19 +1,13 @@
 import React,{useEffect, useState} from 'react'
 import Navbar from '../../components/Navbar/Navbar'
-
 import { Grid, Typography,Paper } from '@material-ui/core'
-
 import useStyles from './styles'
-
 import CheckboxSelect from '../../components/SelectComponent/CheckboxSelect'
 import CategoryCheckbox from '../../components/SelectComponent/CategoryCheckbox'
-
 import ProfilePaper from '../../components/PaperComponent/ProfilePaper'
 import AskQuestionPaper from '../../components/PaperComponent/AskQuestionPaper'
-
-
 import {askQuestion} from '../../services/PostServices'
-
+import Codeblock from '../../components/CodeBlock/Codeblock'
 
 
 
@@ -31,6 +25,10 @@ const AskQuestion = () => {
     const [youtubeUrl, setYoutubeUrl] = useState('')
     const [loading, setLoading] = useState(false)
     const [responseData,setResponseData] = useState('');
+    const [language, setLanguage] = useState('javascript');
+    const [theme, setTheme] = useState('dracula');
+    const [showLineNumbers, setShowLineNumbers] = useState(true)
+
 
 
 
@@ -148,6 +146,9 @@ const AskQuestion = () => {
   
   
 </div>
+            <div className="col-md-12 mb-3">
+          <Codeblock code={code} theme={theme} showLineNumbers={showLineNumbers} language={language} />
+                </div>
             <div className="col-md-12 mb-3">
                 <button className="btn btn-primary px-5 d-block mx-auto" onClick={handleQuestionPost}>
                     {loading? 'Posting...' : 'Post'}

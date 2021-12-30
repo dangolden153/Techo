@@ -46,12 +46,6 @@ const App = () => {
         <Route exact path="/comment" component={CommentPage} />
         <Route exact path="/askTest" component={AskQuestion} />
         <Route exact path="/ask" component={AskQuestionTest} /> 
-
-
-        
-        {/* <Route path="/cocktail/:id">
-      <SingleCocktail />
-      </Route> */}
         <Route path="*">
       <Error />
       </Route>

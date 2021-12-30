@@ -29,30 +29,26 @@ const Login = () => {
     const item = {"email":email,"password":password};
     try {
         const response = await userLogin(item); 
-      
         if(response.status === 200){
             localStorage.setItem('token',response.data.access_token);
             localStorage.setItem('refreshToken',response.data.refresh_token);
                 setUserData(response.data.user);
                 localStorage.setItem('user', JSON.stringify(response.data.user));
                 const{first_name,last_name,email,id} = response.data.user;
-
                 const name= first_name + " " + last_name;
                 const userEmail= email;
               const   imageUrl= logo;
                 localStorage.setItem('user', JSON.stringify({name, userEmail, imageUrl})); 
-
             history.push('/home'); //redirect to dashboard page if login is successful 
         } 
     }
     catch (error) {
-        console.log(error);
+        
     }
 }      
     const classes = useStyles();
     return (
         <>
-    
              <Grid container className={classes.container}  >
                <Grid item xs={12} sm={6} className={classes.svgcenter}>
                             <img src={svg} className={classes.svgImage} alt="techsemester" />
