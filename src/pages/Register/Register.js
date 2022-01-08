@@ -227,11 +227,12 @@ const Register = () => {
                                </div> 
                             </div> */}
 
-            <div>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-y-4  w-full ">
               <input
                 type="text"
                 placeholder="username"
                 value={username}
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2  "
                 onChange={(e) => setUsername(e.target.value)}
               />
 
@@ -239,36 +240,42 @@ const Register = () => {
                 type="text"
                 placeholder="email"
                 value={email}
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="password"
                 value={password1}
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 onChange={(e) => setPassword1(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="Confirm password"
                 value={password2}
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 onChange={(e) => setPassword2(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="country"
                 value={country}
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 onChange={(e) => setCountry(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="state"
                 value={state}
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 onChange={(e) => setState(e.target.value)}
               />
               <input
                 type="first_name"
                 placeholder="first_name"
                 value={first_name}
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 onChange={(e) => setFirst_name(e.target.value)}
               />
               {/* <input
@@ -281,17 +288,20 @@ const Register = () => {
                 type="text"
                 placeholder="last_name"
                 value={last_name}
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 onChange={(e) => setLast_name(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="phone"
                 value={phone}
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 onChange={(e) => setPhone(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="address"
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
               />
@@ -299,29 +309,33 @@ const Register = () => {
                 type="text"
                 placeholder="city"
                 value={city}
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 onChange={(e) => setCity(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="dob"
                 value={dob}
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 onChange={(e) => setDob(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="gender"
                 value={gender}
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 onChange={(e) => setGender(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="education"
+                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
                 value={education}
                 onChange={(e) => setEducation(e.target.value)}
               />
             </div>
 
-            <button style={{cursor:"pointer"}} onClick={handleRegister}>Register</button>
+            <button className="cursor-pointer px-3 py-2 rounded-md bg-blue-600 text-white mt-6" onClick={handleRegister}>Register</button>
           </div>
         </Grid>
       </Grid>
