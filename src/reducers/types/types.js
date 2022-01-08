@@ -1,0 +1,4 @@
+export const type = {
+  CREATE_USER: "CREATE_USER",
+  GET_QUESTIONS:"GET_QUESTIONS"
+};

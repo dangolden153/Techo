@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import LandingPage from './pages/LandingPage/LandingPage'
 import { BrowserRouter as Router, Switch, Route  } from 'react-router-dom'
 
@@ -17,14 +17,24 @@ import TestNav from './components/Testing/Test';
 import Profile from './pages/ProfilePage/Profile'
 import Error from './pages/ErrorPage/Error'
 import AskQuestion from './pages/AskQuestion/AskQuestion';
-
+import {useSelector, useDispatch} from 'react-redux'
 import CommentPage from './pages/CommentPage/Comment'
 import AskQuestionTest from './pages/AskQuestion/AskQuestionTest';
+import { fetchQuestions } from "./reducers/actions/questions";
 
 
 
 
 const App = () => {
+  const dispatch = useDispatch();
+const {getQuestions} = useSelector(state => state.getQuestions)
+
+console.log(`getQuestions`, getQuestions)
+  useEffect(() => {
+    dispatch(fetchQuestions()); 
+    // console.log(`fectQUESTION`)
+  }, [dispatch]);
+
   
   return (
     <AppState>
