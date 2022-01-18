@@ -1,6 +1,13 @@
 import React, { useState, useContext } from "react";
 import useStyles from "./styles";
-import { Grid, Typography, Button } from "@material-ui/core";
+import {
+  Grid,
+  Typography,
+  Button,
+  FormControl,
+  Select,
+  MenuItem,
+} from "@material-ui/core";
 import svg from "../../assets/transparent1.png";
 import linkedin from "../../assets/linkedin.jpg";
 import google from "../../assets/google.jpg";
@@ -9,11 +16,11 @@ import TextInput from "../../components/Input/TextInput";
 import AppContext from "../../context/app-context";
 import PasswordInput from "../../components/Input/PasswordInput";
 import { userRegister } from "../../services/PostServices";
-import axios from "axios";
+import flag from "../../assets/flag.svg";
+import Slider from "../../components/Slider";
+import countryData from "../../Helpers/CountryState.json";
 
 const Register = () => {
-
-    
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password1, setPassword1] = useState("");
@@ -29,132 +36,47 @@ const Register = () => {
   const [gender, setGender] = useState("");
   const [education, setEducation] = useState("");
 
-//   const handleSubmit =  (event) => {
-//     event.preventDefault()
-//     // const url = "http://techsemester.tk/api/users/auth/register/";
-//     const data = {
-//       username,
-//       email,
-//       password1,
-//       password2,
-//       country,
-//       state,
-//       first_name,
-//       last_name,
-//       phone,
-//       address,
-//       city,
-//       dob,
-//       gender,
-//       education,
-//     }
-//     // try {
-//     //     const {data} = await axios.post(url, userData);
-//     //   console.log(`data`, data)
-//     // } catch (error) {
-//     //     console.log(`error`, error)
-//     // }
-
-//     console.log(`datas`, data)
-//     let config = {
-//         method: 'post',
-//         url: 'http://techsemester.tk/api/users/auth/register/',
-//         headers: { 
-//           'Content-Type': 'application/json', 
-//         //   'Cookie': 'sessionid=2b98u3jug5uwl9fo5ypars8eli7ejsti'
-//         },
-//         data : data
-//       };
-      
-//       axios(config)
-//       .then(function (response) {
-//         console.log(JSON.stringify(response.data));
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//       });
-//   };
-
-//   const handleReg =() => {
-//     var myHeaders = new Headers();
-//     myHeaders.append("Content-Type", "application/json");
-//     // myHeaders.append("Cookie", "sessionid=2b98u3jug5uwl9fo5ypars8eli7ejsti");
-    
-
-    
-//     var requestOptions = {
-//       method: 'POST',
-//       headers: myHeaders,
-//       body: raw,
-//       redirect: 'follow'
-//     };
-    
-//     fetch("http://techsemester.tk/api/users/auth/register/", requestOptions)
-//       .then(response => response.text())
-//       .then(result => console.log(result))
-//       .catch(error => console.log('error', error));
-//   }
-
   const { values, setUserData } = useContext(AppContext);
 
   const history = useHistory();
 
-
   const handleRegister = async (e) => {
     //login function
     e.preventDefault();
-    // const { email, password1, password2, first_name, last_name, phone } =
-    //   values; //get values from context
-    // const item = {
-    //   first_name: first_name,
-    //   last_name: last_name,
-    //   email: email,
-    //   password1: password1,
-    //   password2: password2,
-    //   phone: phone,
-    //   country: 2,
-    //   region: 2,
-    // };
 
     const userData = {
-        username,
-        email,
-        password1,
-        password2,
-        country,
-        state,
-        first_name,
-        last_name,
-        phone,
-        address,
-        city,
-        dob,
-        gender,
-        education,
-      }
-      console.log(`userData`, userData)
+      email,
+      password1,
+      password2,
+      first_name,
+      last_name,
+      phone,
+    };
+    console.log(`userData`, userData);
     const response = await userRegister(userData);
     console.log(response);
-    console.log(response.data.user);
-    if (response.status === 200) {
-      localStorage.setItem("token", response.data.access_token);
-      localStorage.setItem("refreshToken", response.data.refresh_token);
-      setUserData(response.data.user);
-    //   history.push("/home"); 
-      //redirect to dashboard page if login is successful
+    console.log(response?.status);
+    if (response?.status === 201) {
+      history.push("/home")
+      setUserData(response?.data?.detail);
     } else {
       alert("Invalid email or password");
-    //   history.push("/register"); 
-      //redirect to login page if login is unsuccessful
-    } //if login is unsuccessful, alert user with error message
+    }
   };
 
   const classes = useStyles();
+
+  // const regions = Object.entries(countryData).map((data) => {
+  //   data[1].regions.map((region) =>
+  //    region.name );
+  // });
+
+  // console.log(`regions`, regions)
   return (
     <>
       <Grid container className={classes.container}>
         <Grid item xs={12} sm={6} className={classes.svgcenter}>
-          <img src={svg} className={classes.svgImage} alt="techsemester" />
+          <Slider />
         </Grid>
         <Grid item xs={12} sm={6} className={classes.center}>
           <div className={classes.loginButton}>
@@ -170,7 +92,7 @@ const Register = () => {
             </Button>
           </div>
           <div className={classes.registrationContainer}>
-            <Typography variant="h6">with your social account</Typography>
+            <p className="text-2xl mt-8 ">Register with your social account</p>
             <div className={classes.socialContainer}>
               <Link to="/google">
                 <img alt="google" src={google} className={classes.socialIcon} />
@@ -186,156 +108,104 @@ const Register = () => {
             <Typography variant="h4" className={classes.create}>
               Create your account
             </Typography>
-            {/* <div className={classes.formSection}>
-                            <div>
-                                <TextInput   placeholder="First Name" name="first_name" label="" type="text" ErrorMessage=""  />
-                            
-                            </div>
-                            <div>
-                                <TextInput   placeholder="Last Name" name="last_name" label="" type="text" ErrorMessage=""  />
-                            
-                            </div>
-                            <div>
-                                <TextInput   placeholder="Email" name="email" label="" type="email" ErrorMessage=""  />
-                            
-                            </div>
-                            <div>
-                                <TextInput   placeholder="Phone number" name="phone" label="" type="tel" ErrorMessage=""  />
-                            
-                            </div>
-                          
-                            <div >
-                           <PasswordInput  name="password1" placeholder="Password" size="small" />
-                            </div>
-                            <div >
-                           <PasswordInput  name="password2" placeholder="Confirm Password" size="small" />
-                            </div>
-                            <Button  className={classes.mainRegBtn}
-                             onClick={handleRegister}
-                            // component={Link} to="/home"
-                             >
-                            REGISTER
-                            </Button>
-                            <div className={classes.forgetContainer}>
-                            <Typography variant="body2" component={Link} to="/login" className={classes.acc}>
-                            Have account already? Login
-                            </Typography>
-                            <Typography variant="body2" component={Link} to="/forgetPassword" className={classes.acc}>
-                            Forget your password?
-                            </Typography>
 
-                               </div> 
-                            </div> */}
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-y-4  w-full ">
+            <div className="flex flex-col w-full ">
               <input
-                type="text"
-                placeholder="username"
-                value={username}
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2  "
-                onChange={(e) => setUsername(e.target.value)}
+                type="first_name"
+                placeholder="First Name"
+                value={first_name}
+                className="  p-3 my-2 rounded-md w-full outline-none "
+                onChange={(e) => setFirst_name(e.target.value)}
               />
 
               <input
                 type="text"
-                placeholder="email"
+                placeholder="Last Name"
+                value={last_name}
+                className="  p-3 my-2 rounded-md w-full outline-none "
+                onChange={(e) => setLast_name(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Email"
                 value={email}
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
+                className="  p-3 my-2 rounded-md w-full outline-none "
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 type="text"
-                placeholder="password"
+                placeholder="Password"
                 value={password1}
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
+                className="  p-3 my-2 rounded-md w-full outline-none "
                 onChange={(e) => setPassword1(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="Confirm password"
                 value={password2}
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
+                className="  p-3 my-2 rounded-md w-full outline-none "
                 onChange={(e) => setPassword2(e.target.value)}
               />
-              <input
+
+<input
                 type="text"
-                placeholder="country"
-                value={country}
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
-                onChange={(e) => setCountry(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="state"
-                value={state}
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
-                onChange={(e) => setState(e.target.value)}
-              />
-              <input
-                type="first_name"
-                placeholder="first_name"
-                value={first_name}
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
-                onChange={(e) => setFirst_name(e.target.value)}
-              />
-              {/* <input
-                type="text"
-                placeholder="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              /> */}
-              <input
-                type="text"
-                placeholder="last_name"
-                value={last_name}
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
-                onChange={(e) => setLast_name(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="phone"
+                placeholder="Phone number"
                 value={phone}
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
+                className="  p-3 my-2 rounded-md w-full outline-none "
                 onChange={(e) => setPhone(e.target.value)}
               />
-              <input
-                type="text"
-                placeholder="address"
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="city"
-                value={city}
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
-                onChange={(e) => setCity(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="dob"
-                value={dob}
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
-                onChange={(e) => setDob(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="gender"
-                value={gender}
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
-                onChange={(e) => setGender(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="education"
-                className="border-2 px-2 py-2 rounded-md w-full sm:w-1/2"
-                value={education}
-                onChange={(e) => setEducation(e.target.value)}
-              />
+
+              {/* <div className="flex w-full items-center  my-2 justify-between">
+                <div
+                  style={{ width: "47%" }}
+                  className="flex items-center overflow-hidden rounded-md justify-between bg-white p-4"
+                >
+                  <img className="w-4 h-4 mr-3 " src={flag} alt="" />
+                  <select className="outline-none  w-10/12 cursor-pointer">
+                    <option>Country</option>
+                    {Object.entries(countryData).map((data, i) => (
+                      <option key={i} value={data[1].countryName}>
+                        {" "}
+                        {data[1].countryName}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div
+                  style={{ width: "47%" }}
+                  className="flex items-center rounded-md justify-between bg-white p-4"
+                >
+                  <select className="outline-none cursor-pointer flex-1">
+                 
+
+                    <option>State</option>
+                    <option>Lagos</option>
+                    <option>Colorado</option>
+                    <option>UK</option>
+                  </select>
+                </div>
+              </div> */}
             </div>
 
-            <button className="cursor-pointer px-3 py-2 rounded-md bg-blue-600 text-white mt-6" onClick={handleRegister}>Register</button>
+            <button
+              className="cursor-pointer text-2xl uppercase  p-3 w-full rounded-md bg-primaryColor hover:bg-darkPrimaryColor text-white mt-6"
+              onClick={handleRegister}
+            >
+              Register
+            </button>
+
+            <div className="flex items-center justify-between my-3">
+              <p className="text-lg text-textPrimary font-semibold">
+                Have account already?{" "}
+                <Link className="text-lg text-primaryColor font-semibold">
+                  Login
+                </Link>
+              </p>
+              <Link className="text-lg text-primaryColor font-semibold">
+                Forgot your password?
+              </Link>
+            </div>
           </div>
         </Grid>
       </Grid>

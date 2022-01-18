@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import LandingPage from './pages/LandingPage/LandingPage'
-import './styles/output.css'
+// import './styles/output.css'
 import { BrowserRouter as Router, Switch, Route  } from 'react-router-dom'
 
 import Login from './pages/login/Login'
@@ -22,26 +22,21 @@ import {useSelector, useDispatch} from 'react-redux'
 import CommentPage from './pages/CommentPage/Comment'
 import AskQuestionTest from './pages/AskQuestion/AskQuestionTest';
 import { fetchQuestions } from "./reducers/actions/questions";
+// import Demo from "./components/demo";
 
 
 
 
 const App = () => {
-  const dispatch = useDispatch();
-const {getQuestions} = useSelector(state => state.getQuestions)
 
-console.log(`getQuestions`, getQuestions)
-  useEffect(() => {
-    dispatch(fetchQuestions()); 
-    // console.log(`fectQUESTION`)
-  }, [dispatch]);
-
-  
+  const access_token = localStorage.getItem('token');
+  console.log(`access_token`, access_token)
   return (
     <AppState>
     <Router>
       <Switch>
-        <Route exact path="/" component={LandingPage} />
+      <Route exact path="/" component={LandingPage} />
+      {/* <Route exact path="/demo" component={Demo} /> */}
         <Route exact path="/forgetPassword" component={ForgetPassword} />
         <Route exact path="/passwordAssitance" component={PasswordAssitance} />
         <Route exact path="/resetPassword" component={ResetPassword} />

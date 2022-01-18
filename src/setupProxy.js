@@ -4,8 +4,8 @@ module.exports = function(app) {
     app.use(
         '/api',
         createProxyMiddleware({
-            target: 'http://techsemester.tk',
+            target: 'https://c-sport.tk',
             changeOrigin: true,
         })
     );
-};
+}; 
