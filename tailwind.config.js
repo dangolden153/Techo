@@ -16,6 +16,7 @@
         lightGray:"#ECECEC",
         googleBlue:"#1784BD",
         darkGoogleBlue:"#0b5881",
+        red:"#ff0000"
       },
        extend: {},
      },

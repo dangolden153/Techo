@@ -25,7 +25,7 @@ import { fetchQuestions } from "./reducers/actions/questions";
 import QuestionPage from "./pages/QuestionPage/QuestionPage";
 import { getUsersDetails } from "./reducers/actions/users";
 import AuthPage from "./pages/AuthPage/AuthPage";
-import Formik from "./pages/formik";
+import FormikInput from "./pages/formik";
 // import Demo from "./components/demo";
 
 
@@ -45,7 +45,7 @@ const dispatch = useDispatch()
       <Switch>
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/auth" component={AuthPage} />
-      <Route exact path="/form" component={Formik} />
+      <Route exact path="/form" component={FormikInput} />
       <Route exact path="/forgetPassword" component={ForgetPassword} />
         <Route exact path="/passwordAssitance" component={PasswordAssitance} />
         <Route exact path="/resetPassword" component={ResetPassword} />
