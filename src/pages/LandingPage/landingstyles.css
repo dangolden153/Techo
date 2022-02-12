@@ -329,11 +329,11 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-  .sectionOne {
+  /* .sectionOne {
     display: flex;
     flex-direction: column-reverse;
     padding-right: 0;
-  }
+  } */
   .landingBody {
     width: 100%;
     padding: 0rem 1rem;

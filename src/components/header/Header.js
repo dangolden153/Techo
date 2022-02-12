@@ -12,15 +12,15 @@ function Header() {
     <div>
       <div className={`bg-cont sectionOne`}>
         <div className="aLeft">
-          <div className={`bg py-4  my-2 rounded-full flex items-center px-10`}>
+          <div className={`bg py-4  my-2 rounded-full flex items-center px-10 `}>
               <img src={star} alt="start" className="w-4 h-4 mr-2" />
             <p className="text-base font-bold text-primaryColor">we accelerate tech talents</p>
           </div>
-          <p className="text-black text-3xl font-bold my-1">
+          <p className="text-black text-3xl font-bold my-1 sm:my-2">
             A learning community for <br/> digital talents
           </p>
-          <p className="text-black text-lg font-bold text-lightBlack mt-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br/> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <p className="text-black text-lg font-bold text-lightBlack mt-4 sm:my-2">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br /> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
         <div className="aRight">

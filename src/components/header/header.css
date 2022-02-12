@@ -25,3 +25,19 @@
 .bg {
   background-color: rgba(0, 180, 215, 0.2);
 }
+
+
+@media screen and (max-width: 800px) {
+  .sectionOne {
+    flex-direction: column-reverse;
+    padding-right: 0;
+  }
+
+  .aLeft {
+    width: 100%;
+  }
+
+  .aRight {
+    width: 100%;
+  }
+}

@@ -2,13 +2,11 @@ import React, { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
-import { Typography, Avatar } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { Cancel } from "@material-ui/icons";
-
-import GlobalContext from "../../context/app-context";
-import { addUserExperience } from "../../reducers/actions/profiles";
 import { useDispatch } from "react-redux";
-
+import GlobalContext from "../../context/app-context";
+import {addUserAwards, addUserExperience} from '../../reducers/actions/profiles'
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -20,7 +18,7 @@ function getModalStyle() {
   return {
     top: "40%",
     left: "50%",
-    // transform: `translate(-${top}%, -${left}%)`,
+
     transform: "translate(-50%, -50%)",
   };
 }
@@ -35,11 +33,10 @@ const useStyles = makeStyles((theme) => ({
     "&::-webkit-scrollbar": {
       width: "0.4em",
     },
-    // backgroundColor: theme.palette.background.paper,
+
     backgroundColor: "#fff",
 
     boxShadow: theme.shadows[5],
-    // padding: theme.spacing(2, 4, 3),
   },
   modalTop: {
     display: "flex",
@@ -134,33 +131,25 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleModal({ setOpen, open }) {
   const [title, setTitle] = useState("");
-  const [image_url, setImage_url] = useState("");
-  const [start_date, setStart_date] = useState("");
-  const [end_date, setEnd_date] = useState("");
-  const [description, setDescription] = useState("");
-
+  const [image_url, setImage_url] = useState("https://getnave.com/blog/wp-content/uploads/2018/01/what-is-project-management-process.png");
+  
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  // const { setProjectData } = useContext(GlobalContext);
-
+  // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
+  const handleChange = (e) => {
+    setTitle(e.target.value);
+  };
 
-  // const handleChange = (e) => {
-  //   setAboutText(e.target.value);
-  // };
-
+ 
   const handleSave = () => {
     const data = {
-      user: 0,
+      user: 13,
       title,
-      image_url,
-      project_start_date: start_date,
-      project_launch_date: end_date,
-      description,
-    };
-
-    dispatch(addUserExperience(data));
+      image_url
+    }
+    dispatch(addUserAwards(data));
     setOpen(false);
   };
 
@@ -172,7 +161,7 @@ export default function SimpleModal({ setOpen, open }) {
     <div style={modalStyle} className={classes.paper}>
       <div className={classes.modalTop}>
         <Typography variant="h5" className={classes.title}>
-          Edit Projects
+          Edit About
         </Typography>
         <Button onClick={handleCloseAbout}>
           <Cancel className={classes.modalIcon} />
@@ -183,9 +172,9 @@ export default function SimpleModal({ setOpen, open }) {
         <div className={classes.textContainer}>
           <textarea
             className={classes.text}
-            // value={aboutText}
-            placeholder="Tell us about some project you have done"
-            // onChange={handleChange}
+            value={title}
+            placeholder="Write about your Awards.."
+            onChange={handleChange}
           ></textarea>
         </div>
       </div>

@@ -16,16 +16,17 @@ import TagsPaper from "../../components/PaperComponent/TagsPaper";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQuestions } from "../../reducers/actions/questions";
+import { getUsersDetails } from "../../reducers/actions/users";
 
 const QuestionFeed = () => {
   const dispatch = useDispatch();
   const { getQuestions } = useSelector((state) => state.getQuestions);
 
-  console.log(`getQuestions`, getQuestions);
-  useEffect(() => {
-    dispatch(fetchQuestions());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getUsersDetails())
+  // },[dispatch])
 
+ 
   console.log(`getQuestions`, getQuestions);
   useEffect(() => {
     window.scroll(0, 0);

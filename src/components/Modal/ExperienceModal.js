@@ -6,6 +6,8 @@ import {Typography} from '@material-ui/core';
 import { Cancel } from '@material-ui/icons';
 
 import GlobalContext from '../../context/app-context';
+import { addUserExperience } from '../../reducers/actions/profiles';
+import { useDispatch } from 'react-redux';
 
 
 function rand() {
@@ -144,6 +146,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleModal({setOpen,open}) {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
 const {setExperienceData} = useContext(GlobalContext);
 
@@ -155,10 +158,14 @@ const {setExperienceData} = useContext(GlobalContext);
   };
 
   const handleSave = () => {
-
-    setExperienceData(aboutText);
-    setOpen(false);    
+    const data = {
+      user: 13,
+      experience:aboutText
+    }
+    dispatch(addUserExperience(data));
+    setOpen(false);
   };
+
 
    const handleCloseAbout = () => {
     setOpen(false);

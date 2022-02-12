@@ -42,10 +42,10 @@ function Slider() {
       >
        { onBoardingSliderData.map((item, index) => (
            <SwiperSlide key={index} >
-           <div className="mb-10 flex flex-col items-center justify-center">
+           <div className="mb-10 flex flex-col  h-full items-center justify-center">
              <img src={item.img} alt={item.heading} className="" />
-             <h2 className="font-bold text-2xl mt-10 mb-4">{item.heading}</h2>
-             <p className="mb-36 text-center w-8/12 text-textPrimary font-semibold text-lg">{item.text_content}</p>
+             <h2 className="font-bold text-2xl mt-14 mb-4 text-white">{item.heading}</h2>
+             <p className="mb-36 text-center w-8/12 text-white font-semibold text-lg">{item.text_content}</p>
            </div>
          </SwiperSlide>
            ))}

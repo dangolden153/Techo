@@ -2,11 +2,12 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   container: {
+    display: "flex",
     width: "100%",
     overflowX: "hidden",
     height: "100vh",
     overflowY: "hidden",
-    
+
     // paddingTop:'0rem',
     [theme.breakpoints.down("sm")]: {
       backgroundColor: "#f5f6ff",
@@ -18,14 +19,14 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     height: "100vh",
-    width: "100%",
-    backgroundColor: "white",
-    marginTop: theme.spacing(2),
+    width: "50%",
+    backgroundColor: "#100E86",
+    // marginTop: theme.spacing(2),
 
     [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      padding: "1rem",
-      height: "auto",
+      // width: "100%",
+      // padding: "1rem",
+      // height: "auto",
       display: "none",
     },
   },
@@ -43,7 +44,11 @@ export default makeStyles((theme) => ({
     // justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-
+    width: "50%",
+    overflowY: "scroll",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
 
   loginButton: {
@@ -51,41 +56,50 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     borderRadius: "15px",
     border: "1px solid #00000075",
-    overflow: "hidden",
-    width:"58%",
+    // overflow: "hidden",
+    width: "69%",
     marginTop: "20px",
-    height: "50px",
+    // height: "50px",
     [theme.breakpoints.down("sm")]: {
-      padding: "1rem",
+      // padding: "1rem",
     },
   },
 
   btn: {
-    width:"50%",
+    width: "50%",
     textDecoration: "none",
     padding: "1rem 4rem",
-    [theme.breakpoints.down("sm")]: {
-      padding: "1rem 4rem",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    [theme.breakpoints.down(600)]: {
+      padding: "11px",
     },
   },
   btnBg: {
     color: "white",
     borderRadius: "10px",
-    width:"50%",
+    width: "50%",
     backgroundColor: "#100E86",
     textDecoration: "none",
     padding: "1rem 4rem",
-    [theme.breakpoints.down("sm")]: {
-      padding: "1rem 4rem",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    [theme.breakpoints.down(600)]: {
+      padding: "11px",
     },
   },
-  input_container:{
+  input_container: {
     // backgroundColor:'pink',
-    width:"70%",
+    width: "70%",
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
     justifyContent: "center",
+    [theme.breakpoints.down(600)]: {
+      width: "85%",
+    },
   },
   mainRegBtn: {
     backgroundColor: "#100E86",

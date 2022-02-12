@@ -15,12 +15,23 @@ function FormikInput() {
       .required("last name required"),
     email: Yup.string().email("email is inValid").required("email is required"),
     password: Yup.string()
-      .min(6, "must be at least less than 6")
-      .required("password required"),
+      .required("password required")
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+      ),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], " password must match")
-      .required("confirm password required"),
+      .required("password required")
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+      ),
   });
+
+  const handleSubmit = (value) => {
+    console.log("valuesss", value);
+  };
   return (
     <div>
       <Formik
@@ -32,24 +43,34 @@ function FormikInput() {
           confirmPassword: "",
         }}
         validationSchema={validate}
+        onSubmit={(values) => handleSubmit(values)}
       >
-        {(formik) => (
-          <div className=" p-20">
-            <p>formik</p>
-            {console.log(formik.values)}
-            <Form>
-              <TextFieldComp type="text" label="first name" name="first_name" />
-              <TextFieldComp type="text" label="last name" name="last_name" />
-              <TextFieldComp type="text" label="email" name="email" />
-              <TextFieldComp type="text" label="password" name="password" />
-              <TextFieldComp type="text" label="confirm password" name="confirmPassword" />
-              <button type="submit" className="p-3 bg-primaryColor  text-white">
-                Submit
-              </button>
-            </Form>
-          </div>
-        )}
+        {/* {(formik) => (  */}
+        <div className=" p-20">
+          <p>formic</p>
+          {/* {console.log(formik.values)} */}
+          <Form>
+            <TextFieldComp type="text" label="first name" name="first_name" />
+            <TextFieldComp type="text" label="last name" name="last_name" />
+            <TextFieldComp type="text" label="email" name="email" />
+            <TextFieldComp type="text" label="password" name="password" />
+            <TextFieldComp
+              type="text"
+              label="confirm password"
+              name="confirmPassword"
+            />
+             <button
+        type="submit"
+        className="p-3 bg-primaryColor  text-white"
+      >
+        Submit
+      </button>
+          </Form>
+        </div>
+        {/* )} */}
       </Formik>
+
+     
     </div>
   );
 }
@@ -64,15 +85,18 @@ const TextFieldComp = ({ label, ...props }) => {
       {/* <label htmlFor={field.name}>{label}</label> */}
       <TextField
         variant="outlined"
-        error={meta.touched && meta.error }
+        error={meta.touched && meta.error}
         label={label}
         type="text"
         className={`border-textPrimary border `}
         {...field}
         {...props}
-        
       />
-      <ErrorMessage component="p"  name={field.name} className="text-red text-sm" />
+      <ErrorMessage
+        component="p"
+        name={field.name}
+        className="text-red text-sm"
+      />
     </div>
   );
 };

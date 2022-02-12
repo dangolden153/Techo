@@ -2,9 +2,10 @@ import { Button, Grid } from "@material-ui/core";
 import React, { useContext, useState } from "react";
 import Slider from "../../components/Slider";
 import useStyles from "./styles";
-import Register from "../../components/Register/Register"
-import Registe from "../../components/Registe/Registe";
+import Register from "../../components/Register/Register";
+import Registe from "../../components/Registe/RegisterLogin";
 import appContext from "../../context/app-context";
+import RegisterLogin from "../../components/Registe/RegisterLogin";
 
 function AuthPage() {
   const { switchTab, setSwitchingTab } = useContext(appContext);
@@ -12,34 +13,31 @@ function AuthPage() {
   const classes = useStyles();
   return (
     <>
-      <Grid
-        container
-        className={classes.container}
-      >
-        <Grid item sm={6} className={classes.svgcenter}>
+      <div container className={classes.container}>
+        <div className={classes.svgcenter}>
           <Slider />
-        </Grid>
-        <Grid className={classes.rightTab} item xs={12} sm={6}>
+        </div>
+        <div className={classes.rightTab}>
           <div className={classes.loginButton}>
-            <Button
+            <button
               onClick={() => setSwitchingTab(true)}
-              className={switchTab  ? classes.btnBg : classes.btn}
+              className={switchTab ? classes.btnBg : classes.btn}
             >
-            REGISTER  {" "}
-            </Button>
-            <Button
+              REGISTER{" "}
+            </button>
+            <button
               onClick={() => setSwitchingTab(false)}
-              className={switchTab  ?classes.btn : classes.btnBg }
+              className={switchTab ? classes.btn : classes.btnBg}
             >
               LOGIN
-            </Button>
+            </button>
           </div>
 
           <div className={classes.input_container}>
-              <Registe switchTab={switchTab} /> 
+            <RegisterLogin switchTab={switchTab} />
           </div>
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     </>
   );
 }
